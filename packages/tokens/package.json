@@ -1,0 +1,37 @@
+{
+  "name": "@aneka-ui/tokens",
+  "version": "0.1.0",
+  "description": "Design tokens for Material Design, Apple HIG, and Samsung One UI",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./material": {
+      "import": "./dist/material.js",
+      "types": "./dist/material.d.ts"
+    },
+    "./hig": {
+      "import": "./dist/hig.js",
+      "types": "./dist/hig.d.ts"
+    },
+    "./oneui": {
+      "import": "./dist/oneui.js",
+      "types": "./dist/oneui.d.ts"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "lint": "eslint src",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}

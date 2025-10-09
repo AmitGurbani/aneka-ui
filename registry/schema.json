@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Aneka UI Registry Schema",
+  "description": "Schema for Aneka UI component registry entries",
+  "type": "object",
+  "required": ["name", "type", "framework", "style", "files"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Component name"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["component", "util"],
+      "description": "Entry type"
+    },
+    "framework": {
+      "type": "string",
+      "enum": ["react", "vue", "angular"],
+      "description": "Framework"
+    },
+    "style": {
+      "type": "string",
+      "enum": ["material", "hig", "oneui"],
+      "description": "Design system style"
+    },
+    "files": {
+      "type": "array",
+      "description": "Component files",
+      "items": {
+        "type": "object",
+        "required": ["path", "type"],
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "File path relative to component directory"
+          },
+          "content": {
+            "type": "string",
+            "description": "File content"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["component", "util", "style"],
+            "description": "File type"
+          }
+        }
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "description": "NPM dependencies",
+      "items": {
+        "type": "string"
+      }
+    },
+    "devDependencies": {
+      "type": "array",
+      "description": "NPM dev dependencies",
+      "items": {
+        "type": "string"
+      }
+    },
+    "registryDependencies": {
+      "type": "array",
+      "description": "Other components this component depends on",
+      "items": {
+        "type": "string"
+      }
+    },
+    "description": {
+      "type": "string",
+      "description": "Component description"
+    },
+    "version": {
+      "type": "string",
+      "description": "Component version"
+    }
+  }
+}
