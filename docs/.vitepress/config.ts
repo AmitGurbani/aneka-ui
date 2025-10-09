@@ -3,7 +3,8 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'Aneka UI',
   description: 'Framework-agnostic component library with Material Design, Apple HIG, and Samsung One UI patterns',
-  
+  base: '/aneka-ui/',
+
   themeConfig: {
     logo: '/logo.svg',
     
