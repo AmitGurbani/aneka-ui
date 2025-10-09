@@ -1,0 +1,13 @@
+{
+  "$schema": "https://aneka-ui.com/schema.json",
+  "framework": "react",
+  "style": "material",
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils"
+  },
+  "tailwind": {
+    "config": "tailwind.config.js",
+    "css": "src/app/globals.css"
+  }
+}
