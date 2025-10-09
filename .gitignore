@@ -59,3 +59,7 @@ registry/**/*.json
 
 # Vercel
 .vercel
+
+# VitePress
+docs/.vitepress/cache/
+docs/.vitepress/dist/
