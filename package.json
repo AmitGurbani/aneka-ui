@@ -41,6 +41,7 @@
     "build:registry": "tsx scripts/build-registry.ts",
     "validate:registry": "tsx scripts/validate-registry.ts",
     "generate:component": "tsx scripts/generate-component.ts",
+    "sync:storybook": "node scripts/sync-storybook-components.js",
     "prepare": "husky install"
   },
   "devDependencies": {
