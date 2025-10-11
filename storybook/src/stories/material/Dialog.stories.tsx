@@ -1,4 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
+
+import { Button } from "@/components/material/button";
 import {
   Dialog,
   DialogTrigger,
@@ -8,7 +10,6 @@ import {
   DialogDescription,
   DialogFooter,
 } from "@/components/material/dialog";
-import { Button } from "@/components/material/button";
 
 const meta: Meta<typeof Dialog> = {
   title: "Material Design/Dialog",

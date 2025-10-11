@@ -1,4 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
+
+import { Button } from "@/components/oneui/button";
 import {
   Card,
   CardHeader,
@@ -7,7 +9,6 @@ import {
   CardContent,
   CardFooter,
 } from "@/components/oneui/card";
-import { Button } from "@/components/oneui/button";
 
 const meta: Meta<typeof Card> = {
   title: "Samsung One UI/Card",

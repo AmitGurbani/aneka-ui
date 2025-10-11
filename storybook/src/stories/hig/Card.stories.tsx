@@ -1,4 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
+
+import { Button } from "@/components/hig/button";
 import {
   Card,
   CardHeader,
@@ -7,7 +9,6 @@ import {
   CardContent,
   CardFooter,
 } from "@/components/hig/card";
-import { Button } from "@/components/hig/button";
 
 const meta: Meta<typeof Card> = {
   title: "Apple HIG/Card",

@@ -1,4 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
+
+import { Button } from "@/components/oneui/button";
 import {
   Dialog,
   DialogTrigger,
@@ -8,7 +10,6 @@ import {
   DialogDescription,
   DialogFooter,
 } from "@/components/oneui/dialog";
-import { Button } from "@/components/oneui/button";
 
 const meta: Meta<typeof Dialog> = {
   title: "Samsung One UI/Dialog",

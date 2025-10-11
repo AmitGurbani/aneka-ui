@@ -1,11 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
+
+import { Button } from "@/components/oneui/button";
 import {
   Tooltip,
   TooltipTrigger,
   TooltipContent,
   TooltipProvider,
 } from "@/components/oneui/tooltip";
-import { Button } from "@/components/oneui/button";
 
 const meta: Meta<typeof Tooltip> = {
   title: "Samsung One UI/Tooltip",
