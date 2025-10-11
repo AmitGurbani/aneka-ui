@@ -1,6 +1,6 @@
 # Aneka UI - Project Status
 
-> Last Updated: 2025-10-11
+> Last Updated: 2025-10-12
 
 ## 📋 Project Overview
 
@@ -206,7 +206,7 @@ None currently - all planned features complete!
 
 ### 1. Testing Setup ⏸️ **PAUSED AT 20%**
 
-**Unit Testing**
+**CLI Testing**
 
 - [x] Set up Vitest for CLI package
 - [x] Create vitest.config.ts with coverage
@@ -216,16 +216,15 @@ None currently - all planned features complete!
 - [x] Increase test coverage to 20% (exceeded 15-20% target)
 - [ ] Create test files for CLI commands (future)
 - [ ] Increase test coverage above 50% (future)
-- [ ] Add component testing (future)
 
-**Current Status**
+**CLI Test Status**
 
 - Tests: 87 passing (7 test files)
 - Coverage: 20.75% ✅ (exceeded 15-20% goal)
 - Utils with 100% coverage: logger.ts, fetch-registry.ts
 - Utils with >75% coverage: validate-versions.ts (92.79%), detect-package-manager.ts (75.51%)
 
-**Test Files Created**
+**CLI Test Files Created**
 
 1. logger.test.ts - 9 tests (100% coverage)
 2. detect-package-manager.test.ts - 10 tests (75.51% coverage)
@@ -235,9 +234,29 @@ None currently - all planned features complete!
 6. install-dependencies.test.ts - 9 tests (40.47% coverage)
 7. fetch-registry.test.ts - 16 tests (100% coverage)
 
-**E2E Testing**
+**Component Testing**
+
+- [x] Set up Vitest for components-test package
+- [x] Create test configuration (vitest.config.ts, vitest.setup.ts)
+- [x] Install testing libraries (@testing-library/react, user-event, jest-dom)
+- [x] Create button.test.tsx - 29 tests ✅
+- [ ] Create badge.test.tsx - Material/HIG/OneUI variants (future)
+- [ ] Create card.test.tsx - Compound components testing (future)
+- [ ] Create dialog.test.tsx - Complex accessibility testing (future)
+- [ ] Create tooltip.test.tsx - Radix UI integration testing (future)
+
+**Component Test Status**
+
+- Tests: 29 passing (1 test file)
+- Coverage: Not measured yet
+- Tested: Material Button (all variants: default, secondary, destructive, outline, ghost, link, icon)
+- Untested: 14 remaining components (badge, card, dialog, tooltip × 3 design systems + HIG/OneUI button)
+
+**E2E & Visual Testing**
 
 - [x] Playwright installed and configured
+- [x] test:visual script added to package.json
+- [ ] Create visual regression tests (future)
 - [ ] Create E2E tests for CLI commands (future)
 - [ ] Test component installation flow (future)
 - [ ] Test component updates (future)
@@ -344,9 +363,11 @@ None currently - all planned features complete!
 
 ### Development Progress
 
-- **Completed**: ~94%
+- **Completed**: ~92%
 - **Dependencies**: 100% (all major packages up-to-date)
-- **Testing**: 40% (87 tests passing, 20.75% coverage ✅)
+- **CLI Testing**: 20% (87 tests, 20.75% coverage ✅)
+- **Component Testing**: 7% (29 tests, 1/15 components tested)
+- **Overall Testing**: 15% (116 total tests)
 - **Publishing**: 0%
 - **Deployment**: 33% (Docs deployed, Storybook/Demo pending)
 
