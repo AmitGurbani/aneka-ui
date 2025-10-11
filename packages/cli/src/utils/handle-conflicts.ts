@@ -1,8 +1,9 @@
 import fs from "fs/promises";
 import path from "path";
+
+import chalk from "chalk";
 import { diffLines } from "diff";
 import inquirer from "inquirer";
-import chalk from "chalk";
 
 import { logger } from "./logger.js";
 

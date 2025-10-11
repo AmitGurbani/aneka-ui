@@ -3,8 +3,8 @@
  * Framework-agnostic design tokens for Material Design, Apple HIG, and Samsung One UI
  */
 
-import { materialTokens } from "./material.js";
 import { higTokens } from "./hig.js";
+import { materialTokens } from "./material.js";
 import { oneuiTokens } from "./oneui.js";
 
 export { materialTokens, type MaterialTokens } from "./material.js";

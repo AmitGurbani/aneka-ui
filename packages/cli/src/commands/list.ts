@@ -1,7 +1,8 @@
 import fs from "fs/promises";
 import path from "path";
-import { Command } from "commander";
+
 import chalk from "chalk";
+import { Command } from "commander";
 
 import type { Config } from "../types/config.js";
 import { fetchRegistryIndex } from "../utils/fetch-registry.js";

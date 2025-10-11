@@ -1,5 +1,6 @@
 import fs from "fs/promises";
 import path from "path";
+
 import { Command } from "commander";
 
 import type { Config } from "../types/config.js";

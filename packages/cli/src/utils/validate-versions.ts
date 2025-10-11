@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
-import semver from "semver";
+
+import { coerce, gte, lt } from "semver";
 
 import { logger } from "./logger.js";
 
@@ -21,7 +22,7 @@ const MIN_VERSIONS = {
  */
 export function validateNodeVersion(): boolean {
   const currentVersion = process.version.slice(1); // Remove 'v' prefix
-  const isValid = semver.gte(currentVersion, MIN_VERSIONS.node);
+  const isValid = gte(currentVersion, MIN_VERSIONS.node);
 
   if (!isValid) {
     logger.error(
@@ -54,8 +55,8 @@ export async function validatePackageVersions(
 
     // Check TypeScript
     if (allDeps.typescript) {
-      const version = semver.coerce(allDeps.typescript);
-      if (version && semver.lt(version, MIN_VERSIONS.typescript)) {
+      const version = coerce(allDeps.typescript);
+      if (version && lt(version, MIN_VERSIONS.typescript)) {
         warnings.push(
           `TypeScript ${MIN_VERSIONS.typescript}+ is recommended. Current: ${version}`
         );
@@ -66,8 +67,8 @@ export async function validatePackageVersions(
 
     // Check Tailwind CSS
     if (allDeps.tailwindcss) {
-      const version = semver.coerce(allDeps.tailwindcss);
-      if (version && semver.lt(version, MIN_VERSIONS.tailwindcss)) {
+      const version = coerce(allDeps.tailwindcss);
+      if (version && lt(version, MIN_VERSIONS.tailwindcss)) {
         warnings.push(
           `Tailwind CSS ${MIN_VERSIONS.tailwindcss}+ is recommended. Current: ${version}`
         );
@@ -80,8 +81,8 @@ export async function validatePackageVersions(
     switch (framework) {
       case "react":
         if (allDeps.react) {
-          const version = semver.coerce(allDeps.react);
-          if (version && semver.lt(version, MIN_VERSIONS.react)) {
+          const version = coerce(allDeps.react);
+          if (version && lt(version, MIN_VERSIONS.react)) {
             warnings.push(
               `React ${MIN_VERSIONS.react}+ is recommended. Current: ${version}`
             );
@@ -90,8 +91,8 @@ export async function validatePackageVersions(
         break;
       case "vue":
         if (allDeps.vue) {
-          const version = semver.coerce(allDeps.vue);
-          if (version && semver.lt(version, MIN_VERSIONS.vue)) {
+          const version = coerce(allDeps.vue);
+          if (version && lt(version, MIN_VERSIONS.vue)) {
             warnings.push(
               `Vue ${MIN_VERSIONS.vue}+ is recommended. Current: ${version}`
             );
@@ -100,8 +101,8 @@ export async function validatePackageVersions(
         break;
       case "angular":
         if (allDeps["@angular/core"]) {
-          const version = semver.coerce(allDeps["@angular/core"]);
-          if (version && semver.lt(version, MIN_VERSIONS["@angular/core"])) {
+          const version = coerce(allDeps["@angular/core"]);
+          if (version && lt(version, MIN_VERSIONS["@angular/core"])) {
             warnings.push(
               `Angular ${MIN_VERSIONS["@angular/core"]}+ is recommended. Current: ${version}`
             );

@@ -2,6 +2,7 @@ import fetch from "node-fetch";
 
 import type { RegistryIndex, RegistryItem } from "../types/registry.js";
 import { registryIndexSchema, registryItemSchema } from "../types/registry.js";
+
 import { logger } from "./logger.js";
 
 /**
