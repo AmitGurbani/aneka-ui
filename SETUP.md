@@ -5,25 +5,30 @@ This guide will help you complete the Aneka UI project setup and generate all re
 ## 📦 What's Already Generated
 
 ✅ **Core Infrastructure:**
+
 - Root configuration (package.json, turbo.json, tsconfig, linting)
 - pnpm workspace setup
 - Build tooling
 
 ✅ **Packages:**
+
 - `@aneka-ui/cli` - Complete CLI with all 6 commands
 - `@aneka-ui/tokens` - Design system tokens for Material, HIG, OneUI
 
 ✅ **Registry:**
+
 - Registry structure and schema
 - Index configuration
 - Sample React components (Material, HIG, OneUI Button variants)
 
 ✅ **Scripts:**
+
 - `build-registry.ts` - Builds component registry
 - `validate-registry.ts` - Validates component structure
 - `generate-component.ts` - Generates new components
 
 ✅ **Documentation:**
+
 - README.md with comprehensive project overview
 - CONTRIBUTING.md with contribution guidelines
 - CODE_OF_CONDUCT.md
@@ -31,6 +36,7 @@ This guide will help you complete the Aneka UI project setup and generate all re
 - LICENSE (MIT)
 
 ✅ **CI/CD:**
+
 - GitHub Actions workflows (CI, Test, Release)
 - Issue templates (Bug, Feature, Component)
 - Pull request template
@@ -59,6 +65,7 @@ pnpm tsx scripts/generate-component.ts tooltip
 ```
 
 When prompted:
+
 - Select framework: **React**
 - Select style: **Material Design**
 - Component type: Choose based on component complexity
@@ -71,6 +78,7 @@ pnpm tsx scripts/generate-component.ts <component-name>
 ```
 
 Select:
+
 - Framework: **React**
 - Style: **Apple HIG**
 
@@ -82,6 +90,7 @@ pnpm tsx scripts/generate-component.ts <component-name>
 ```
 
 Select:
+
 - Framework: **React**
 - Style: **Samsung One UI**
 
@@ -93,6 +102,7 @@ pnpm tsx scripts/generate-component.ts <component-name>
 ```
 
 Select:
+
 - Framework: **Vue**
 - Style: **Material Design / HIG / OneUI**
 
@@ -104,6 +114,7 @@ pnpm tsx scripts/generate-component.ts <component-name>
 ```
 
 Select:
+
 - Framework: **Angular**
 - Style: **Material Design / HIG / OneUI**
 
@@ -112,6 +123,7 @@ Select:
 After generation, customize each component with design system-specific characteristics:
 
 #### Material Design (Google)
+
 ```typescript
 // Characteristics:
 - uppercase text
@@ -122,6 +134,7 @@ After generation, customize each component with design system-specific character
 ```
 
 #### Apple HIG
+
 ```typescript
 // Characteristics:
 - Sentence case text
@@ -133,6 +146,7 @@ After generation, customize each component with design system-specific character
 ```
 
 #### Samsung One UI
+
 ```typescript
 // Characteristics:
 - Bold text (font-semibold)
@@ -153,12 +167,12 @@ const COMPONENT_DEPENDENCIES = {
   },
   dialog: {
     deps: [
-      "@radix-ui/react-dialog",  // React
-      "radix-vue",               // Vue
-      "@angular/cdk",            // Angular
+      "@radix-ui/react-dialog", // React
+      "radix-vue", // Vue
+      "@angular/cdk", // Angular
       "lucide-react",
       "clsx",
-      "tailwind-merge"
+      "tailwind-merge",
     ],
   },
   // ... add more
@@ -248,17 +262,18 @@ export { Component, componentVariants };
 
 ```vue
 <script setup lang="ts">
-import { computed } from 'vue';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '@/lib/utils';
+import { computed } from "vue";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "@/lib/utils";
 
-const componentVariants = cva(
-  "base-classes",
-  {
-    variants: { /* ... */ },
-    defaultVariants: { /* ... */ },
-  }
-);
+const componentVariants = cva("base-classes", {
+  variants: {
+    /* ... */
+  },
+  defaultVariants: {
+    /* ... */
+  },
+});
 
 type ComponentVariants = VariantProps<typeof componentVariants>;
 
@@ -267,7 +282,7 @@ interface Props extends ComponentVariants {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  variant: 'default',
+  variant: "default",
 });
 
 const classes = computed(() =>
@@ -285,23 +300,24 @@ const classes = computed(() =>
 ### Angular Component Template
 
 ```typescript
-import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '@/lib/utils';
+import { Component, Input } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "@/lib/utils";
 
-const componentVariants = cva(
-  "base-classes",
-  {
-    variants: { /* ... */ },
-    defaultVariants: { /* ... */ },
-  }
-);
+const componentVariants = cva("base-classes", {
+  variants: {
+    /* ... */
+  },
+  defaultVariants: {
+    /* ... */
+  },
+});
 
 type ComponentVariants = VariantProps<typeof componentVariants>;
 
 @Component({
-  selector: 'aneka-component',
+  selector: "aneka-component",
   standalone: true,
   imports: [CommonModule],
   template: `
@@ -311,7 +327,7 @@ type ComponentVariants = VariantProps<typeof componentVariants>;
   `,
 })
 export class ComponentComponent {
-  @Input() variant: ComponentVariants['variant'] = 'default';
+  @Input() variant: ComponentVariants["variant"] = "default";
   @Input() class?: string;
 
   get computedClass(): string {
@@ -325,20 +341,20 @@ export class ComponentComponent {
 Use tokens from `@aneka-ui/tokens` for consistency:
 
 ```typescript
-import { materialTokens } from '@aneka-ui/tokens/material';
+import { materialTokens } from "@aneka-ui/tokens/material";
 
 // Spacing
-materialTokens.spacing.md // "1.5rem"
+materialTokens.spacing.md; // "1.5rem"
 
 // Radius
-materialTokens.radius.sm // "0.25rem"
+materialTokens.radius.sm; // "0.25rem"
 
 // Shadows
-materialTokens.shadows[2] // "0 2px 4px..."
+materialTokens.shadows[2]; // "0 2px 4px..."
 
 // Motion
-materialTokens.motion.duration.base // "200ms"
-materialTokens.motion.easing.standard // "cubic-bezier(...)"
+materialTokens.motion.duration.base; // "200ms"
+materialTokens.motion.easing.standard; // "cubic-bezier(...)"
 ```
 
 ## 🧪 Testing
@@ -386,15 +402,19 @@ pnpm storybook
 ## 🔧 Troubleshooting
 
 ### Issue: Components not found
+
 **Solution:** Run `pnpm build:registry` to generate registry JSON files
 
 ### Issue: Type errors in CLI
+
 **Solution:** Run `pnpm build` in packages/cli
 
 ### Issue: Missing dependencies
+
 **Solution:** Run `pnpm install` in root directory
 
 ### Issue: Registry validation fails
+
 **Solution:** Check component file naming matches framework conventions
 
 ## 📝 Component Checklist
@@ -419,6 +439,7 @@ For each component, ensure:
 **Total Components Needed:** 45 (5 components × 3 styles × 3 frameworks)
 
 **Currently Generated:**
+
 - ✅ React Material Button
 - ✅ React Material Card
 - ✅ React Material Badge

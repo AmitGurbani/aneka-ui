@@ -19,6 +19,7 @@ npx @aneka-ui/cli <command>
 ## Commands
 
 ### init
+
 Initialize Aneka UI in your project.
 
 ```bash
@@ -28,6 +29,7 @@ aneka-ui init
 [Learn more →](/cli/init)
 
 ### add
+
 Add components to your project.
 
 ```bash
@@ -37,6 +39,7 @@ aneka-ui add button card badge
 [Learn more →](/cli/add)
 
 ### list
+
 List available and installed components.
 
 ```bash
@@ -47,6 +50,7 @@ aneka-ui list --installed
 [Learn more →](/cli/list)
 
 ### diff
+
 Show differences between local and registry components.
 
 ```bash
@@ -56,6 +60,7 @@ aneka-ui diff button
 [Learn more →](/cli/diff)
 
 ### update
+
 Update components to latest versions.
 
 ```bash
@@ -65,6 +70,7 @@ aneka-ui update --all
 [Learn more →](/cli/update)
 
 ### doctor
+
 Diagnose and fix setup issues.
 
 ```bash
@@ -76,30 +82,39 @@ aneka-ui doctor --fix
 ## Features
 
 ### Framework Detection
+
 Automatically detects your framework (React, Vue, Angular) from `package.json`.
 
 ### Monorepo Support
+
 Detects and supports:
+
 - pnpm workspaces
 - Lerna
 - Turborepo
 - Nx
 
 ### Package Manager Detection
+
 Automatically uses your package manager:
+
 - npm
 - pnpm
 - yarn
 - bun
 
 ### Conflict Resolution
+
 Handles file conflicts interactively:
+
 - View differences
 - Choose to overwrite or skip
 - Preserve your customizations
 
 ### Dependency Management
+
 Automatically installs required dependencies:
+
 - Radix UI primitives
 - Utility libraries
 - Framework-specific packages

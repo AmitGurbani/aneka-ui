@@ -18,6 +18,7 @@ Before you begin, ensure you have:
 Install the Aneka UI CLI globally:
 
 ::: code-group
+
 ```bash [npm]
 npm install -g @aneka-ui/cli
 ```
@@ -33,6 +34,7 @@ yarn global add @aneka-ui/cli
 ```bash [bun]
 bun add -g @aneka-ui/cli
 ```
+
 :::
 
 Or use it directly with `npx`:
@@ -91,6 +93,7 @@ aneka-ui add --all
 ```
 
 The CLI will:
+
 - Copy component files to your project
 - Install required dependencies (Radix UI, etc.)
 - Handle file conflicts interactively
@@ -103,44 +106,44 @@ Update your `tailwind.config.js` with your brand colors:
 ```js
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.{ts,tsx,vue,html}'],
+  content: ["./src/**/*.{ts,tsx,vue,html}"],
   theme: {
     extend: {
       colors: {
-        border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))',
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))',
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))',
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
         },
         destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))',
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
         },
         muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))',
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))',
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
         },
         card: {
-          DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))',
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
         },
       },
     },
   },
   plugins: [],
-}
+};
 ```
 
 Add CSS variables to your global CSS:
@@ -178,9 +181,10 @@ Add CSS variables to your global CSS:
 Import and use components in your project:
 
 ::: code-group
+
 ```tsx [React]
-import { Button } from '@/components/ui/button'
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
+import { Button } from "@/components/ui/button";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
 export function App() {
   return (
@@ -192,14 +196,19 @@ export function App() {
         <Button>Click me</Button>
       </CardContent>
     </Card>
-  )
+  );
 }
 ```
 
 ```vue [Vue]
 <script setup lang="ts">
-import Button from '@/components/ui/Button.vue'
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card.vue'
+import Button from "@/components/ui/Button.vue";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+} from "@/components/ui/Card.vue";
 </script>
 
 <template>
@@ -215,12 +224,12 @@ import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card.v
 ```
 
 ```ts [Angular]
-import { Component } from '@angular/core';
-import { ButtonComponent } from '@/components/ui/button.component';
-import { CardComponent } from '@/components/ui/card.component';
+import { Component } from "@angular/core";
+import { ButtonComponent } from "@/components/ui/button.component";
+import { CardComponent } from "@/components/ui/card.component";
 
 @Component({
-  selector: 'app-root',
+  selector: "app-root",
   standalone: true,
   imports: [ButtonComponent, CardComponent],
   template: `
@@ -228,10 +237,11 @@ import { CardComponent } from '@/components/ui/card.component';
       <h2>Welcome to Aneka UI</h2>
       <aneka-button>Click me</aneka-button>
     </aneka-card>
-  `
+  `,
 })
 export class AppComponent {}
 ```
+
 :::
 
 ## Next Steps

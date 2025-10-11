@@ -1,5 +1,6 @@
 import fs from "fs/promises";
 import path from "path";
+
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import {
@@ -47,9 +48,7 @@ describe("validatePackageVersions", () => {
       },
     };
 
-    vi.spyOn(fs, "readFile").mockResolvedValue(
-      JSON.stringify(mockPackageJson)
-    );
+    vi.spyOn(fs, "readFile").mockResolvedValue(JSON.stringify(mockPackageJson));
 
     const result = await validatePackageVersions(mockCwd, "react");
 
@@ -66,9 +65,7 @@ describe("validatePackageVersions", () => {
       devDependencies: {},
     };
 
-    vi.spyOn(fs, "readFile").mockResolvedValue(
-      JSON.stringify(mockPackageJson)
-    );
+    vi.spyOn(fs, "readFile").mockResolvedValue(JSON.stringify(mockPackageJson));
 
     const result = await validatePackageVersions(mockCwd, "react");
 
@@ -86,9 +83,7 @@ describe("validatePackageVersions", () => {
       },
     };
 
-    vi.spyOn(fs, "readFile").mockResolvedValue(
-      JSON.stringify(mockPackageJson)
-    );
+    vi.spyOn(fs, "readFile").mockResolvedValue(JSON.stringify(mockPackageJson));
 
     const result = await validatePackageVersions(mockCwd, "react");
 
@@ -107,9 +102,7 @@ describe("validatePackageVersions", () => {
       },
     };
 
-    vi.spyOn(fs, "readFile").mockResolvedValue(
-      JSON.stringify(mockPackageJson)
-    );
+    vi.spyOn(fs, "readFile").mockResolvedValue(JSON.stringify(mockPackageJson));
 
     const result = await validatePackageVersions(mockCwd, "react");
 
@@ -130,9 +123,7 @@ describe("validatePackageVersions", () => {
       },
     };
 
-    vi.spyOn(fs, "readFile").mockResolvedValue(
-      JSON.stringify(mockPackageJson)
-    );
+    vi.spyOn(fs, "readFile").mockResolvedValue(JSON.stringify(mockPackageJson));
 
     const result = await validatePackageVersions(mockCwd, "react");
 
@@ -153,9 +144,7 @@ describe("validatePackageVersions", () => {
       },
     };
 
-    vi.spyOn(fs, "readFile").mockResolvedValue(
-      JSON.stringify(mockPackageJson)
-    );
+    vi.spyOn(fs, "readFile").mockResolvedValue(JSON.stringify(mockPackageJson));
 
     const result = await validatePackageVersions(mockCwd, "vue");
 
@@ -174,16 +163,12 @@ describe("validatePackageVersions", () => {
       },
     };
 
-    vi.spyOn(fs, "readFile").mockResolvedValue(
-      JSON.stringify(mockPackageJson)
-    );
+    vi.spyOn(fs, "readFile").mockResolvedValue(JSON.stringify(mockPackageJson));
 
     const result = await validatePackageVersions(mockCwd, "vue");
 
     expect(result.valid).toBe(false);
-    expect(
-      result.warnings.some((w) => w.includes("Vue 3.3.0+"))
-    ).toBeTruthy();
+    expect(result.warnings.some((w) => w.includes("Vue 3.3.0+"))).toBeTruthy();
   });
 
   it("should validate Angular framework version", async () => {
@@ -197,9 +182,7 @@ describe("validatePackageVersions", () => {
       },
     };
 
-    vi.spyOn(fs, "readFile").mockResolvedValue(
-      JSON.stringify(mockPackageJson)
-    );
+    vi.spyOn(fs, "readFile").mockResolvedValue(JSON.stringify(mockPackageJson));
 
     const result = await validatePackageVersions(mockCwd, "angular");
 
@@ -218,9 +201,7 @@ describe("validatePackageVersions", () => {
       },
     };
 
-    vi.spyOn(fs, "readFile").mockResolvedValue(
-      JSON.stringify(mockPackageJson)
-    );
+    vi.spyOn(fs, "readFile").mockResolvedValue(JSON.stringify(mockPackageJson));
 
     const result = await validatePackageVersions(mockCwd, "angular");
 

@@ -7,10 +7,7 @@ import ora from "ora";
 import type { Config } from "../types/config.js";
 import type { RegistryItem } from "../types/registry.js";
 import { fetchComponent, fetchComponents } from "../utils/fetch-registry.js";
-import {
-  handleFileConflict,
-  writeFile,
-} from "../utils/handle-conflicts.js";
+import { handleFileConflict, writeFile } from "../utils/handle-conflicts.js";
 import {
   filterMissingPackages,
   installDependencies,
@@ -27,9 +24,7 @@ async function readConfig(cwd: string): Promise<Config> {
     const content = await fs.readFile(configPath, "utf-8");
     return JSON.parse(content) as Config;
   } catch {
-    logger.error(
-      "Could not find aneka-ui.json. Run 'aneka-ui init' first."
-    );
+    logger.error("Could not find aneka-ui.json. Run 'aneka-ui init' first.");
     process.exit(1);
   }
 }
@@ -130,7 +125,9 @@ export const add = new Command()
         process.exit(1);
       }
 
-      logger.info(`Adding components for ${config.framework} (${config.style} style)...`);
+      logger.info(
+        `Adding components for ${config.framework} (${config.style} style)...`
+      );
       logger.break();
 
       // Fetch components
@@ -141,7 +138,13 @@ export const add = new Command()
       try {
         if (options.all) {
           // Fetch all available components
-          const allComponents = ["button", "card", "badge", "dialog", "tooltip"];
+          const allComponents = [
+            "button",
+            "card",
+            "badge",
+            "dialog",
+            "tooltip",
+          ];
           registryItems = await fetchComponents(
             allComponents,
             config.framework,

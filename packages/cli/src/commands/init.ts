@@ -23,9 +23,7 @@ async function detectFramework(
 ): Promise<"react" | "vue" | "angular" | undefined> {
   try {
     const packageJsonPath = path.join(cwd, "package.json");
-    const packageJson = JSON.parse(
-      await fs.readFile(packageJsonPath, "utf-8")
-    );
+    const packageJson = JSON.parse(await fs.readFile(packageJsonPath, "utf-8"));
 
     const allDeps = {
       ...packageJson.dependencies,
@@ -56,7 +54,10 @@ async function createConfigFile(
 /**
  * Updates tsconfig.json with path aliases
  */
-async function updateTsConfig(config: Config, targetPath: string): Promise<void> {
+async function updateTsConfig(
+  config: Config,
+  targetPath: string
+): Promise<void> {
   const tsconfigPath = path.join(targetPath, "tsconfig.json");
 
   try {
@@ -78,16 +79,25 @@ async function updateTsConfig(config: Config, targetPath: string): Promise<void>
       `./${config.aliases.utils.replace("@/", "")}/*`,
     ];
 
-    await fs.writeFile(tsconfigPath, JSON.stringify(tsconfig, null, 2), "utf-8");
+    await fs.writeFile(
+      tsconfigPath,
+      JSON.stringify(tsconfig, null, 2),
+      "utf-8"
+    );
   } catch {
-    logger.warn("Could not update tsconfig.json. You may need to add path aliases manually.");
+    logger.warn(
+      "Could not update tsconfig.json. You may need to add path aliases manually."
+    );
   }
 }
 
 /**
  * Creates the utils.ts file
  */
-async function createUtilsFile(config: Config, targetPath: string): Promise<void> {
+async function createUtilsFile(
+  config: Config,
+  targetPath: string
+): Promise<void> {
   const utilsDir = path.join(
     targetPath,
     config.aliases.utils.replace("@/", "src/")
@@ -162,7 +172,9 @@ export const init = new Command()
     // Validate Tailwind
     const hasTailwind = await hasTailwindConfig(cwd);
     if (!hasTailwind) {
-      logger.warn("Tailwind CSS config not found. Make sure Tailwind is installed.");
+      logger.warn(
+        "Tailwind CSS config not found. Make sure Tailwind is installed."
+      );
     }
 
     logger.break();
@@ -198,7 +210,10 @@ export const init = new Command()
     logger.break();
 
     // Validate versions
-    const validation = await validatePackageVersions(targetPath, config.framework);
+    const validation = await validatePackageVersions(
+      targetPath,
+      config.framework
+    );
     if (validation.warnings.length > 0) {
       logger.warn("Version warnings:");
       validation.warnings.forEach((warning) => logger.warn(`  ${warning}`));
@@ -238,7 +253,11 @@ export const init = new Command()
     logger.success("Aneka UI initialized successfully!");
     logger.break();
     logger.info("Next steps:");
-    logger.log(`  1. Run ${logger.highlight("aneka-ui add <component>")} to add components`);
-    logger.log(`  2. Make sure to configure your Tailwind colors in ${logger.highlight(config.tailwind.config)}`);
+    logger.log(
+      `  1. Run ${logger.highlight("aneka-ui add <component>")} to add components`
+    );
+    logger.log(
+      `  2. Make sure to configure your Tailwind colors in ${logger.highlight(config.tailwind.config)}`
+    );
     logger.break();
   });

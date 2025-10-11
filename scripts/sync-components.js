@@ -30,7 +30,13 @@ const TARGETS = {
     source: path.resolve(rootDir, "registry/react"),
     dest: path.resolve(rootDir, "packages/components-test/src"),
     needsTransform: true,
-    components: ["button.tsx", "card.tsx", "badge.tsx", "dialog.tsx", "tooltip.tsx"],
+    components: [
+      "button.tsx",
+      "card.tsx",
+      "badge.tsx",
+      "dialog.tsx",
+      "tooltip.tsx",
+    ],
     styles: ["material", "hig", "oneui"],
   },
 };
@@ -91,7 +97,10 @@ export function cn(...inputs: ClassValue[]) {
         await fs.writeFile(destPath, content);
         console.log(`  ✅ Synced ${style}/${component}`);
       } catch (error) {
-        console.error(`  ❌ Failed to sync ${style}/${component}:`, error.message);
+        console.error(
+          `  ❌ Failed to sync ${style}/${component}:`,
+          error.message
+        );
       }
     }
   }

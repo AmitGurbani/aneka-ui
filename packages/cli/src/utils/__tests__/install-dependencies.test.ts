@@ -1,7 +1,10 @@
 import { execa } from "execa";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import { filterMissingPackages, getInstalledPackages } from "../install-dependencies.js";
+import {
+  filterMissingPackages,
+  getInstalledPackages,
+} from "../install-dependencies.js";
 
 // Mock dependencies
 vi.mock("execa");

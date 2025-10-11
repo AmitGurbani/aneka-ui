@@ -5,6 +5,7 @@ Cards contain content and actions about a single subject.
 ## Usage
 
 ::: code-group
+
 ```tsx [React]
 import {
   Card,
@@ -13,7 +14,7 @@ import {
   CardDescription,
   CardContent,
   CardFooter,
-} from '@/components/ui/card'
+} from "@/components/ui/card";
 
 export function CardDemo() {
   return (
@@ -29,7 +30,7 @@ export function CardDemo() {
         <p>Card footer</p>
       </CardFooter>
     </Card>
-  )
+  );
 }
 ```
 
@@ -42,7 +43,7 @@ import {
   CardDescription,
   CardContent,
   CardFooter,
-} from '@/components/ui/Card.vue'
+} from "@/components/ui/Card.vue";
 </script>
 
 <template>
@@ -74,6 +75,7 @@ import { CardComponent } from '@/components/ui/card.component';
   `
 })
 ```
+
 :::
 
 ## Installation
@@ -112,7 +114,7 @@ The Card component is composed of several sub-components:
 ### Card with Footer Actions
 
 ```tsx
-import { Button } from '@/components/ui/button'
+import { Button } from "@/components/ui/button";
 
 <Card>
   <CardHeader>
@@ -120,21 +122,19 @@ import { Button } from '@/components/ui/button'
     <CardDescription>Deploy your new project in one-click</CardDescription>
   </CardHeader>
   <CardContent>
-    <form>
-      {/* Form fields */}
-    </form>
+    <form>{/* Form fields */}</form>
   </CardContent>
   <CardFooter className="flex justify-between">
     <Button variant="outline">Cancel</Button>
     <Button>Deploy</Button>
   </CardFooter>
-</Card>
+</Card>;
 ```
 
 ### Card Grid
 
 ```tsx
-<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div className="grid grid-cols-1 gap-6 md:grid-cols-3">
   <Card>
     <CardHeader>
       <CardTitle>Card 1</CardTitle>
@@ -159,7 +159,7 @@ import { Button } from '@/components/ui/button'
 ### Interactive Card
 
 ```tsx
-<Card className="cursor-pointer hover:shadow-lg transition-shadow">
+<Card className="cursor-pointer transition-shadow hover:shadow-lg">
   <CardHeader>
     <CardTitle>Clickable Card</CardTitle>
     <CardDescription>This card responds to hover</CardDescription>
@@ -173,12 +173,14 @@ import { Button } from '@/components/ui/button'
 ## Design System Differences
 
 ### Material Design
+
 - 8px border radius (`rounded-lg`)
 - 1px border
 - Subtle elevation shadow
 - Standard padding (1.5rem)
 
 ### Apple HIG
+
 - 12px border radius (`rounded-xl`)
 - 1px border
 - Subtle, soft shadow
@@ -186,6 +188,7 @@ import { Button } from '@/components/ui/button'
 - Tight leading on titles
 
 ### Samsung One UI
+
 - 16px border radius (`rounded-2xl`)
 - 2px border (thicker)
 - Prominent shadow
@@ -198,8 +201,8 @@ import { Button } from '@/components/ui/button'
 
 Container component for card content.
 
-| Prop | Type | Description |
-|------|------|-------------|
+| Prop        | Type     | Description            |
+| ----------- | -------- | ---------------------- |
 | `className` | `string` | Additional CSS classes |
 
 Plus all standard HTML div attributes.
@@ -208,16 +211,16 @@ Plus all standard HTML div attributes.
 
 Header section of the card.
 
-| Prop | Type | Description |
-|------|------|-------------|
+| Prop        | Type     | Description            |
+| ----------- | -------- | ---------------------- |
 | `className` | `string` | Additional CSS classes |
 
 ### CardTitle
 
 Main heading of the card.
 
-| Prop | Type | Description |
-|------|------|-------------|
+| Prop        | Type     | Description            |
+| ----------- | -------- | ---------------------- |
 | `className` | `string` | Additional CSS classes |
 
 Renders as `<h3>` by default.
@@ -226,24 +229,24 @@ Renders as `<h3>` by default.
 
 Supporting text below the title.
 
-| Prop | Type | Description |
-|------|------|-------------|
+| Prop        | Type     | Description            |
+| ----------- | -------- | ---------------------- |
 | `className` | `string` | Additional CSS classes |
 
 ### CardContent
 
 Main content area of the card.
 
-| Prop | Type | Description |
-|------|------|-------------|
+| Prop        | Type     | Description            |
+| ----------- | -------- | ---------------------- |
 | `className` | `string` | Additional CSS classes |
 
 ### CardFooter
 
 Footer section, typically for actions.
 
-| Prop | Type | Description |
-|------|------|-------------|
+| Prop        | Type     | Description            |
+| ----------- | -------- | ---------------------- |
 | `className` | `string` | Additional CSS classes |
 
 ## Accessibility
@@ -259,7 +262,7 @@ Footer section, typically for actions.
 ### Custom Backgrounds
 
 ```tsx
-<Card className="bg-gradient-to-br from-purple-500 to-pink-500 text-white border-0">
+<Card className="border-0 bg-gradient-to-br from-purple-500 to-pink-500 text-white">
   <CardHeader>
     <CardTitle>Gradient Card</CardTitle>
   </CardHeader>
@@ -271,7 +274,7 @@ Footer section, typically for actions.
 
 ```tsx
 <Card>
-  <img src="/image.jpg" alt="Card image" className="w-full h-48 object-cover" />
+  <img src="/image.jpg" alt="Card image" className="h-48 w-full object-cover" />
   <CardHeader>
     <CardTitle>Image Card</CardTitle>
   </CardHeader>

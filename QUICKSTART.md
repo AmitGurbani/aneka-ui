@@ -18,6 +18,7 @@ aneka-ui init
 ```
 
 Follow the prompts to:
+
 - Select framework (React/Vue/Angular)
 - Choose design style (Material/HIG/OneUI)
 - Configure directories
@@ -31,7 +32,7 @@ aneka-ui add button card badge
 ### Use Components
 
 ```tsx
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
 
 export function MyComponent() {
   return <Button variant="default">Click me</Button>;
@@ -182,6 +183,7 @@ aneka-ui/
 ## 🐛 Troubleshooting
 
 ### "Command not found: aneka-ui"
+
 ```bash
 # Link CLI globally
 cd packages/cli
@@ -189,12 +191,14 @@ pnpm link --global
 ```
 
 ### "Component not found"
+
 ```bash
 # Build registry first
 pnpm build:registry
 ```
 
 ### Type errors
+
 ```bash
 # Rebuild packages
 pnpm build
@@ -205,23 +209,27 @@ pnpm build
 ## ✅ Checklist
 
 **Setup:**
+
 - [ ] Cloned repository
 - [ ] Installed dependencies (`pnpm install`)
 - [ ] Built packages (`pnpm build`)
 
 **Components:**
+
 - [ ] Generated missing components
 - [ ] Customized with design system styles
 - [ ] Built registry (`pnpm build:registry`)
 - [ ] Validated (`pnpm validate:registry`)
 
 **Testing:**
+
 - [ ] Linked CLI globally
 - [ ] Tested in sample project
 - [ ] Verified component installation
 - [ ] Checked component rendering
 
 **Documentation:**
+
 - [ ] Read README.md
 - [ ] Read SETUP.md
 - [ ] Read CONTRIBUTING.md

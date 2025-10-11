@@ -99,17 +99,20 @@ This will create component files for all frameworks and styles.
 Follow framework-specific conventions:
 
 #### React
+
 - Use `React.forwardRef`
 - Add `displayName`
 - Use lowercase file names (e.g., `button.tsx`)
 - Export both component and variants
 
 #### Vue
+
 - Use Composition API
 - Use PascalCase file names (e.g., `Button.vue`)
 - Export props interface
 
 #### Angular
+
 - Use standalone components
 - Use lowercase + suffix (e.g., `button.component.ts`)
 - Use Angular CDK for complex interactions
@@ -119,12 +122,14 @@ Follow framework-specific conventions:
 Use design tokens from `@aneka-ui/tokens`:
 
 **Material Design:**
+
 - Uppercase text (`uppercase`)
 - 4px radius (`rounded-[4px]`)
 - 200ms transitions
 - Elevation shadows
 
 **Apple HIG:**
+
 - Sentence case
 - 6px radius (`rounded-md`)
 - 150ms transitions
@@ -132,6 +137,7 @@ Use design tokens from `@aneka-ui/tokens`:
 - Subtle shadows
 
 **Samsung One UI:**
+
 - Bold text (`font-semibold`)
 - 16px radius (`rounded-2xl`)
 - 250ms transitions
@@ -244,8 +250,8 @@ import { Button } from '@/components/ui/button';
 
 ## Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| Prop    | Type   | Default   | Description    |
+| ------- | ------ | --------- | -------------- |
 | variant | string | "default" | Button variant |
 ```
 
@@ -310,6 +316,7 @@ footer
 ```
 
 Types:
+
 - `feat`: New feature
 - `fix`: Bug fix
 - `docs`: Documentation
@@ -319,6 +326,7 @@ Types:
 - `chore`: Maintenance
 
 Examples:
+
 ```
 feat(button): add loading state
 fix(dialog): fix focus trap on close

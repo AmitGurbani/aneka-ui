@@ -34,9 +34,7 @@ export async function detectPackageManager(
 
     // Check package.json for packageManager field
     const packageJsonPath = path.join(cwd, "package.json");
-    const packageJson = JSON.parse(
-      await fs.readFile(packageJsonPath, "utf-8")
-    );
+    const packageJson = JSON.parse(await fs.readFile(packageJsonPath, "utf-8"));
 
     if (packageJson.packageManager) {
       const pm = packageJson.packageManager.split("@")[0] as PackageManager;

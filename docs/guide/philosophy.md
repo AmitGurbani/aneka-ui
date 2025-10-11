@@ -9,6 +9,7 @@ Understanding the principles behind Aneka UI.
 Aneka UI provides **design patterns** (spacing, typography, motion) while you provide **colors**.
 
 This means you get:
+
 - ✅ Authentic design system patterns
 - ✅ Your brand colors throughout
 - ✅ Best practices from Google, Apple, Samsung
@@ -19,6 +20,7 @@ This means you get:
 Components are copied to your codebase, not installed as dependencies.
 
 Benefits:
+
 - ✅ Full control over the code
 - ✅ No version lock-in
 - ✅ Easy to customize

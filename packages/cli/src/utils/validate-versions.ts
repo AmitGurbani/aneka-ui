@@ -44,9 +44,7 @@ export async function validatePackageVersions(
 
   try {
     const packageJsonPath = path.join(cwd, "package.json");
-    const packageJson = JSON.parse(
-      await fs.readFile(packageJsonPath, "utf-8")
-    );
+    const packageJson = JSON.parse(await fs.readFile(packageJsonPath, "utf-8"));
 
     const allDeps = {
       ...packageJson.dependencies,

@@ -1,11 +1,16 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from '@/components/material/tooltip';
-import { Button } from '@/components/material/button';
+import type { Meta, StoryObj } from "@storybook/react";
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+  TooltipProvider,
+} from "@/components/material/tooltip";
+import { Button } from "@/components/material/button";
 
 const meta: Meta<typeof Tooltip> = {
-  title: 'Material Design/Tooltip',
+  title: "Material Design/Tooltip",
   component: Tooltip,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   decorators: [
     (Story) => (
       <TooltipProvider>

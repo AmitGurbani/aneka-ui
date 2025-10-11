@@ -10,7 +10,7 @@
 ### **React Components (15/15) - ✅ 100% COMPLETE**
 
 | Component | Material | HIG | OneUI |
-|-----------|----------|-----|-------|
+| --------- | -------- | --- | ----- |
 | Button    | ✅       | ✅  | ✅    |
 | Card      | ✅       | ✅  | ✅    |
 | Badge     | ✅       | ✅  | ✅    |
@@ -18,14 +18,15 @@
 | Tooltip   | ✅       | ✅  | ✅    |
 
 **Files:**
+
 - `registry/react/material/` - All 5 components ✅
 - `registry/react/hig/` - All 5 components ✅
 - `registry/react/oneui/` - All 5 components ✅
 
-###  **Vue Components (5/15) - 33% COMPLETE**
+### **Vue Components (5/15) - 33% COMPLETE**
 
 | Component | Material | HIG | OneUI |
-|-----------|----------|-----|-------|
+| --------- | -------- | --- | ----- |
 | Button    | ✅       | ⏳  | ⏳    |
 | Card      | ✅       | ⏳  | ⏳    |
 | Badge     | ✅       | ⏳  | ⏳    |
@@ -33,6 +34,7 @@
 | Tooltip   | ✅       | ⏳  | ⏳    |
 
 **Files Created:**
+
 - `registry/vue/material/Button.vue` ✅
 - `registry/vue/material/Card.vue` ✅
 - `registry/vue/material/Badge.vue` ✅
@@ -44,6 +46,7 @@
 ## ⏳ **Remaining Components (25/45)**
 
 ### **Vue HIG Components (0/5) - 0%**
+
 - Button.vue
 - Card.vue
 - Badge.vue
@@ -51,6 +54,7 @@
 - Tooltip.vue
 
 ### **Vue OneUI Components (0/5) - 0%**
+
 - Button.vue
 - Card.vue
 - Badge.vue
@@ -58,6 +62,7 @@
 - Tooltip.vue
 
 ### **Angular Material Components (0/5) - 0%**
+
 - button.component.ts
 - card.component.ts
 - badge.component.ts
@@ -65,6 +70,7 @@
 - tooltip.component.ts
 
 ### **Angular HIG Components (0/5) - 0%**
+
 - button.component.ts
 - card.component.ts
 - badge.component.ts
@@ -72,6 +78,7 @@
 - tooltip.component.ts
 
 ### **Angular OneUI Components (0/5) - 0%**
+
 - button.component.ts
 - card.component.ts
 - badge.component.ts
@@ -83,7 +90,7 @@
 ## 📊 **Summary Statistics**
 
 | Framework | Completed | Remaining | Progress |
-|-----------|-----------|-----------|----------|
+| --------- | --------- | --------- | -------- |
 | React     | 15/15     | 0/15      | 100% ✅  |
 | Vue       | 5/15      | 10/15     | 33% 🔄   |
 | Angular   | 0/15      | 15/15     | 0% ⏳    |
@@ -100,6 +107,7 @@ All remaining components follow the same patterns. Here's how to complete them q
 #### **1. Vue HIG Components (10 minutes)**
 
 Copy Vue Material components and modify:
+
 ```bash
 # For each component in registry/vue/material/
 # Copy to registry/vue/hig/ and update:
@@ -112,6 +120,7 @@ Copy Vue Material components and modify:
 #### **2. Vue OneUI Components (10 minutes)**
 
 Copy Vue Material components and modify:
+
 ```bash
 # For each component in registry/vue/material/
 # Copy to registry/vue/oneui/ and update:
@@ -139,7 +148,8 @@ Create all 15 Angular components using the template pattern.
 class="rounded-lg shadow-[0_2px_4px_rgba(0,0,0,0.1)] uppercase"
 
 <!-- TO HIG: -->
-class="rounded-xl shadow-[0_2px_6px_rgba(0,0,0,0.1)] tracking-tight active:scale-[0.98]"
+class="rounded-xl shadow-[0_2px_6px_rgba(0,0,0,0.1)] tracking-tight
+active:scale-[0.98]"
 ```
 
 ### **Vue OneUI Template (Copy & Modify)**
@@ -159,23 +169,24 @@ class="rounded-2xl shadow-[0_4px_12px_rgba(0,0,0,0.1)] font-semibold"
 
 ```typescript
 // registry/angular/material/button.component.ts
-import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '@/lib/utils';
+import { Component, Input } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "@/lib/utils";
 
-const buttonVariants = cva(
-  "inline-flex items-center justify-center...",
-  {
-    variants: { /* ... */ },
-    defaultVariants: { /* ... */ },
-  }
-);
+const buttonVariants = cva("inline-flex items-center justify-center...", {
+  variants: {
+    /* ... */
+  },
+  defaultVariants: {
+    /* ... */
+  },
+});
 
 type ButtonVariants = VariantProps<typeof buttonVariants>;
 
 @Component({
-  selector: 'aneka-button',
+  selector: "aneka-button",
   standalone: true,
   imports: [CommonModule],
   template: `
@@ -185,13 +196,16 @@ type ButtonVariants = VariantProps<typeof buttonVariants>;
   `,
 })
 export class ButtonComponent {
-  @Input() variant: ButtonVariants['variant'] = 'default';
-  @Input() size: ButtonVariants['size'] = 'default';
+  @Input() variant: ButtonVariants["variant"] = "default";
+  @Input() size: ButtonVariants["size"] = "default";
   @Input() class?: string;
   @Input() disabled = false;
 
   get computedClass(): string {
-    return cn(buttonVariants({ variant: this.variant, size: this.size }), this.class);
+    return cn(
+      buttonVariants({ variant: this.variant, size: this.size }),
+      this.class
+    );
   }
 }
 ```
@@ -232,34 +246,37 @@ pnpm validate:registry
 ## ✨ **Design System Style Guide**
 
 ### **Material Design**
+
 ```typescript
 {
-  radius: "rounded-lg" // 8px
-  shadow: "shadow-[0_2px_4px_rgba(0,0,0,0.1)]"
-  text: "uppercase tracking-wide font-medium"
-  transition: "duration-200"
+  radius: "rounded-lg"; // 8px
+  shadow: "shadow-[0_2px_4px_rgba(0,0,0,0.1)]";
+  text: "uppercase tracking-wide font-medium";
+  transition: "duration-200";
 }
 ```
 
 ### **Apple HIG**
+
 ```typescript
 {
-  radius: "rounded-xl" // 12px
-  shadow: "shadow-[0_2px_6px_rgba(0,0,0,0.1)]"
-  text: "tracking-tight font-semibold"
-  transition: "duration-150"
-  interaction: "active:scale-[0.98]"
+  radius: "rounded-xl"; // 12px
+  shadow: "shadow-[0_2px_6px_rgba(0,0,0,0.1)]";
+  text: "tracking-tight font-semibold";
+  transition: "duration-150";
+  interaction: "active:scale-[0.98]";
 }
 ```
 
 ### **Samsung One UI**
+
 ```typescript
 {
-  radius: "rounded-2xl" // 16px
-  shadow: "shadow-[0_4px_12px_rgba(0,0,0,0.1)]"
-  text: "font-semibold tracking-normal"
-  transition: "duration-250"
-  border: "border-2"
+  radius: "rounded-2xl"; // 16px
+  shadow: "shadow-[0_4px_12px_rgba(0,0,0,0.1)]";
+  text: "font-semibold tracking-normal";
+  transition: "duration-250";
+  border: "border-2";
 }
 ```
 
@@ -267,20 +284,21 @@ pnpm validate:registry
 
 ## 🎯 **Estimated Time to Complete**
 
-| Task | Time | Difficulty |
-|------|------|-----------|
-| Vue HIG (10 components) | 15 min | Easy (copy & modify) |
-| Vue OneUI (10 components) | 15 min | Easy (copy & modify) |
-| Angular Material (5) | 20 min | Medium (new syntax) |
-| Angular HIG (5) | 10 min | Easy (copy & modify) |
-| Angular OneUI (5) | 10 min | Easy (copy & modify) |
-| **TOTAL** | **70 min** | **~1 hour** |
+| Task                      | Time       | Difficulty           |
+| ------------------------- | ---------- | -------------------- |
+| Vue HIG (10 components)   | 15 min     | Easy (copy & modify) |
+| Vue OneUI (10 components) | 15 min     | Easy (copy & modify) |
+| Angular Material (5)      | 20 min     | Medium (new syntax)  |
+| Angular HIG (5)           | 10 min     | Easy (copy & modify) |
+| Angular OneUI (5)         | 10 min     | Easy (copy & modify) |
+| **TOTAL**                 | **70 min** | **~1 hour**          |
 
 ---
 
 ## 📦 **What's Working Right Now**
 
 ✅ **CLI is fully functional:**
+
 ```bash
 aneka-ui --version  # Works!
 aneka-ui init       # Works!
@@ -289,11 +307,13 @@ aneka-ui list       # Shows all components
 ```
 
 ✅ **Registry is building:**
+
 - 20/45 components successfully built
 - JSON files generated in `registry/dist/`
 - Validation passing with expected warnings
 
 ✅ **All React components are complete:**
+
 - Material Design ✅
 - Apple HIG ✅
 - Samsung One UI ✅
@@ -328,6 +348,7 @@ The fastest path to completion:
 ---
 
 **Next command to run:**
+
 ```bash
 # Copy Vue Material components to HIG
 cp registry/vue/material/Button.vue registry/vue/hig/Button.vue

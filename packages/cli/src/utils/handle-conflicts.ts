@@ -98,7 +98,11 @@ export function showDiff(
 
   diff.forEach((part) => {
     const prefix = part.added ? "+ " : part.removed ? "- " : "  ";
-    const color = part.added ? chalk.green : part.removed ? chalk.red : chalk.dim;
+    const color = part.added
+      ? chalk.green
+      : part.removed
+        ? chalk.red
+        : chalk.dim;
 
     part.value.split("\n").forEach((line) => {
       if (line) {

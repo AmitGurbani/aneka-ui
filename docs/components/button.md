@@ -5,17 +5,18 @@ Buttons allow users to take actions with a single tap.
 ## Usage
 
 ::: code-group
+
 ```tsx [React]
-import { Button } from '@/components/ui/button'
+import { Button } from "@/components/ui/button";
 
 export function ButtonDemo() {
-  return <Button>Click me</Button>
+  return <Button>Click me</Button>;
 }
 ```
 
 ```vue [Vue]
 <script setup lang="ts">
-import Button from '@/components/ui/Button.vue'
+import Button from "@/components/ui/Button.vue";
 </script>
 
 <template>
@@ -31,6 +32,7 @@ import { ButtonComponent } from '@/components/ui/button.component';
   template: '<aneka-button>Click me</aneka-button>'
 })
 ```
+
 :::
 
 ## Installation
@@ -44,13 +46,15 @@ aneka-ui add button
 Buttons come in different variants for different contexts:
 
 ### Default
+
 The primary button for main actions.
 
 ```tsx
 <Button variant="default">Default</Button>
 ```
 
-### Secondary  
+### Secondary
+
 For secondary or less prominent actions.
 
 ```tsx
@@ -58,6 +62,7 @@ For secondary or less prominent actions.
 ```
 
 ### Destructive
+
 For dangerous actions like deleting data.
 
 ```tsx
@@ -65,6 +70,7 @@ For dangerous actions like deleting data.
 ```
 
 ### Outline
+
 For actions that need less visual weight.
 
 ```tsx
@@ -72,6 +78,7 @@ For actions that need less visual weight.
 ```
 
 ### Ghost
+
 For the least prominent actions.
 
 ```tsx
@@ -79,6 +86,7 @@ For the least prominent actions.
 ```
 
 ### Link
+
 Styled as a link.
 
 ```tsx
@@ -98,6 +106,7 @@ Buttons come in three sizes:
 ## Design System Differences
 
 ### Material Design
+
 - Uppercase text (`BUTTON TEXT`)
 - 4px border radius
 - Elevation shadows that increase on hover
@@ -105,6 +114,7 @@ Buttons come in three sizes:
 - Font weight: 500
 
 ### Apple HIG
+
 - Sentence case text (`Button Text`)
 - 6px border radius
 - Subtle shadows
@@ -113,6 +123,7 @@ Buttons come in three sizes:
 - Font weight: 600
 
 ### Samsung One UI
+
 - Normal case text (`Button Text`)
 - 16px border radius (notably rounded)
 - Prominent shadows
@@ -124,12 +135,12 @@ Buttons come in three sizes:
 
 ### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `variant` | `'default' \| 'secondary' \| 'destructive' \| 'outline' \| 'ghost' \| 'link'` | `'default'` | Button style variant |
-| `size` | `'sm' \| 'default' \| 'lg' \| 'icon'` | `'default'` | Button size |
-| `asChild` | `boolean` | `false` | (React only) Render as child element |
-| `disabled` | `boolean` | `false` | Disable button interaction |
+| Prop       | Type                                                                          | Default     | Description                          |
+| ---------- | ----------------------------------------------------------------------------- | ----------- | ------------------------------------ |
+| `variant`  | `'default' \| 'secondary' \| 'destructive' \| 'outline' \| 'ghost' \| 'link'` | `'default'` | Button style variant                 |
+| `size`     | `'sm' \| 'default' \| 'lg' \| 'icon'`                                         | `'default'` | Button size                          |
+| `asChild`  | `boolean`                                                                     | `false`     | (React only) Render as child element |
+| `disabled` | `boolean`                                                                     | `false`     | Disable button interaction           |
 
 Plus all standard HTML button attributes.
 
@@ -138,8 +149,8 @@ Plus all standard HTML button attributes.
 ### With Icon
 
 ```tsx
-import { Button } from '@/components/ui/button'
-import { Plus } from 'lucide-react'
+import { Button } from "@/components/ui/button";
+import { Plus } from "lucide-react";
 
 export function ButtonWithIcon() {
   return (
@@ -147,15 +158,15 @@ export function ButtonWithIcon() {
       <Plus className="mr-2 h-4 w-4" />
       Add Item
     </Button>
-  )
+  );
 }
 ```
 
 ### Loading State
 
 ```tsx
-import { Button } from '@/components/ui/button'
-import { Loader2 } from 'lucide-react'
+import { Button } from "@/components/ui/button";
+import { Loader2 } from "lucide-react";
 
 export function ButtonLoading() {
   return (
@@ -163,21 +174,21 @@ export function ButtonLoading() {
       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
       Please wait
     </Button>
-  )
+  );
 }
 ```
 
 ### As Link (React)
 
 ```tsx
-import { Button } from '@/components/ui/button'
+import { Button } from "@/components/ui/button";
 
 export function ButtonAsLink() {
   return (
     <Button asChild>
       <a href="/login">Login</a>
     </Button>
-  )
+  );
 }
 ```
 

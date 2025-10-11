@@ -20,23 +20,23 @@ features:
   - icon: 🎨
     title: 3 Design Systems
     details: Material Design, Apple HIG, and Samsung One UI - each with authentic patterns and motion
-  
+
   - icon: ⚛️
     title: 3 Frameworks
     details: React, Vue, and Angular - true framework-native components, not wrappers
-  
+
   - icon: 🎯
     title: Your Brand Colors
     details: Design patterns adapt to your Tailwind colors - you control the palette
-  
+
   - icon: 📋
     title: Copy-Paste Ownership
     details: Components live in your codebase, inspired by Shadcn UI's approach
-  
+
   - icon: 🔧
     title: Powerful CLI
     details: Install, update, and manage components with a full-featured CLI tool
-  
+
   - icon: ♿
     title: Accessible
     details: Built with Radix UI primitives for robust accessibility support
@@ -54,8 +54,8 @@ npx @aneka-ui/cli add button card badge
 Then use them in your project:
 
 ```tsx
-import { Button } from '@/components/ui/button'
-import { Card, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from "@/components/ui/button";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 
 export function MyComponent() {
   return (
@@ -65,7 +65,7 @@ export function MyComponent() {
       </CardHeader>
       <Button>Get Started</Button>
     </Card>
-  )
+  );
 }
 ```
 

@@ -44,7 +44,8 @@ export async function promptForConfig(options: {
         name: pkg,
         value: pkg,
       })),
-      when: options.isMonorepo && options.packages && options.packages.length > 1,
+      when:
+        options.isMonorepo && options.packages && options.packages.length > 1,
     },
     // Component directory
     {
@@ -119,7 +120,10 @@ export async function promptForComponents(
 /**
  * Confirms an action
  */
-export async function confirm(message: string, defaultValue = false): Promise<boolean> {
+export async function confirm(
+  message: string,
+  defaultValue = false
+): Promise<boolean> {
   const { confirmed } = await inquirer.prompt<{ confirmed: boolean }>([
     {
       type: "confirm",
@@ -136,7 +140,9 @@ export async function confirm(message: string, defaultValue = false): Promise<bo
  * Prompts for package selection in monorepo
  */
 export async function promptForPackage(packages: string[]): Promise<string> {
-  const { selectedPackage } = await inquirer.prompt<{ selectedPackage: string }>([
+  const { selectedPackage } = await inquirer.prompt<{
+    selectedPackage: string;
+  }>([
     {
       type: "list",
       name: "selectedPackage",

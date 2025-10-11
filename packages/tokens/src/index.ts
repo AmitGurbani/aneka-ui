@@ -14,7 +14,10 @@ export { oneuiTokens, type OneuiTokens } from "./oneui.js";
 /**
  * Union type of all design token sets
  */
-export type DesignTokens = typeof materialTokens | typeof higTokens | typeof oneuiTokens;
+export type DesignTokens =
+  | typeof materialTokens
+  | typeof higTokens
+  | typeof oneuiTokens;
 
 /**
  * Design system style names

@@ -1,11 +1,18 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/oneui/card';
-import { Button } from '@/components/oneui/button';
+import type { Meta, StoryObj } from "@storybook/react";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/components/oneui/card";
+import { Button } from "@/components/oneui/button";
 
 const meta: Meta<typeof Card> = {
-  title: 'Samsung One UI/Card',
+  title: "Samsung One UI/Card",
   component: Card,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 };
 
 export default meta;

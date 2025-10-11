@@ -91,10 +91,7 @@ async function validateStructure(cwd: string): Promise<Issue[]> {
     }
 
     // Check utils directory
-    const utilsDir = path.join(
-      cwd,
-      config.aliases.utils.replace("@/", "src/")
-    );
+    const utilsDir = path.join(cwd, config.aliases.utils.replace("@/", "src/"));
 
     if (!(await fileExists(utilsDir))) {
       issues.push({
@@ -192,7 +189,10 @@ async function checkColorConfig(cwd: string): Promise<Issue[]> {
       const tailwindContent = await fs.readFile(tailwindConfigPath, "utf-8");
 
       // Check if colors are configured
-      if (!tailwindContent.includes("primary") || !tailwindContent.includes("colors")) {
+      if (
+        !tailwindContent.includes("primary") ||
+        !tailwindContent.includes("colors")
+      ) {
         issues.push({
           severity: "info",
           message:

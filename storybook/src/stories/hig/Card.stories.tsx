@@ -1,11 +1,18 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/hig/card';
-import { Button } from '@/components/hig/button';
+import type { Meta, StoryObj } from "@storybook/react";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/components/hig/card";
+import { Button } from "@/components/hig/button";
 
 const meta: Meta<typeof Card> = {
-  title: 'Apple HIG/Card',
+  title: "Apple HIG/Card",
   component: Card,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 };
 
 export default meta;

@@ -23,8 +23,8 @@ aneka-ui list --available
 
 ## Options
 
-| Option | Description |
-|--------|-------------|
+| Option        | Description                    |
+| ------------- | ------------------------------ |
 | `--installed` | Show only installed components |
 | `--available` | Show only available components |
 

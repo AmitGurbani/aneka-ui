@@ -14,6 +14,7 @@ Google's Material Design system.
 ## When to Use
 
 Choose Material Design when:
+
 - Building Android apps
 - Want systematic, grid-based design
 - Need clear visual hierarchy with shadows

@@ -23,9 +23,9 @@ aneka-ui update --all --force
 
 ## Options
 
-| Option | Description |
-|--------|-------------|
-| `--all` | Update all installed components |
-| `--force` | Skip confirmation prompts |
+| Option    | Description                     |
+| --------- | ------------------------------- |
+| `--all`   | Update all installed components |
+| `--force` | Skip confirmation prompts       |
 
 [← Back to CLI Overview](/cli/overview)

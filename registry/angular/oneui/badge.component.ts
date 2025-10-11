@@ -1,7 +1,7 @@
-import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '@/lib/utils';
+import { Component, Input } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "@/lib/utils";
 
 const badgeVariants = cva(
   "inline-flex items-center rounded-full border-2 px-3 py-1 text-sm font-bold tracking-normal transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
@@ -26,7 +26,7 @@ const badgeVariants = cva(
 type BadgeVariants = VariantProps<typeof badgeVariants>;
 
 @Component({
-  selector: 'aneka-badge',
+  selector: "aneka-badge",
   standalone: true,
   imports: [CommonModule],
   template: `
@@ -36,7 +36,7 @@ type BadgeVariants = VariantProps<typeof badgeVariants>;
   `,
 })
 export class BadgeComponent {
-  @Input() variant: BadgeVariants['variant'] = 'default';
+  @Input() variant: BadgeVariants["variant"] = "default";
   @Input() class?: string;
 
   get computedClass(): string {

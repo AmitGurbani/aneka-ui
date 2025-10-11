@@ -13,7 +13,7 @@ pnpm add @aneka-ui/tokens
 ## Usage
 
 ```typescript
-import { materialTokens, higTokens, oneuiTokens } from '@aneka-ui/tokens';
+import { materialTokens, higTokens, oneuiTokens } from "@aneka-ui/tokens";
 
 // Use Material Design tokens
 console.log(materialTokens.spacing.md); // "1.5rem"
@@ -31,17 +31,17 @@ console.log(oneuiTokens.radius.lg); // "1.5rem"
 ### Import Specific Design System
 
 ```typescript
-import { materialTokens } from '@aneka-ui/tokens/material';
-import { higTokens } from '@aneka-ui/tokens/hig';
-import { oneuiTokens } from '@aneka-ui/tokens/oneui';
+import { materialTokens } from "@aneka-ui/tokens/material";
+import { higTokens } from "@aneka-ui/tokens/hig";
+import { oneuiTokens } from "@aneka-ui/tokens/oneui";
 ```
 
 ### Dynamic Token Selection
 
 ```typescript
-import { getTokens } from '@aneka-ui/tokens';
+import { getTokens } from "@aneka-ui/tokens";
 
-const style = 'material'; // or 'hig' or 'oneui'
+const style = "material"; // or 'hig' or 'oneui'
 const tokens = getTokens(style);
 ```
 
@@ -59,6 +59,7 @@ Each design system includes tokens for:
 ## Design System Differences
 
 ### Material Design
+
 - 8pt grid system
 - Uppercase button text
 - Medium letter spacing
@@ -66,6 +67,7 @@ Each design system includes tokens for:
 - 4px button radius
 
 ### Apple HIG
+
 - Clean, minimal shadows
 - Sentence case text
 - Tight letter spacing (-0.025em)
@@ -75,6 +77,7 @@ Each design system includes tokens for:
 - Scale-down on press (0.98)
 
 ### Samsung One UI
+
 - Generous spacing for one-handed use
 - Bold text (600 weight)
 - Prominent shadows

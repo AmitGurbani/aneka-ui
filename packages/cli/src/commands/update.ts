@@ -103,9 +103,7 @@ export const update = new Command()
       } else if (components.length > 0) {
         componentsToUpdate = components;
       } else {
-        logger.error(
-          "Please specify components to update or use --all flag"
-        );
+        logger.error("Please specify components to update or use --all flag");
         process.exit(1);
       }
 

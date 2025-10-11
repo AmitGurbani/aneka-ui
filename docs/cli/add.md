@@ -29,11 +29,11 @@ aneka-ui add button --skip
 
 ## Options
 
-| Option | Description |
-|--------|-------------|
-| `--all` | Add all available components |
+| Option        | Description                             |
+| ------------- | --------------------------------------- |
+| `--all`       | Add all available components            |
 | `--overwrite` | Overwrite existing files without asking |
-| `--skip` | Skip existing files without asking |
+| `--skip`      | Skip existing files without asking      |
 
 ## What It Does
 

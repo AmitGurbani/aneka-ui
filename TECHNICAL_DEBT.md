@@ -16,6 +16,7 @@
 4. ✅ **Import validation** - Checks for unresolved imports and duplicates
 
 **Changes made:**
+
 - Installed `eslint-plugin-import` and `eslint-import-resolver-typescript`
 - Updated `.eslintrc.json` with import plugin configuration
 - Configured TypeScript resolver with workspace paths
@@ -23,6 +24,7 @@
 - Refactored `validate-versions.ts` to use named imports from `semver`
 
 **Benefits achieved:**
+
 - ✅ Validates that all imports exist and are resolvable
 - ✅ Enforces consistent import ordering (builtin → external → internal → parent → sibling → index)
 - ✅ Alphabetizes imports for better readability
@@ -50,9 +52,7 @@
 
 ```json
 {
-  "extends": [
-    "plugin:@typescript-eslint/recommended-requiring-type-checking"
-  ],
+  "extends": ["plugin:@typescript-eslint/recommended-requiring-type-checking"],
   "parserOptions": {
     "project": true
   }

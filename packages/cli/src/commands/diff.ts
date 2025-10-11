@@ -72,7 +72,9 @@ export const diff = new Command()
 
       if (!localContent) {
         logger.error(`Component "${componentName}" is not installed locally`);
-        logger.info(`Run ${logger.highlight(`aneka-ui add ${componentName}`)} to install it`);
+        logger.info(
+          `Run ${logger.highlight(`aneka-ui add ${componentName}`)} to install it`
+        );
         process.exit(1);
       }
 

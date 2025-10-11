@@ -15,19 +15,19 @@ If you discover a security vulnerability within Aneka UI, please send an email t
 
 Please include the following information in your report:
 
-* Type of vulnerability
-* Full path of source file(s) related to the vulnerability
-* Location of the affected source code (tag/branch/commit)
-* Step-by-step instructions to reproduce the issue
-* Proof-of-concept or exploit code (if possible)
-* Impact of the vulnerability
+- Type of vulnerability
+- Full path of source file(s) related to the vulnerability
+- Location of the affected source code (tag/branch/commit)
+- Step-by-step instructions to reproduce the issue
+- Proof-of-concept or exploit code (if possible)
+- Impact of the vulnerability
 
 ## Disclosure Policy
 
-* Security reports will be acknowledged within 48 hours
-* We will provide a detailed response within 7 days
-* We will notify you when the vulnerability is fixed
-* We will publicly disclose the vulnerability once a fix is available
+- Security reports will be acknowledged within 48 hours
+- We will provide a detailed response within 7 days
+- We will notify you when the vulnerability is fixed
+- We will publicly disclose the vulnerability once a fix is available
 
 ## Security Best Practices
 
@@ -43,16 +43,16 @@ When using Aneka UI components:
 
 ### Component Security
 
-* Components are copied to your project, giving you full control
-* Review component code before using in production
-* Keep Radix UI and other dependencies updated
-* Follow React/Vue/Angular security best practices
+- Components are copied to your project, giving you full control
+- Review component code before using in production
+- Keep Radix UI and other dependencies updated
+- Follow React/Vue/Angular security best practices
 
 ### CLI Security
 
-* CLI requires Node.js and npm/pnpm access
-* Only install from official sources
-* Review CLI commands before execution
-* Use `doctor` command to validate setup
+- CLI requires Node.js and npm/pnpm access
+- Only install from official sources
+- Review CLI commands before execution
+- Use `doctor` command to validate setup
 
 Thank you for helping keep Aneka UI and its users safe!

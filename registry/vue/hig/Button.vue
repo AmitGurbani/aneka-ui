@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '@/lib/utils';
+import { computed } from "vue";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "@/lib/utils";
 
 /**
  * Apple HIG Button Variants
@@ -49,8 +49,8 @@ interface Props extends ButtonVariants {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  variant: 'default',
-  size: 'default',
+  variant: "default",
+  size: "default",
   asChild: false,
 });
 

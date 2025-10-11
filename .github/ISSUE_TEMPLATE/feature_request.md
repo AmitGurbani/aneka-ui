@@ -3,7 +3,7 @@ name: Feature request
 about: Suggest an idea for this project
 title: "[FEATURE] "
 labels: enhancement
-assignees: ''
+assignees: ""
 ---
 
 **Is your feature request related to a problem? Please describe.**
@@ -16,11 +16,13 @@ A clear and concise description of what you want to happen.
 A clear and concise description of any alternative solutions or features you've considered.
 
 **Which frameworks should this support?**
+
 - [ ] React
 - [ ] Vue
 - [ ] Angular
 
 **Which design styles should this support?**
+
 - [ ] Material Design
 - [ ] Apple HIG
 - [ ] Samsung One UI

@@ -150,7 +150,10 @@ async function validateReactComponents(): Promise<ValidationResult> {
         }
 
         // Check for displayName
-        if (content.includes("forwardRef") && !content.includes("displayName")) {
+        if (
+          content.includes("forwardRef") &&
+          !content.includes("displayName")
+        ) {
           result.warnings.push(
             `${component} (${style}) should have displayName`
           );

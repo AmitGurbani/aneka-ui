@@ -206,7 +206,9 @@ describe("Material Design Button", () => {
 
     it("should support aria-label", () => {
       render(<Button aria-label="Close dialog">X</Button>);
-      expect(screen.getByRole("button", { name: /close dialog/i })).toBeInTheDocument();
+      expect(
+        screen.getByRole("button", { name: /close dialog/i })
+      ).toBeInTheDocument();
     });
 
     it("should support aria-disabled", () => {

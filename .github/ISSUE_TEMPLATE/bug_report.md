@@ -3,7 +3,7 @@ name: Bug report
 about: Create a report to help us improve
 title: "[BUG] "
 labels: bug
-assignees: ''
+assignees: ""
 ---
 
 **Describe the bug**
@@ -11,6 +11,7 @@ A clear and concise description of what the bug is.
 
 **To Reproduce**
 Steps to reproduce the behavior:
+
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'
@@ -23,11 +24,12 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **Environment:**
- - Framework: [e.g. React, Vue, Angular]
- - Design Style: [e.g. Material, HIG, OneUI]
- - Version: [e.g. 0.1.0]
- - Node.js version: [e.g. 18.0.0]
- - Package manager: [e.g. pnpm, npm, yarn]
+
+- Framework: [e.g. React, Vue, Angular]
+- Design Style: [e.g. Material, HIG, OneUI]
+- Version: [e.g. 0.1.0]
+- Node.js version: [e.g. 18.0.0]
+- Package manager: [e.g. pnpm, npm, yarn]
 
 **Additional context**
 Add any other context about the problem here.

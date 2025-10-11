@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 import {
   Dialog,
   DialogTrigger,
@@ -7,13 +7,13 @@ import {
   DialogTitle,
   DialogDescription,
   DialogFooter,
-} from '@/components/oneui/dialog';
-import { Button } from '@/components/oneui/button';
+} from "@/components/oneui/dialog";
+import { Button } from "@/components/oneui/button";
 
 const meta: Meta<typeof Dialog> = {
-  title: 'Samsung One UI/Dialog',
+  title: "Samsung One UI/Dialog",
   component: Dialog,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 };
 
 export default meta;
@@ -29,7 +29,8 @@ export const Default: Story = {
         <DialogHeader>
           <DialogTitle>Dialog Title</DialogTitle>
           <DialogDescription>
-            This is a dialog description. It provides additional context about the action.
+            This is a dialog description. It provides additional context about
+            the action.
           </DialogDescription>
         </DialogHeader>
         <div className="py-4">
@@ -65,7 +66,7 @@ export const WithForm: Story = {
             <input
               id="name"
               defaultValue="John Doe"
-              className="col-span-3 flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm"
+              className="border-input bg-background col-span-3 flex h-10 rounded-md border px-3 py-2 text-sm"
             />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
@@ -75,7 +76,7 @@ export const WithForm: Story = {
             <input
               id="email"
               defaultValue="john@example.com"
-              className="col-span-3 flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm"
+              className="border-input bg-background col-span-3 flex h-10 rounded-md border px-3 py-2 text-sm"
             />
           </div>
         </div>
@@ -97,8 +98,8 @@ export const DestructiveAction: Story = {
         <DialogHeader>
           <DialogTitle>Are you absolutely sure?</DialogTitle>
           <DialogDescription>
-            This action cannot be undone. This will permanently delete your account
-            and remove your data from our servers.
+            This action cannot be undone. This will permanently delete your
+            account and remove your data from our servers.
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>

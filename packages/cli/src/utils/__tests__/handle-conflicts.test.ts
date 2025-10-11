@@ -1,7 +1,13 @@
 import fs from "fs/promises";
+
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import { fileExists, readFile, showDiff, writeFile } from "../handle-conflicts.js";
+import {
+  fileExists,
+  readFile,
+  showDiff,
+  writeFile,
+} from "../handle-conflicts.js";
 import { logger } from "../logger.js";
 
 describe("fileExists", () => {

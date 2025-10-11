@@ -1,7 +1,14 @@
-import { useState } from 'react'
-import { Button } from '@/components/material/button'
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/material/card'
-import { Badge } from '@/components/material/badge'
+import { useState } from "react";
+import { Button } from "@/components/material/button";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/components/material/card";
+import { Badge } from "@/components/material/badge";
 import {
   Dialog,
   DialogContent,
@@ -10,24 +17,25 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/material/dialog'
+} from "@/components/material/dialog";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@/components/material/tooltip'
+} from "@/components/material/tooltip";
 
 export default function MaterialPage() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <div className="container mx-auto px-4 py-16">
-      <div className="max-w-6xl mx-auto">
+      <div className="mx-auto max-w-6xl">
         <div className="mb-12">
-          <h1 className="text-5xl font-bold mb-4">Material Design</h1>
-          <p className="text-xl text-muted-foreground">
-            Google's Material Design system with 8pt grid, elevation shadows, and 200ms animations
+          <h1 className="mb-4 text-5xl font-bold">Material Design</h1>
+          <p className="text-muted-foreground text-xl">
+            Google's Material Design system with 8pt grid, elevation shadows,
+            and 200ms animations
           </p>
         </div>
 
@@ -35,36 +43,38 @@ export default function MaterialPage() {
         <Card className="mb-12">
           <CardHeader>
             <CardTitle>Design Characteristics</CardTitle>
-            <CardDescription>Key properties of Material Design components</CardDescription>
+            <CardDescription>
+              Key properties of Material Design components
+            </CardDescription>
           </CardHeader>
-          <CardContent className="grid md:grid-cols-2 gap-4">
+          <CardContent className="grid gap-4 md:grid-cols-2">
             <div>
-              <h3 className="font-semibold mb-2">Typography</h3>
-              <ul className="text-sm text-muted-foreground space-y-1">
+              <h3 className="mb-2 font-semibold">Typography</h3>
+              <ul className="text-muted-foreground space-y-1 text-sm">
                 <li>• Uppercase text for buttons</li>
                 <li>• Medium letter spacing (tracking-wide)</li>
                 <li>• Font weight: 500</li>
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-2">Spacing & Geometry</h3>
-              <ul className="text-sm text-muted-foreground space-y-1">
+              <h3 className="mb-2 font-semibold">Spacing & Geometry</h3>
+              <ul className="text-muted-foreground space-y-1 text-sm">
                 <li>• 8pt grid system</li>
                 <li>• 4px border radius for buttons</li>
                 <li>• 8px border radius for cards</li>
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-2">Shadows & Elevation</h3>
-              <ul className="text-sm text-muted-foreground space-y-1">
+              <h3 className="mb-2 font-semibold">Shadows & Elevation</h3>
+              <ul className="text-muted-foreground space-y-1 text-sm">
                 <li>• Subtle elevation shadows</li>
                 <li>• Increased shadow on hover</li>
                 <li>• Depth indicates hierarchy</li>
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-2">Motion</h3>
-              <ul className="text-sm text-muted-foreground space-y-1">
+              <h3 className="mb-2 font-semibold">Motion</h3>
+              <ul className="text-muted-foreground space-y-1 text-sm">
                 <li>• 200ms transition duration</li>
                 <li>• Standard easing curve</li>
                 <li>• Scale and fade animations</li>
@@ -75,12 +85,14 @@ export default function MaterialPage() {
 
         {/* Button Component */}
         <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-6">Button</h2>
+          <h2 className="mb-6 text-3xl font-bold">Button</h2>
 
           <Card className="mb-6">
             <CardHeader>
               <CardTitle>Variants</CardTitle>
-              <CardDescription>Different button styles for various contexts</CardDescription>
+              <CardDescription>
+                Different button styles for various contexts
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="flex flex-wrap gap-4">
@@ -126,18 +138,21 @@ export default function MaterialPage() {
 
         {/* Card Component */}
         <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-6">Card</h2>
+          <h2 className="mb-6 text-3xl font-bold">Card</h2>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid gap-6 md:grid-cols-2">
             <Card>
               <CardHeader>
                 <CardTitle>Simple Card</CardTitle>
-                <CardDescription>A basic card with header and content</CardDescription>
+                <CardDescription>
+                  A basic card with header and content
+                </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  This card demonstrates the Material Design elevation shadow and 8px border radius.
-                  Notice the subtle shadow that gives depth to the card.
+                <p className="text-muted-foreground text-sm">
+                  This card demonstrates the Material Design elevation shadow
+                  and 8px border radius. Notice the subtle shadow that gives
+                  depth to the card.
                 </p>
               </CardContent>
             </Card>
@@ -145,15 +160,20 @@ export default function MaterialPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Card with Footer</CardTitle>
-                <CardDescription>Card with action buttons in footer</CardDescription>
+                <CardDescription>
+                  Card with action buttons in footer
+                </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Cards can include footer sections with action buttons that follow Material Design principles.
+                <p className="text-muted-foreground mb-4 text-sm">
+                  Cards can include footer sections with action buttons that
+                  follow Material Design principles.
                 </p>
               </CardContent>
               <CardFooter className="gap-2">
-                <Button variant="ghost" size="sm">Cancel</Button>
+                <Button variant="ghost" size="sm">
+                  Cancel
+                </Button>
                 <Button size="sm">Confirm</Button>
               </CardFooter>
             </Card>
@@ -162,12 +182,14 @@ export default function MaterialPage() {
 
         {/* Badge Component */}
         <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-6">Badge</h2>
+          <h2 className="mb-6 text-3xl font-bold">Badge</h2>
 
           <Card>
             <CardHeader>
               <CardTitle>Badge Variants</CardTitle>
-              <CardDescription>Status indicators with uppercase text</CardDescription>
+              <CardDescription>
+                Status indicators with uppercase text
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="flex flex-wrap gap-4">
@@ -176,8 +198,8 @@ export default function MaterialPage() {
                 <Badge variant="destructive">Destructive</Badge>
                 <Badge variant="outline">Outline</Badge>
               </div>
-              <div className="mt-6 p-4 bg-muted rounded-lg">
-                <p className="text-sm mb-3">Badges in context:</p>
+              <div className="bg-muted mt-6 rounded-lg p-4">
+                <p className="mb-3 text-sm">Badges in context:</p>
                 <div className="flex flex-wrap gap-4">
                   <div className="flex items-center gap-2">
                     <span className="text-sm">Status:</span>
@@ -199,12 +221,14 @@ export default function MaterialPage() {
 
         {/* Dialog Component */}
         <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-6">Dialog</h2>
+          <h2 className="mb-6 text-3xl font-bold">Dialog</h2>
 
           <Card>
             <CardHeader>
               <CardTitle>Modal Dialog</CardTitle>
-              <CardDescription>Accessible dialog with backdrop and animations</CardDescription>
+              <CardDescription>
+                Accessible dialog with backdrop and animations
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <Dialog>
@@ -215,14 +239,15 @@ export default function MaterialPage() {
                   <DialogHeader>
                     <DialogTitle>Material Design Dialog</DialogTitle>
                     <DialogDescription>
-                      This dialog features Material Design's characteristic elevation shadow,
-                      8px border radius, and 200ms scale animation.
+                      This dialog features Material Design's characteristic
+                      elevation shadow, 8px border radius, and 200ms scale
+                      animation.
                     </DialogDescription>
                   </DialogHeader>
                   <div className="py-4">
-                    <p className="text-sm text-muted-foreground">
-                      The dialog content can include any components. Notice the smooth
-                      fade and scale animation when opening and closing.
+                    <p className="text-muted-foreground text-sm">
+                      The dialog content can include any components. Notice the
+                      smooth fade and scale animation when opening and closing.
                     </p>
                   </div>
                   <DialogFooter>
@@ -237,12 +262,14 @@ export default function MaterialPage() {
 
         {/* Tooltip Component */}
         <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-6">Tooltip</h2>
+          <h2 className="mb-6 text-3xl font-bold">Tooltip</h2>
 
           <Card>
             <CardHeader>
               <CardTitle>Contextual Tooltips</CardTitle>
-              <CardDescription>Hover to reveal additional information</CardDescription>
+              <CardDescription>
+                Hover to reveal additional information
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <TooltipProvider>
@@ -281,15 +308,17 @@ export default function MaterialPage() {
 
         {/* Code Example */}
         <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-6">Usage Example</h2>
+          <h2 className="mb-6 text-3xl font-bold">Usage Example</h2>
 
           <Card>
             <CardHeader>
               <CardTitle>Import and Use</CardTitle>
-              <CardDescription>Copy-paste approach for full control</CardDescription>
+              <CardDescription>
+                Copy-paste approach for full control
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="bg-muted p-4 rounded-lg font-mono text-sm overflow-x-auto">
+              <div className="bg-muted overflow-x-auto rounded-lg p-4 font-mono text-sm">
                 <pre>{`import { Button } from '@/components/material/button'
 
 export function MyComponent() {
@@ -305,5 +334,5 @@ export function MyComponent() {
         </section>
       </div>
     </div>
-  )
+  );
 }

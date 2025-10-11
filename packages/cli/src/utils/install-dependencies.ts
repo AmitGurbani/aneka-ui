@@ -17,7 +17,9 @@ export async function installDependencies(
   }
 
   const packageManager = await detectPackageManager(cwd);
-  const spinner = ora(`Installing dependencies with ${packageManager}...`).start();
+  const spinner = ora(
+    `Installing dependencies with ${packageManager}...`
+  ).start();
 
   try {
     let args: string[] = [];

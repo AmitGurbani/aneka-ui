@@ -1,7 +1,7 @@
-import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '@/lib/utils';
+import { Component, Input } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center whitespace-nowrap text-sm font-semibold rounded-2xl transition-all duration-250 ease-[cubic-bezier(0.33,0,0.2,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
@@ -36,7 +36,7 @@ const buttonVariants = cva(
 type ButtonVariants = VariantProps<typeof buttonVariants>;
 
 @Component({
-  selector: 'aneka-button',
+  selector: "aneka-button",
   standalone: true,
   imports: [CommonModule],
   template: `
@@ -46,12 +46,15 @@ type ButtonVariants = VariantProps<typeof buttonVariants>;
   `,
 })
 export class ButtonComponent {
-  @Input() variant: ButtonVariants['variant'] = 'default';
-  @Input() size: ButtonVariants['size'] = 'default';
+  @Input() variant: ButtonVariants["variant"] = "default";
+  @Input() size: ButtonVariants["size"] = "default";
   @Input() class?: string;
   @Input() disabled = false;
 
   get computedClass(): string {
-    return cn(buttonVariants({ variant: this.variant, size: this.size }), this.class);
+    return cn(
+      buttonVariants({ variant: this.variant, size: this.size }),
+      this.class
+    );
   }
 }

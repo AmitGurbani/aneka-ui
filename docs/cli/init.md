@@ -21,10 +21,10 @@ The `init` command sets up Aneka UI in your project by:
 
 ## Options
 
-| Option | Alias | Description |
-|--------|-------|-------------|
-| `--yes` | `-y` | Skip prompts and use defaults |
-| `--force` | `-f` | Overwrite existing configuration |
+| Option    | Alias | Description                      |
+| --------- | ----- | -------------------------------- |
+| `--yes`   | `-y`  | Skip prompts and use defaults    |
+| `--force` | `-f`  | Overwrite existing configuration |
 
 ## Examples
 
@@ -35,6 +35,7 @@ aneka-ui init
 ```
 
 This will prompt you for:
+
 - Design style (Material, HIG, OneUI)
 - Components directory location
 - Tailwind config location
@@ -46,6 +47,7 @@ aneka-ui init --yes
 ```
 
 Uses default settings:
+
 - Design style: Material Design
 - Components: `src/components/ui`
 - Tailwind: `tailwind.config.js`
@@ -87,11 +89,11 @@ Overwrites existing `aneka-ui.json` without asking.
 `src/lib/utils.ts`:
 
 ```ts
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs));
 }
 ```
 
@@ -114,7 +116,7 @@ Adds path aliases:
 The CLI automatically detects your framework from `package.json`:
 
 - **React**: Checks for `react` dependency
-- **Vue**: Checks for `vue` dependency  
+- **Vue**: Checks for `vue` dependency
 - **Angular**: Checks for `@angular/core` dependency
 
 ## Monorepo Detection

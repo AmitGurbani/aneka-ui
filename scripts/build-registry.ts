@@ -40,7 +40,12 @@ const COMPONENT_DEPENDENCIES: Record<
   { deps?: string[]; registryDeps?: string[] }
 > = {
   button: {
-    deps: ["@radix-ui/react-slot", "class-variance-authority", "clsx", "tailwind-merge"],
+    deps: [
+      "@radix-ui/react-slot",
+      "class-variance-authority",
+      "clsx",
+      "tailwind-merge",
+    ],
   },
   card: {
     deps: ["clsx", "tailwind-merge"],
@@ -178,9 +183,7 @@ async function build() {
     }
   }
 
-  console.log(
-    `\nBuild complete: ${totalBuilt} built, ${totalFailed} failed`
-  );
+  console.log(`\nBuild complete: ${totalBuilt} built, ${totalFailed} failed`);
 }
 
 // Run build

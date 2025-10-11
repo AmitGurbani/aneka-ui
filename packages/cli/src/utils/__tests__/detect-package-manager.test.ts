@@ -28,22 +28,34 @@ describe("detectPackageManager", () => {
 
 describe("getInstallCommand", () => {
   it("should return correct command for pnpm", () => {
-    const result = getInstallCommand("pnpm" as PackageManager, ["react", "typescript"]);
+    const result = getInstallCommand("pnpm" as PackageManager, [
+      "react",
+      "typescript",
+    ]);
     expect(result).toBe("pnpm add react typescript");
   });
 
   it("should return correct command for yarn", () => {
-    const result = getInstallCommand("yarn" as PackageManager, ["react", "typescript"]);
+    const result = getInstallCommand("yarn" as PackageManager, [
+      "react",
+      "typescript",
+    ]);
     expect(result).toBe("yarn add react typescript");
   });
 
   it("should return correct command for npm", () => {
-    const result = getInstallCommand("npm" as PackageManager, ["react", "typescript"]);
+    const result = getInstallCommand("npm" as PackageManager, [
+      "react",
+      "typescript",
+    ]);
     expect(result).toBe("npm install react typescript");
   });
 
   it("should return correct command for bun", () => {
-    const result = getInstallCommand("bun" as PackageManager, ["react", "typescript"]);
+    const result = getInstallCommand("bun" as PackageManager, [
+      "react",
+      "typescript",
+    ]);
     expect(result).toBe("bun add react typescript");
   });
 

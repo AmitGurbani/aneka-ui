@@ -19,6 +19,7 @@ aneka-ui init
 ```
 
 This will:
+
 1. Detect your framework (React, Vue, or Angular)
 2. Detect if you're in a monorepo
 3. Prompt for design system style (Material, HIG, or OneUI)

@@ -5,14 +5,15 @@ A popup that displays information related to an element when the element receive
 ## Usage
 
 ::: code-group
+
 ```tsx [React]
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@/components/ui/tooltip'
-import { Button } from '@/components/ui/button'
+} from "@/components/ui/tooltip";
+import { Button } from "@/components/ui/button";
 
 export function TooltipDemo() {
   return (
@@ -26,7 +27,7 @@ export function TooltipDemo() {
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>
-  )
+  );
 }
 ```
 
@@ -37,8 +38,8 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@/components/ui/Tooltip.vue'
-import Button from '@/components/ui/Button.vue'
+} from "@/components/ui/Tooltip.vue";
+import Button from "@/components/ui/Button.vue";
 </script>
 
 <template>
@@ -63,6 +64,7 @@ import { TooltipComponent } from '@/components/ui/tooltip.component';
   template: '<aneka-tooltip text="Tooltip content">Hover me</aneka-tooltip>'
 })
 ```
+
 :::
 
 ## Installation
@@ -100,7 +102,7 @@ The Tooltip component requires several sub-components:
 ### Icon with Tooltip
 
 ```tsx
-import { HelpCircle } from 'lucide-react'
+import { HelpCircle } from "lucide-react";
 
 <Tooltip>
   <TooltipTrigger asChild>
@@ -111,7 +113,7 @@ import { HelpCircle } from 'lucide-react'
   <TooltipContent>
     <p>Click for help</p>
   </TooltipContent>
-</Tooltip>
+</Tooltip>;
 ```
 
 ### Tooltip on Disabled Element
@@ -142,7 +144,7 @@ import { HelpCircle } from 'lucide-react'
         <p>Save your work (Ctrl+S)</p>
       </TooltipContent>
     </Tooltip>
-    
+
     <Tooltip>
       <TooltipTrigger asChild>
         <Button variant="outline">Load</Button>
@@ -166,9 +168,7 @@ import { HelpCircle } from 'lucide-react'
     <div className="space-y-2">
       <p className="font-semibold">John Doe</p>
       <p className="text-xs">john@example.com</p>
-      <p className="text-xs text-muted-foreground">
-        Member since Jan 2024
-      </p>
+      <p className="text-muted-foreground text-xs">Member since Jan 2024</p>
     </div>
   </TooltipContent>
 </Tooltip>
@@ -214,6 +214,7 @@ import { HelpCircle } from 'lucide-react'
 ## Design System Differences
 
 ### Material Design
+
 - **Border Radius**: 4px (small)
 - **Font Size**: Extra small (12px)
 - **Shadow**: Subtle elevation
@@ -221,6 +222,7 @@ import { HelpCircle } from 'lucide-react'
 - **Padding**: Standard
 
 ### Apple HIG
+
 - **Border Radius**: 6px
 - **Font Size**: Extra small (12px)
 - **Shadow**: Subtle soft shadow
@@ -229,6 +231,7 @@ import { HelpCircle } from 'lucide-react'
 - **Feel**: Clean and minimal
 
 ### Samsung One UI
+
 - **Border Radius**: 16px (large, notably rounded)
 - **Font Size**: Small (14px, larger than others)
 - **Shadow**: Prominent shadow
@@ -242,42 +245,42 @@ import { HelpCircle } from 'lucide-react'
 
 Wraps your app or section.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `delayDuration` | `number` | `700` | Time in ms before tooltip shows |
-| `skipDelayDuration` | `number` | `300` | Time before showing next tooltip |
-| `disableHoverableContent` | `boolean` | `false` | Disable hovering over content |
+| Prop                      | Type      | Default | Description                      |
+| ------------------------- | --------- | ------- | -------------------------------- |
+| `delayDuration`           | `number`  | `700`   | Time in ms before tooltip shows  |
+| `skipDelayDuration`       | `number`  | `300`   | Time before showing next tooltip |
+| `disableHoverableContent` | `boolean` | `false` | Disable hovering over content    |
 
 ### Tooltip
 
 Root tooltip component.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `open` | `boolean` | - | Controlled open state |
-| `onOpenChange` | `(open: boolean) => void` | - | Open state change callback |
-| `defaultOpen` | `boolean` | `false` | Default open state |
-| `delayDuration` | `number` | - | Override provider delay |
+| Prop            | Type                      | Default | Description                |
+| --------------- | ------------------------- | ------- | -------------------------- |
+| `open`          | `boolean`                 | -       | Controlled open state      |
+| `onOpenChange`  | `(open: boolean) => void` | -       | Open state change callback |
+| `defaultOpen`   | `boolean`                 | `false` | Default open state         |
+| `delayDuration` | `number`                  | -       | Override provider delay    |
 
 ### TooltipTrigger
 
 Element that triggers tooltip.
 
-| Prop | Type | Description |
-|------|------|-------------|
+| Prop      | Type      | Description             |
+| --------- | --------- | ----------------------- |
 | `asChild` | `boolean` | Render as child element |
 
 ### TooltipContent
 
 The tooltip popup.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `side` | `'top' \| 'right' \| 'bottom' \| 'left'` | `'top'` | Preferred side |
-| `sideOffset` | `number` | `4` | Distance from trigger |
-| `align` | `'start' \| 'center' \| 'end'` | `'center'` | Alignment |
-| `alignOffset` | `number` | `0` | Alignment offset |
-| `className` | `string` | - | Additional CSS classes |
+| Prop          | Type                                     | Default    | Description            |
+| ------------- | ---------------------------------------- | ---------- | ---------------------- |
+| `side`        | `'top' \| 'right' \| 'bottom' \| 'left'` | `'top'`    | Preferred side         |
+| `sideOffset`  | `number`                                 | `4`        | Distance from trigger  |
+| `align`       | `'start' \| 'center' \| 'end'`           | `'center'` | Alignment              |
+| `alignOffset` | `number`                                 | `0`        | Alignment offset       |
+| `className`   | `string`                                 | -          | Additional CSS classes |
 
 ## Accessibility
 
@@ -300,6 +303,7 @@ The Tooltip component follows WAI-ARIA Tooltip pattern:
 ### ARIA Attributes
 
 The component automatically applies:
+
 - `role="tooltip"`
 - `aria-describedby` on trigger
 - Proper focus management
@@ -314,7 +318,9 @@ The component automatically applies:
     <Button>Save</Button>
   </TooltipTrigger>
   <TooltipContent>
-    <p>Save <kbd className="ml-2">⌘S</kbd></p>
+    <p>
+      Save <kbd className="ml-2">⌘S</kbd>
+    </p>
   </TooltipContent>
 </Tooltip>
 ```
@@ -322,19 +328,19 @@ The component automatically applies:
 ### Info Icon
 
 ```tsx
-import { Info } from 'lucide-react'
+import { Info } from "lucide-react";
 
 <div className="flex items-center gap-2">
   <span>Name</span>
   <Tooltip>
     <TooltipTrigger asChild>
-      <Info className="h-4 w-4 text-muted-foreground cursor-help" />
+      <Info className="text-muted-foreground h-4 w-4 cursor-help" />
     </TooltipTrigger>
     <TooltipContent>
       <p>Your display name shown to others</p>
     </TooltipContent>
   </Tooltip>
-</div>
+</div>;
 ```
 
 ### Truncated Text
@@ -342,7 +348,7 @@ import { Info } from 'lucide-react'
 ```tsx
 <Tooltip>
   <TooltipTrigger asChild>
-    <p className="truncate max-w-[200px]">
+    <p className="max-w-[200px] truncate">
       Very long text that gets truncated...
     </p>
   </TooltipTrigger>
@@ -374,7 +380,7 @@ import { Info } from 'lucide-react'
 ### Custom Colors
 
 ```tsx
-<TooltipContent className="bg-purple-600 text-white border-purple-700">
+<TooltipContent className="border-purple-700 bg-purple-600 text-white">
   <p>Custom colored tooltip</p>
 </TooltipContent>
 ```

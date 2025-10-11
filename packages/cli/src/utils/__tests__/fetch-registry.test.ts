@@ -49,9 +49,7 @@ describe("fetchRegistryIndex", () => {
     const result = await fetchRegistryIndex();
 
     expect(result).toEqual(mockIndex);
-    expect(fetch).toHaveBeenCalledWith(
-      expect.stringContaining("/index.json")
-    );
+    expect(fetch).toHaveBeenCalledWith(expect.stringContaining("/index.json"));
   });
 
   it("should throw error when fetch fails", async () => {
@@ -63,18 +61,14 @@ describe("fetchRegistryIndex", () => {
     await expect(fetchRegistryIndex()).rejects.toThrow(
       "Failed to fetch registry: Not Found"
     );
-    expect(logger.error).toHaveBeenCalledWith(
-      "Failed to fetch registry index"
-    );
+    expect(logger.error).toHaveBeenCalledWith("Failed to fetch registry index");
   });
 
   it("should handle network errors", async () => {
     vi.mocked(fetch).mockRejectedValue(new Error("Network error"));
 
     await expect(fetchRegistryIndex()).rejects.toThrow("Network error");
-    expect(logger.error).toHaveBeenCalledWith(
-      "Failed to fetch registry index"
-    );
+    expect(logger.error).toHaveBeenCalledWith("Failed to fetch registry index");
   });
 
   it("should handle invalid JSON response", async () => {

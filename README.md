@@ -34,6 +34,7 @@ aneka-ui init
 ```
 
 This will:
+
 - Detect your framework (React/Vue/Angular)
 - Detect monorepo setup
 - Prompt for design style (Material/HIG/OneUI)
@@ -60,12 +61,12 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#3b82f6', // Your primary color
-          foreground: '#ffffff',
+          DEFAULT: "#3b82f6", // Your primary color
+          foreground: "#ffffff",
         },
         secondary: {
-          DEFAULT: '#64748b',
-          foreground: '#ffffff',
+          DEFAULT: "#64748b",
+          foreground: "#ffffff",
         },
         // ... more colors
       },
@@ -77,8 +78,8 @@ module.exports = {
 ### 4. Use components
 
 ```tsx
-import { Button } from '@/components/ui/button';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { Button } from "@/components/ui/button";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
 export function MyComponent() {
   return (
@@ -97,6 +98,7 @@ export function MyComponent() {
 ## 🎨 Design Systems
 
 ### Material Design (Google)
+
 - 8pt grid system
 - Uppercase button text
 - 4px border radius
@@ -104,6 +106,7 @@ export function MyComponent() {
 - 200ms animations
 
 ### Apple HIG
+
 - Clean, minimal shadows
 - Sentence case text
 - 6px-12px border radius
@@ -111,6 +114,7 @@ export function MyComponent() {
 - Scale-down on press
 
 ### Samsung One UI
+
 - Generous spacing
 - Bold text (600 weight)
 - Large border radius (16px+)
@@ -128,6 +132,7 @@ export function MyComponent() {
 ## 🛠️ CLI Commands
 
 ### init
+
 Initialize Aneka UI in your project
 
 ```bash
@@ -135,6 +140,7 @@ aneka-ui init
 ```
 
 ### add
+
 Add components to your project
 
 ```bash
@@ -144,6 +150,7 @@ aneka-ui add button --overwrite
 ```
 
 ### list
+
 List available components
 
 ```bash
@@ -153,6 +160,7 @@ aneka-ui list --available
 ```
 
 ### diff
+
 Show changes between local and registry
 
 ```bash
@@ -160,6 +168,7 @@ aneka-ui diff button
 ```
 
 ### update
+
 Update components to latest versions
 
 ```bash
@@ -169,6 +178,7 @@ aneka-ui update --all --force
 ```
 
 ### doctor
+
 Diagnose setup issues
 
 ```bash
@@ -206,12 +216,15 @@ aneka-ui/
 ## 🎯 Philosophy
 
 ### 1. Patterns, Not Colors
+
 Aneka UI provides authentic design system **patterns** (spacing, typography, motion) while you provide the **colors**. This gives you brand consistency while following design system best practices.
 
 ### 2. Copy-Paste Ownership
+
 Components are copied to your project, not installed as dependencies. You own the code and can modify it freely. This is inspired by Shadcn UI's approach.
 
 ### 3. Framework-Native
+
 React components use `forwardRef` and hooks. Vue components use Composition API. Angular components use standalone components. No wrappers, no compromises.
 
 ## 🤝 Contributing

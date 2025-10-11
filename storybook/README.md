@@ -5,6 +5,7 @@ Interactive component documentation and playground for Aneka UI.
 ## Overview
 
 This Storybook workspace showcases all components from the Aneka UI registry across three design systems:
+
 - **Material Design** - Google's Material Design 3
 - **Apple HIG** - Apple's Human Interface Guidelines
 - **Samsung One UI** - Samsung's One UI design language
@@ -31,6 +32,7 @@ Components in `src/components/` are **synced copies** from the registry (`/regis
 ### Why Duplicate Files?
 
 The registry is a source template directory, not an npm package. Components need to:
+
 1. Access dependencies installed in the storybook workspace
 2. Work with Vite's build system without complex path resolution
 3. Maintain the copy-paste pattern that end users will experience
@@ -57,10 +59,11 @@ This copies all components from `/registry/react/` to `/storybook/src/components
 Stories import from local components:
 
 ```tsx
-import { Button } from '@/components/material/button';
+import { Button } from "@/components/material/button";
 ```
 
 Each story should showcase:
+
 - Default variant
 - All variants (default, secondary, destructive, outline, ghost, link)
 - All sizes (sm, default, lg, icon)

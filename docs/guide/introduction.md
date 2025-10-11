@@ -5,6 +5,7 @@ Aneka UI is a framework-agnostic component library that provides authentic imple
 ## The Problem
 
 Most component libraries force you to choose between:
+
 1. **Using their design system** - Great components, but your brand gets lost
 2. **Building from scratch** - Full control, but missing proven patterns
 3. **Heavy customization** - Endless CSS overrides that fight the library
@@ -56,14 +57,14 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#3b82f6',  // Your blue
-          foreground: '#ffffff',
+          DEFAULT: "#3b82f6", // Your blue
+          foreground: "#ffffff",
         },
         // ... your colors
       },
     },
   },
-}
+};
 ```
 
 The design patterns adapt to **your** colors automatically.
@@ -71,23 +72,26 @@ The design patterns adapt to **your** colors automatically.
 ## How It Works
 
 1. **Install CLI** - One-time setup
+
    ```bash
    npm install -g @aneka-ui/cli
    ```
 
 2. **Initialize** - Detects your framework and setup
+
    ```bash
    aneka-ui init
    ```
 
 3. **Add Components** - Pick what you need
+
    ```bash
    aneka-ui add button card badge
    ```
 
 4. **Use & Customize** - They're yours now!
    ```tsx
-   import { Button } from '@/components/ui/button'
+   import { Button } from "@/components/ui/button";
    ```
 
 ## Who Should Use Aneka UI?

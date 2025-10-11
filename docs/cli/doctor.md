@@ -20,8 +20,8 @@ aneka-ui doctor --fix
 
 ## Options
 
-| Option | Description |
-|--------|-------------|
+| Option  | Description                       |
+| ------- | --------------------------------- |
 | `--fix` | Automatically fix detected issues |
 
 ## What It Checks

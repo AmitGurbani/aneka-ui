@@ -173,7 +173,9 @@ async function findNxProjects(cwd: string): Promise<string[]> {
     const content = await fs.readFile(workspacePath, "utf-8");
     const workspace = JSON.parse(content);
 
-    for (const project of Object.values(workspace.projects) as { root: string }[]) {
+    for (const project of Object.values(workspace.projects) as {
+      root: string;
+    }[]) {
       packages.push(path.join(cwd, project.root));
     }
   } catch {
@@ -183,7 +185,9 @@ async function findNxProjects(cwd: string): Promise<string[]> {
       const content = await fs.readFile(angularPath, "utf-8");
       const angular = JSON.parse(content);
 
-      for (const project of Object.values(angular.projects) as { root: string }[]) {
+      for (const project of Object.values(angular.projects) as {
+        root: string;
+      }[]) {
         packages.push(path.join(cwd, project.root));
       }
     } catch {

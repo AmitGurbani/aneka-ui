@@ -11,6 +11,7 @@
 ## Executive Summary
 
 Your monorepo setup is **very solid** and follows most industry best practices. You're using:
+
 - ✅ pnpm workspaces (best for monorepos)
 - ✅ Turborepo (industry standard for builds)
 - ✅ TypeScript project references
@@ -23,16 +24,16 @@ Your monorepo setup is **very solid** and follows most industry best practices. 
 
 ## 📊 Scorecard
 
-| Area | Score | Status |
-|------|-------|--------|
-| **Package Management** | 10/10 | ✅ Excellent |
-| **Build System** | 9/10 | ✅ Excellent |
-| **TypeScript Configuration** | 8/10 | ⚠️ Good (improvements possible) |
-| **Dependency Management** | 7/10 | ⚠️ Good (some issues) |
-| **Scripts & Automation** | 9/10 | ✅ Excellent |
-| **Code Quality Tools** | 10/10 | ✅ Excellent |
-| **Documentation** | 10/10 | ✅ Excellent |
-| **Project Structure** | 10/10 | ✅ Excellent |
+| Area                         | Score | Status                          |
+| ---------------------------- | ----- | ------------------------------- |
+| **Package Management**       | 10/10 | ✅ Excellent                    |
+| **Build System**             | 9/10  | ✅ Excellent                    |
+| **TypeScript Configuration** | 8/10  | ⚠️ Good (improvements possible) |
+| **Dependency Management**    | 7/10  | ⚠️ Good (some issues)           |
+| **Scripts & Automation**     | 9/10  | ✅ Excellent                    |
+| **Code Quality Tools**       | 10/10 | ✅ Excellent                    |
+| **Documentation**            | 10/10 | ✅ Excellent                    |
+| **Project Structure**        | 10/10 | ✅ Excellent                    |
 
 **Overall: 95/100** - Excellent monorepo setup!
 
@@ -41,12 +42,14 @@ Your monorepo setup is **very solid** and follows most industry best practices. 
 ## ✅ What You're Doing Right
 
 ### 1. **Package Manager** (10/10)
+
 - ✅ Using **pnpm** - Best choice for monorepos (faster, more efficient than npm/yarn)
 - ✅ **pnpm-workspace.yaml** properly configured
 - ✅ **packageManager field** in root package.json (enables Corepack)
 - ✅ **engines** field specifies Node.js and pnpm versions
 
 ### 2. **Build System** (9/10)
+
 - ✅ Using **Turborepo 2.x** - Industry standard for monorepo builds
 - ✅ **Task dependencies** properly configured (`dependsOn: ["^build"]`)
 - ✅ **Caching strategies** in place
@@ -54,6 +57,7 @@ Your monorepo setup is **very solid** and follows most industry best practices. 
 - ✅ **Output patterns** defined for builds
 
 ### 3. **TypeScript Setup** (8/10)
+
 - ✅ **Shared base tsconfig.json** at root
 - ✅ **Strict mode enabled** (`strict: true`)
 - ✅ Packages extend from base config
@@ -61,6 +65,7 @@ Your monorepo setup is **very solid** and follows most industry best practices. 
 - ⚠️ **Missing**: TypeScript project references (see improvements)
 
 ### 4. **Code Quality** (10/10)
+
 - ✅ **ESLint** with TypeScript support
 - ✅ **Prettier** for code formatting
 - ✅ **Husky** for git hooks
@@ -69,12 +74,14 @@ Your monorepo setup is **very solid** and follows most industry best practices. 
 - ✅ Consistent import ordering enforced
 
 ### 5. **Project Structure** (10/10)
+
 - ✅ Clean separation: `packages/`, `examples/`, `docs/`, `storybook/`
 - ✅ Clear naming conventions
 - ✅ Private packages marked correctly
 - ✅ Registry system for components
 
 ### 6. **Scripts & Automation** (9/10)
+
 - ✅ Comprehensive scripts at root
 - ✅ Turbo for parallelized tasks
 - ✅ Custom registry scripts
@@ -82,6 +89,7 @@ Your monorepo setup is **very solid** and follows most industry best practices. 
 - ✅ Release automation
 
 ### 7. **Documentation** (10/10)
+
 - ✅ Multiple README/status files
 - ✅ Contributing guidelines
 - ✅ Security policy
@@ -97,6 +105,7 @@ Your monorepo setup is **very solid** and follows most industry best practices. 
 **Issue:** Multiple packages have duplicate dependencies
 
 **Examples:**
+
 ```json
 // Duplicated across demo-app, storybook, and components:
 - react: ^19.2.0
@@ -112,11 +121,13 @@ Your monorepo setup is **very solid** and follows most industry best practices. 
 ```
 
 **Impact:**
+
 - Larger node_modules
 - Version inconsistencies possible
 - Harder to update dependencies
 
 **Solution 1: Move to root** (Recommended for shared dev dependencies)
+
 ```json
 // Root package.json
 {
@@ -132,6 +143,7 @@ Your monorepo setup is **very solid** and follows most industry best practices. 
 ```
 
 **Solution 2: Create a shared package** (For UI dependencies)
+
 ```
 packages/
   shared/          # New package
@@ -150,6 +162,7 @@ packages/
 **Implementation:**
 
 **Root tsconfig.json:**
+
 ```json
 {
   "files": [],
@@ -164,21 +177,23 @@ packages/
 ```
 
 **packages/cli/tsconfig.json:** (if it uses @aneka-ui/tokens)
+
 ```json
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "composite": true,  // Enable project references
+    "composite": true, // Enable project references
     "outDir": "./dist",
     "rootDir": "./src"
   },
   "references": [
-    { "path": "../tokens" }  // If CLI depends on tokens
+    { "path": "../tokens" } // If CLI depends on tokens
   ]
 }
 ```
 
 **Benefits:**
+
 - Faster incremental builds
 - Better IDE intelligence
 - Type-safe inter-package imports
@@ -193,21 +208,23 @@ packages/
 **Example:** If CLI uses @aneka-ui/tokens:
 
 **Current approach:**
+
 ```json
 // packages/cli/package.json
 {
   "dependencies": {
-    "@aneka-ui/tokens": "0.1.0"  // ❌ Version might get out of sync
+    "@aneka-ui/tokens": "0.1.0" // ❌ Version might get out of sync
   }
 }
 ```
 
 **Better approach:**
+
 ```json
 // packages/cli/package.json
 {
   "dependencies": {
-    "@aneka-ui/tokens": "workspace:*"  // ✅ Always uses workspace version
+    "@aneka-ui/tokens": "workspace:*" // ✅ Always uses workspace version
   }
 }
 ```
@@ -248,6 +265,7 @@ packages/
 **Check:** Ensure .changeset/config.json is properly configured
 
 **Recommended config:**
+
 ```json
 {
   "$schema": "https://unpkg.com/@changesets/config@2.3.0/schema.json",
@@ -323,14 +341,14 @@ packages/
 
 Your setup compares favorably to industry leaders:
 
-| Feature | Your Setup | Vercel Turbo | Nx | Lerna |
-|---------|------------|--------------|-----|-------|
-| Package Manager | pnpm ✅ | pnpm ✅ | npm/pnpm/yarn | npm/yarn |
-| Build System | Turbo ✅ | Turbo ✅ | Nx | N/A |
-| TypeScript | Yes ✅ | Yes ✅ | Yes | Optional |
-| Code Quality | ESLint+Prettier ✅ | ESLint+Prettier | ESLint | Optional |
-| Versioning | Changesets ✅ | Changesets | Nx Release | Lerna |
-| Documentation | Excellent ✅ | Good | Good | Basic |
+| Feature         | Your Setup         | Vercel Turbo    | Nx            | Lerna    |
+| --------------- | ------------------ | --------------- | ------------- | -------- |
+| Package Manager | pnpm ✅            | pnpm ✅         | npm/pnpm/yarn | npm/yarn |
+| Build System    | Turbo ✅           | Turbo ✅        | Nx            | N/A      |
+| TypeScript      | Yes ✅             | Yes ✅          | Yes           | Optional |
+| Code Quality    | ESLint+Prettier ✅ | ESLint+Prettier | ESLint        | Optional |
+| Versioning      | Changesets ✅      | Changesets      | Nx Release    | Lerna    |
+| Documentation   | Excellent ✅       | Good            | Good          | Basic    |
 
 **Your setup matches or exceeds industry standards!**
 
@@ -379,6 +397,7 @@ Your setup compares favorably to industry leaders:
 You're following industry best practices and using modern tooling correctly. The identified improvements are **minor optimizations** rather than critical issues.
 
 **Priority:**
+
 1. ✅ Fix warnings (quick wins)
 2. 🔄 Consolidate dependencies (moderate impact)
 3. 🔄 Add TypeScript project references (nice to have)

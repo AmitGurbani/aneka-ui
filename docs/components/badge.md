@@ -5,17 +5,18 @@ Badges display a label or status indicator.
 ## Usage
 
 ::: code-group
+
 ```tsx [React]
-import { Badge } from '@/components/ui/badge'
+import { Badge } from "@/components/ui/badge";
 
 export function BadgeDemo() {
-  return <Badge>Badge</Badge>
+  return <Badge>Badge</Badge>;
 }
 ```
 
 ```vue [Vue]
 <script setup lang="ts">
-import Badge from '@/components/ui/Badge.vue'
+import Badge from "@/components/ui/Badge.vue";
 </script>
 
 <template>
@@ -31,6 +32,7 @@ import { BadgeComponent } from '@/components/ui/badge.component';
   template: '<aneka-badge>Badge</aneka-badge>'
 })
 ```
+
 :::
 
 ## Installation
@@ -44,6 +46,7 @@ aneka-ui add badge
 Badges come in different variants for different contexts:
 
 ### Default
+
 The primary badge style.
 
 ```tsx
@@ -51,6 +54,7 @@ The primary badge style.
 ```
 
 ### Secondary
+
 For secondary or less prominent labels.
 
 ```tsx
@@ -58,6 +62,7 @@ For secondary or less prominent labels.
 ```
 
 ### Destructive
+
 For error or warning states.
 
 ```tsx
@@ -65,6 +70,7 @@ For error or warning states.
 ```
 
 ### Outline
+
 For badges that need less visual weight.
 
 ```tsx
@@ -86,12 +92,12 @@ For badges that need less visual weight.
 ### With Icons
 
 ```tsx
-import { CheckCircle } from 'lucide-react'
+import { CheckCircle } from "lucide-react";
 
 <Badge>
   <CheckCircle className="mr-1 h-3 w-3" />
   Verified
-</Badge>
+</Badge>;
 ```
 
 ### Notification Badge
@@ -99,7 +105,7 @@ import { CheckCircle } from 'lucide-react'
 ```tsx
 <div className="relative inline-block">
   <Button>Messages</Button>
-  <Badge className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0">
+  <Badge className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center p-0">
     3
   </Badge>
 </div>
@@ -148,6 +154,7 @@ import { CheckCircle } from 'lucide-react'
 ## Design System Differences
 
 ### Material Design
+
 - **Text Transform**: UPPERCASE
 - **Border Radius**: Full rounded (`rounded-full`)
 - **Font Size**: Extra small (12px)
@@ -156,6 +163,7 @@ import { CheckCircle } from 'lucide-react'
 - **Shadow**: Subtle elevation
 
 ### Apple HIG
+
 - **Text Transform**: Normal case
 - **Border Radius**: 6px (`rounded-md`)
 - **Font Size**: Extra small (12px)
@@ -165,6 +173,7 @@ import { CheckCircle } from 'lucide-react'
 - **Shadow**: Subtle
 
 ### Samsung One UI
+
 - **Text Transform**: Normal case
 - **Border Radius**: Full rounded (`rounded-full`)
 - **Font Size**: Small (14px, larger than others)
@@ -176,10 +185,10 @@ import { CheckCircle } from 'lucide-react'
 
 ### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `variant` | `'default' \| 'secondary' \| 'destructive' \| 'outline'` | `'default'` | Badge style variant |
-| `className` | `string` | - | Additional CSS classes |
+| Prop        | Type                                                     | Default     | Description            |
+| ----------- | -------------------------------------------------------- | ----------- | ---------------------- |
+| `variant`   | `'default' \| 'secondary' \| 'destructive' \| 'outline'` | `'default'` | Badge style variant    |
+| `className` | `string`                                                 | -           | Additional CSS classes |
 
 Plus all standard HTML div attributes.
 
@@ -216,23 +225,19 @@ Plus all standard HTML div attributes.
 ### Larger Size
 
 ```tsx
-<Badge className="px-4 py-1.5 text-sm">
-  Large Badge
-</Badge>
+<Badge className="px-4 py-1.5 text-sm">Large Badge</Badge>
 ```
 
 ### Badge Dot
 
 ```tsx
-<Badge className="h-2 w-2 p-0 rounded-full" />
+<Badge className="h-2 w-2 rounded-full p-0" />
 ```
 
 ### Animated Badge
 
 ```tsx
-<Badge className="animate-pulse">
-  Live
-</Badge>
+<Badge className="animate-pulse">Live</Badge>
 ```
 
 ## Common Patterns
@@ -241,13 +246,9 @@ Plus all standard HTML div attributes.
 
 ```tsx
 function CountBadge({ count }: { count: number }) {
-  if (count === 0) return null
-  
-  return (
-    <Badge variant="destructive">
-      {count > 99 ? '99+' : count}
-    </Badge>
-  )
+  if (count === 0) return null;
+
+  return <Badge variant="destructive">{count > 99 ? "99+" : count}</Badge>;
 }
 ```
 
@@ -255,13 +256,14 @@ function CountBadge({ count }: { count: number }) {
 
 ```tsx
 function StatusBadge({ status }: { status: string }) {
-  const variant = {
-    active: 'default',
-    pending: 'secondary',
-    error: 'destructive',
-  }[status] || 'outline'
-  
-  return <Badge variant={variant}>{status}</Badge>
+  const variant =
+    {
+      active: "default",
+      pending: "secondary",
+      error: "destructive",
+    }[status] || "outline";
+
+  return <Badge variant={variant}>{status}</Badge>;
 }
 ```
 
