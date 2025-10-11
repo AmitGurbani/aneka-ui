@@ -63,3 +63,8 @@ registry/**/*.json
 # VitePress
 docs/.vitepress/cache/
 docs/.vitepress/dist/
+docs/.vitepress/.temp/
+
+# Storybook
+storybook-static/
+storybook/.storybook/

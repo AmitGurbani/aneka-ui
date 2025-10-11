@@ -7,7 +7,6 @@ import type { Config } from "../types/config.js";
 import type { RegistryItem } from "../types/registry.js";
 import { fetchComponent, fetchComponents } from "../utils/fetch-registry.js";
 import {
-  fileExists,
   handleFileConflict,
   writeFile,
 } from "../utils/handle-conflicts.js";
@@ -31,22 +30,6 @@ async function readConfig(cwd: string): Promise<Config> {
       "Could not find aneka-ui.json. Run 'aneka-ui init' first."
     );
     process.exit(1);
-  }
-}
-
-/**
- * Gets the file extension for the framework
- */
-function getFileExtension(framework: string): string {
-  switch (framework) {
-    case "react":
-      return ".tsx";
-    case "vue":
-      return ".vue";
-    case "angular":
-      return ".ts";
-    default:
-      return ".tsx";
   }
 }
 
