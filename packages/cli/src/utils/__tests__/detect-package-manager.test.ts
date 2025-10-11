@@ -1,6 +1,30 @@
 import { describe, expect, it } from "vitest";
 
-import { type PackageManager, getInstallCommand } from "../detect-package-manager.js";
+import {
+  detectPackageManager,
+  getInstallCommand,
+  type PackageManager,
+} from "../detect-package-manager.js";
+
+describe("detectPackageManager", () => {
+  it("should detect pnpm from monorepo root", async () => {
+    // Navigate to monorepo root (2 levels up from packages/cli)
+    const monorepoRoot = process.cwd().replace(/\/packages\/cli$/, "");
+    const result = await detectPackageManager(monorepoRoot);
+    expect(result).toBe("pnpm");
+  });
+
+  it("should return npm as default for non-existent directory", async () => {
+    const result = await detectPackageManager("/non/existent/path");
+    expect(result).toBe("npm");
+  });
+
+  it("should default to npm when no lock file exists", async () => {
+    // Test with a directory that exists but has no lock files
+    const result = await detectPackageManager("/tmp");
+    expect(result).toBe("npm");
+  });
+});
 
 describe("getInstallCommand", () => {
   it("should return correct command for pnpm", () => {
