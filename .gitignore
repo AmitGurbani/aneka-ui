@@ -68,3 +68,6 @@ docs/.vitepress/.temp/
 # Storybook
 storybook-static/
 storybook/.storybook/
+
+# Claude Code local settings
+.claude/settings.local.json
