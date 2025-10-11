@@ -1,6 +1,7 @@
-import { Component, Input } from "@angular/core";
+import { DialogModule } from "@angular/cdk/dialog";
 import { CommonModule } from "@angular/common";
-import { Dialog, DialogModule } from "@angular/cdk/dialog";
+import { Component, Input } from "@angular/core";
+
 import { cn } from "@/lib/utils";
 
 @Component({

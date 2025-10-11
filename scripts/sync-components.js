@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-env node */
 
 /**
  * Unified component sync utility
@@ -10,8 +11,8 @@
  *   node scripts/sync-components.js --target all
  */
 
-import fs from "fs/promises";
 import { cpSync } from "fs";
+import fs from "fs/promises";
 import path from "path";
 import { fileURLToPath } from "url";
 

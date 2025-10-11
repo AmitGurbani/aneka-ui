@@ -6,6 +6,7 @@
 import fs from "fs/promises";
 import path from "path";
 import { fileURLToPath } from "url";
+
 import { z } from "zod";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -16,7 +17,7 @@ const REGISTRY_DIR = path.join(__dirname, "..", "registry");
 /**
  * Registry entry schema
  */
-const registryEntrySchema = z.object({
+const _registryEntrySchema = z.object({
   name: z.string(),
   type: z.enum(["component", "util"]),
   framework: z.enum(["react", "vue", "angular"]),

@@ -1,6 +1,7 @@
-import { Component, Input } from "@angular/core";
-import { CommonModule } from "@angular/common";
 import { CdkTooltip } from "@angular/cdk/tooltip";
+import { CommonModule } from "@angular/common";
+import { Component, Input } from "@angular/core";
+
 import { cn } from "@/lib/utils";
 
 @Component({

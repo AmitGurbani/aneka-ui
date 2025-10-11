@@ -32,7 +32,7 @@
     "dev:docs": "pnpm --filter @aneka-ui/docs dev",
     "dev:storybook": "pnpm --filter @aneka-ui/storybook dev",
     "dev:demo": "pnpm --filter aneka-ui-demo dev",
-    "lint": "turbo run lint",
+    "lint": "turbo run lint && eslint --fix \"scripts/**/*.{ts,js}\" \"registry/**/*.{ts,tsx}\" --rule 'import/no-unresolved: off'",
     "format": "turbo run format && prettier --write \"*.{json,md}\" \".github/**/*.md\" \"docs/**/*.md\" \"scripts/**/*.{ts,js}\" \"registry/**/*.{ts,tsx,vue}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,vue,js,jsx,json,md}\"",
     "test": "turbo run test",

@@ -123,7 +123,7 @@ async function buildRegistryEntry(
     };
 
     return entry;
-  } catch (error) {
+  } catch {
     console.warn(
       `Component ${componentName} not found for ${framework}/${style}`
     );

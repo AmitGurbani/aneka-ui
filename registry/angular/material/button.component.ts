@@ -1,6 +1,7 @@
-import { Component, Input } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { Component, Input } from "@angular/core";
 import { cva, type VariantProps } from "class-variance-authority";
+
 import { cn } from "@/lib/utils";
 
 /**
