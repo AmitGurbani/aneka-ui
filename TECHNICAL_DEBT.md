@@ -11,6 +11,7 @@
 **What to restore:**
 
 1. **eslint-plugin-import** - Import validation and organization
+
    ```json
    {
      "plugins": ["import"],
@@ -22,6 +23,7 @@
    ```
 
 2. **Type-aware linting rules**
+
    ```json
    {
      "extends": [
@@ -34,6 +36,7 @@
    ```
 
 3. **Import order rules**
+
    ```json
    {
      "rules": {
@@ -49,6 +52,7 @@
 **Why removed:** Configuration issues with TypeScript resolver in monorepo setup
 
 **Benefits when restored:**
+
 - Validates imports exist
 - Enforces consistent import ordering
 - Catches unsafe `any` usage
@@ -60,6 +64,7 @@
 ## Package Updates - Deferred Items
 
 ### @types/diff
+
 - Attempted: v8.0.0
 - Current: v5.2.3
 - Reason: Breaking changes in v8 type definitions
@@ -67,4 +72,6 @@
 
 ---
 
-*Last updated: 2025-10-11*
+## Last Updated
+
+2025-10-11
