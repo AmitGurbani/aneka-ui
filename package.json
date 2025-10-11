@@ -48,8 +48,10 @@
     "build:registry": "tsx scripts/build-registry.ts",
     "validate:registry": "tsx scripts/validate-registry.ts",
     "generate:component": "tsx scripts/generate-component.ts",
-    "sync:storybook": "node scripts/sync-storybook-components.js",
-    "prepare": "husky install"
+    "sync:storybook": "node scripts/sync-components.js --target=storybook",
+    "prepare": "husky install",
+    "sync:tests": "node scripts/sync-components.js --target=tests",
+    "sync:all": "node scripts/sync-components.js --target=all"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
@@ -80,5 +82,6 @@
     "*.{json,md}": [
       "prettier --write"
     ]
-  }
+  },
+  "type": "module"
 }
