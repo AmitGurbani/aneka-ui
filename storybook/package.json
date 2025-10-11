@@ -7,6 +7,7 @@
     "dev": "storybook dev -p 6006",
     "build": "storybook build",
     "preview": "serve storybook-static",
+    "format": "prettier --write \"src/**/*.{ts,tsx,css,json}\"",
     "lint": "eslint src --fix"
   },
   "devDependencies": {

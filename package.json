@@ -33,7 +33,7 @@
     "dev:storybook": "pnpm --filter @aneka-ui/storybook dev",
     "dev:demo": "pnpm --filter aneka-ui-demo dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,vue,js,jsx,json,md}\"",
+    "format": "turbo run format && prettier --write \"*.{json,md}\" \".github/**/*.md\" \"docs/**/*.md\" \"scripts/**/*.{ts,js}\" \"registry/**/*.{ts,tsx,vue}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,vue,js,jsx,json,md}\"",
     "test": "turbo run test",
     "test:watch": "turbo run test -- --watch",

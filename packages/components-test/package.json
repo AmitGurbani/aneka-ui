@@ -6,6 +6,8 @@
   "description": "Component tests for Aneka UI",
   "scripts": {
     "sync": "node ../../scripts/sync-components.js --target=tests",
+    "format": "prettier --write \"tests/**/*.{ts,tsx,json}\"",
+    "lint": "eslint tests --fix",
     "test": "vitest run",
     "test:watch": "vitest watch",
     "test:coverage": "vitest run --coverage",

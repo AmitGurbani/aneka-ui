@@ -29,6 +29,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
+    "format": "prettier --write \"src/**/*.{ts,json}\"",
     "lint": "eslint src --fix",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist"
