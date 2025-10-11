@@ -1,13 +1,4 @@
-import { Button as MaterialButton } from "@/components/material/button";
-import {
-  Card as MaterialCard,
-  CardHeader as MaterialCardHeader,
-  CardTitle as MaterialCardTitle,
-  CardDescription as MaterialCardDescription,
-  CardContent as MaterialCardContent,
-} from "@/components/material/card";
-import { Badge as MaterialBadge } from "@/components/material/badge";
-
+import { Badge as HIGBadge } from "@/components/hig/badge";
 import { Button as HIGButton } from "@/components/hig/button";
 import {
   Card as HIGCard,
@@ -16,8 +7,16 @@ import {
   CardDescription as HIGCardDescription,
   CardContent as HIGCardContent,
 } from "@/components/hig/card";
-import { Badge as HIGBadge } from "@/components/hig/badge";
-
+import { Badge as MaterialBadge } from "@/components/material/badge";
+import { Button as MaterialButton } from "@/components/material/button";
+import {
+  Card as MaterialCard,
+  CardHeader as MaterialCardHeader,
+  CardTitle as MaterialCardTitle,
+  CardDescription as MaterialCardDescription,
+  CardContent as MaterialCardContent,
+} from "@/components/material/card";
+import { Badge as OneUIBadge } from "@/components/oneui/badge";
 import { Button as OneUIButton } from "@/components/oneui/button";
 import {
   Card as OneUICard,
@@ -26,7 +25,6 @@ import {
   CardDescription as OneUICardDescription,
   CardContent as OneUICardContent,
 } from "@/components/oneui/card";
-import { Badge as OneUIBadge } from "@/components/oneui/badge";
 
 export default function ComparisonPage() {
   return (

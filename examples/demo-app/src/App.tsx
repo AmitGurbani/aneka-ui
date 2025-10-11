@@ -1,9 +1,10 @@
 import { Routes, Route, Link } from "react-router-dom";
+
+import ComparisonPage from "./pages/ComparisonPage";
+import HIGPage from "./pages/HIGPage";
 import HomePage from "./pages/HomePage";
 import MaterialPage from "./pages/MaterialPage";
-import HIGPage from "./pages/HIGPage";
 import OneUIPage from "./pages/OneUIPage";
-import ComparisonPage from "./pages/ComparisonPage";
 
 function App() {
   return (

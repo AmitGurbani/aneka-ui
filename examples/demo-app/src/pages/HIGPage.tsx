@@ -1,4 +1,6 @@
 import { useState } from "react";
+
+import { Badge } from "@/components/hig/badge";
 import { Button } from "@/components/hig/button";
 import {
   Card,
@@ -8,7 +10,6 @@ import {
   CardContent,
   CardFooter,
 } from "@/components/hig/card";
-import { Badge } from "@/components/hig/badge";
 import {
   Dialog,
   DialogContent,
