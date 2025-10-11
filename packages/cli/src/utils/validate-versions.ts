@@ -111,7 +111,7 @@ export async function validatePackageVersions(
     }
 
     return { valid: warnings.length === 0, warnings };
-  } catch (error) {
+  } catch {
     logger.error("Failed to read package.json");
     return { valid: false, warnings: ["Could not read package.json"] };
   }

@@ -78,7 +78,7 @@ async function updateTsConfig(config: Config, targetPath: string): Promise<void>
     ];
 
     await fs.writeFile(tsconfigPath, JSON.stringify(tsconfig, null, 2), "utf-8");
-  } catch (error) {
+  } catch {
     logger.warn("Could not update tsconfig.json. You may need to add path aliases manually.");
   }
 }
@@ -219,7 +219,7 @@ export const init = new Command()
     try {
       await updateTsConfig(config, targetPath);
       tsconfigSpinner.succeed("Updated tsconfig.json");
-    } catch (error) {
+    } catch {
       tsconfigSpinner.warn("Could not update tsconfig.json");
     }
 
