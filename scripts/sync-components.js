@@ -8,6 +8,7 @@
  * Usage:
  *   node scripts/sync-components.js --target storybook
  *   node scripts/sync-components.js --target tests
+ *   node scripts/sync-components.js --target tests-vue
  *   node scripts/sync-components.js --target all
  */
 
@@ -37,6 +38,19 @@ const TARGETS = {
       "badge.tsx",
       "dialog.tsx",
       "tooltip.tsx",
+    ],
+    styles: ["material", "hig", "oneui"],
+  },
+  "tests-vue": {
+    source: path.resolve(rootDir, "registry/vue"),
+    dest: path.resolve(rootDir, "packages/components-test/src-vue"),
+    needsTransform: true,
+    components: [
+      "Button.vue",
+      "Card.vue",
+      "Badge.vue",
+      "Dialog.vue",
+      "Tooltip.vue",
     ],
     styles: ["material", "hig", "oneui"],
   },
@@ -110,6 +124,57 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 /**
+ * Sync Vue components for tests (with import path transformation)
+ */
+async function syncTestsVue() {
+  console.log("🧪 Syncing Vue components to test package...");
+  const { dest, components, styles } = TARGETS["tests-vue"];
+
+  // Create lib/utils
+  const utilsDir = path.join(dest, "lib");
+  await fs.mkdir(utilsDir, { recursive: true });
+
+  const utilsContent = `import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+`;
+  await fs.writeFile(path.join(utilsDir, "utils.ts"), utilsContent);
+  console.log("  ✅ Created lib/utils.ts");
+
+  // Sync components for each style
+  for (const style of styles) {
+    const styleDir = path.join(dest, style);
+    await fs.mkdir(styleDir, { recursive: true });
+
+    for (const component of components) {
+      const sourcePath = path.join(rootDir, "registry/vue", style, component);
+      const destPath = path.join(styleDir, component);
+
+      try {
+        // Read and transform component
+        let content = await fs.readFile(sourcePath, "utf-8");
+
+        // Fix import path: @/lib/utils -> ../lib/utils
+        content = content.replace(/@\/lib\/utils/g, "../lib/utils");
+
+        await fs.writeFile(destPath, content);
+        console.log(`  ✅ Synced ${style}/${component}`);
+      } catch (error) {
+        console.error(
+          `  ❌ Failed to sync ${style}/${component}:`,
+          error.message
+        );
+      }
+    }
+  }
+
+  console.log("✅ Vue test components synced!");
+}
+
+/**
  * Main sync function
  */
 async function main() {
@@ -130,9 +195,19 @@ async function main() {
       console.log();
     }
 
-    if (target !== "storybook" && target !== "tests" && target !== "all") {
+    if (target === "tests-vue" || target === "all") {
+      await syncTestsVue();
+      console.log();
+    }
+
+    if (
+      target !== "storybook" &&
+      target !== "tests" &&
+      target !== "tests-vue" &&
+      target !== "all"
+    ) {
       console.error(`❌ Invalid target: ${target}`);
-      console.log("\nValid targets: storybook, tests, all");
+      console.log("\nValid targets: storybook, tests, tests-vue, all");
       process.exit(1);
     }
 

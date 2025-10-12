@@ -75,8 +75,11 @@
     "zod": "^3.22.4"
   },
   "lint-staged": {
-    "*.{ts,tsx,vue,js,jsx}": [
+    "*.{ts,tsx,js,jsx}": [
       "eslint --fix",
+      "prettier --write"
+    ],
+    "*.vue": [
       "prettier --write"
     ],
     "*.{json,md}": [
