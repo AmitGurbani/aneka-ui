@@ -8,7 +8,8 @@
       "@/*": ["./src/*"]
     },
     "composite": true,
-    "incremental": true
+    "incremental": true,
+    "tsBuildInfoFile": "./dist/.tsbuildinfo"
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "tests"]

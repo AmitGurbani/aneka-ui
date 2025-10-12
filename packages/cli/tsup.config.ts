@@ -3,7 +3,12 @@ import { defineConfig } from "tsup";
 export default defineConfig({
   entry: ["src/index.ts"],
   format: ["esm"],
-  dts: true,
+  dts: {
+    compilerOptions: {
+      composite: false,
+      incremental: false,
+    },
+  },
   clean: true,
   sourcemap: true,
   minify: false,

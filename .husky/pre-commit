@@ -1,1 +1,18 @@
-pnpm lint-staged
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "🔍 Running pre-commit checks..."
+
+# Run lint-staged for code formatting and linting
+echo "📝 Linting and formatting staged files..."
+pnpm lint-staged || exit 1
+
+# Run tests
+echo "🧪 Running tests..."
+pnpm test || exit 1
+
+# Run build
+echo "🏗️  Building project..."
+pnpm build || exit 1
+
+echo "✅ All pre-commit checks passed!"
