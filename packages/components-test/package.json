@@ -7,7 +7,7 @@
   "scripts": {
     "sync": "node ../../scripts/sync-components.js --target=tests",
     "format": "prettier --write \"tests/**/*.{ts,tsx,json}\"",
-    "lint": "eslint tests --fix",
+    "lint": "eslint tests tests-vue --fix",
     "test": "vitest run",
     "test:watch": "vitest watch",
     "test:coverage": "vitest run --coverage",
