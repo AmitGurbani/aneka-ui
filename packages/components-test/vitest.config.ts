@@ -7,7 +7,8 @@ export default defineConfig({
   // No aliases needed - components are synced to src/
   test: {
     globals: true,
-    environment: "jsdom",
+    environment: "happy-dom",
+    pool: "forks",
     setupFiles: ["./vitest.setup.ts"],
     include: [
       "tests/**/*.{test,spec}.{ts,tsx}",
