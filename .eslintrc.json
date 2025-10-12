@@ -68,6 +68,12 @@
       "rules": {
         "@typescript-eslint/no-explicit-any": "off"
       }
+    },
+    {
+      "files": ["**/src-angular/**/*.ts"],
+      "rules": {
+        "import/no-unresolved": "off"
+      }
     }
   ]
 }

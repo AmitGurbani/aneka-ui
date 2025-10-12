@@ -9,6 +9,7 @@
  *   node scripts/sync-components.js --target storybook
  *   node scripts/sync-components.js --target tests
  *   node scripts/sync-components.js --target tests-vue
+ *   node scripts/sync-components.js --target tests-angular
  *   node scripts/sync-components.js --target all
  */
 
@@ -51,6 +52,19 @@ const TARGETS = {
       "Badge.vue",
       "Dialog.vue",
       "Tooltip.vue",
+    ],
+    styles: ["material", "hig", "oneui"],
+  },
+  "tests-angular": {
+    source: path.resolve(rootDir, "registry/angular"),
+    dest: path.resolve(rootDir, "packages/components-test/src-angular"),
+    needsTransform: true,
+    components: [
+      "button.component.ts",
+      "card.component.ts",
+      "badge.component.ts",
+      "dialog.component.ts",
+      "tooltip.component.ts",
     ],
     styles: ["material", "hig", "oneui"],
   },
@@ -175,6 +189,62 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 /**
+ * Sync Angular components for tests (with import path transformation)
+ */
+async function syncTestsAngular() {
+  console.log("🧪 Syncing Angular components to test package...");
+  const { dest, components, styles } = TARGETS["tests-angular"];
+
+  // Create lib/utils
+  const utilsDir = path.join(dest, "lib");
+  await fs.mkdir(utilsDir, { recursive: true });
+
+  const utilsContent = `import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+`;
+  await fs.writeFile(path.join(utilsDir, "utils.ts"), utilsContent);
+  console.log("  ✅ Created lib/utils.ts");
+
+  // Sync components for each style
+  for (const style of styles) {
+    const styleDir = path.join(dest, style);
+    await fs.mkdir(styleDir, { recursive: true });
+
+    for (const component of components) {
+      const sourcePath = path.join(
+        rootDir,
+        "registry/angular",
+        style,
+        component
+      );
+      const destPath = path.join(styleDir, component);
+
+      try {
+        // Read and transform component
+        let content = await fs.readFile(sourcePath, "utf-8");
+
+        // Fix import path: @/lib/utils -> ../lib/utils
+        content = content.replace(/@\/lib\/utils/g, "../lib/utils");
+
+        await fs.writeFile(destPath, content);
+        console.log(`  ✅ Synced ${style}/${component}`);
+      } catch (error) {
+        console.error(
+          `  ❌ Failed to sync ${style}/${component}:`,
+          error.message
+        );
+      }
+    }
+  }
+
+  console.log("✅ Angular test components synced!");
+}
+
+/**
  * Main sync function
  */
 async function main() {
@@ -200,14 +270,22 @@ async function main() {
       console.log();
     }
 
+    if (target === "tests-angular" || target === "all") {
+      await syncTestsAngular();
+      console.log();
+    }
+
     if (
       target !== "storybook" &&
       target !== "tests" &&
       target !== "tests-vue" &&
+      target !== "tests-angular" &&
       target !== "all"
     ) {
       console.error(`❌ Invalid target: ${target}`);
-      console.log("\nValid targets: storybook, tests, tests-vue, all");
+      console.log(
+        "\nValid targets: storybook, tests, tests-vue, tests-angular, all"
+      );
       process.exit(1);
     }
 
