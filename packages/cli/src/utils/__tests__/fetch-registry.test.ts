@@ -254,8 +254,8 @@ describe("fetchComponents", () => {
     );
 
     expect(result).toHaveLength(2);
-    expect(result[0].name).toBe("button");
-    expect(result[1].name).toBe("card");
+    expect(result[0]?.name).toBe("button");
+    expect(result[1]?.name).toBe("card");
   });
 
   it("should handle partial failures and return successful components", async () => {
@@ -291,7 +291,7 @@ describe("fetchComponents", () => {
     );
 
     expect(result).toHaveLength(1);
-    expect(result[0].name).toBe("button");
+    expect(result[0]?.name).toBe("button");
     expect(logger.warn).toHaveBeenCalledWith(
       "Some components could not be fetched:"
     );

@@ -34,11 +34,12 @@ describe("getInstalledPackages", () => {
       exitCode: 0,
       command: "pnpm list --json --depth=0",
       escapedCommand: "pnpm list --json --depth=0",
+      cwd: mockCwd,
       failed: false,
       timedOut: false,
       isCanceled: false,
       killed: false,
-    });
+    } as any);
 
     const result = await getInstalledPackages(mockCwd);
 
@@ -58,11 +59,12 @@ describe("getInstalledPackages", () => {
       exitCode: 0,
       command: "pnpm list --json --depth=0",
       escapedCommand: "pnpm list --json --depth=0",
+      cwd: mockCwd,
       failed: false,
       timedOut: false,
       isCanceled: false,
       killed: false,
-    });
+    } as any);
 
     const result = await getInstalledPackages(mockCwd);
 
@@ -88,11 +90,12 @@ describe("getInstalledPackages", () => {
       exitCode: 0,
       command: "pnpm list --json --depth=0",
       escapedCommand: "pnpm list --json --depth=0",
+      cwd: mockCwd,
       failed: false,
       timedOut: false,
       isCanceled: false,
       killed: false,
-    });
+    } as any);
 
     const result = await getInstalledPackages(mockCwd);
 
@@ -122,11 +125,12 @@ describe("filterMissingPackages", () => {
       exitCode: 0,
       command: "pnpm list --json --depth=0",
       escapedCommand: "pnpm list --json --depth=0",
+      cwd: mockCwd,
       failed: false,
       timedOut: false,
       isCanceled: false,
       killed: false,
-    });
+    } as any);
 
     const packages = ["react", "vue", "typescript", "tailwindcss"];
     const result = await filterMissingPackages(packages, mockCwd);
@@ -143,11 +147,12 @@ describe("filterMissingPackages", () => {
       exitCode: 0,
       command: "pnpm list --json --depth=0",
       escapedCommand: "pnpm list --json --depth=0",
+      cwd: mockCwd,
       failed: false,
       timedOut: false,
       isCanceled: false,
       killed: false,
-    });
+    } as any);
 
     const packages = ["react", "vue", "typescript"];
     const result = await filterMissingPackages(packages, mockCwd);
@@ -169,11 +174,12 @@ describe("filterMissingPackages", () => {
       exitCode: 0,
       command: "pnpm list --json --depth=0",
       escapedCommand: "pnpm list --json --depth=0",
+      cwd: mockCwd,
       failed: false,
       timedOut: false,
       isCanceled: false,
       killed: false,
-    });
+    } as any);
 
     const packages = ["react", "vue"];
     const result = await filterMissingPackages(packages, mockCwd);
@@ -194,11 +200,12 @@ describe("filterMissingPackages", () => {
       exitCode: 0,
       command: "pnpm list --json --depth=0",
       escapedCommand: "pnpm list --json --depth=0",
+      cwd: mockCwd,
       failed: false,
       timedOut: false,
       isCanceled: false,
       killed: false,
-    });
+    } as any);
 
     const packages = ["react@^18.0.0", "vue@^3.3.0"];
     const result = await filterMissingPackages(packages, mockCwd);

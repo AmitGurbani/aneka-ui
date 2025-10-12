@@ -4,6 +4,10 @@ echo "🔍 Running pre-commit checks..."
 echo "📝 Linting and formatting staged files..."
 pnpm lint-staged || exit 1
 
+# Run typecheck
+echo "🔎 Running typecheck..."
+pnpm typecheck || exit 1
+
 # Run tests
 echo "🧪 Running tests..."
 pnpm test || exit 1

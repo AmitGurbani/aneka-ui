@@ -100,7 +100,7 @@ export async function filterMissingPackages(
 ): Promise<string[]> {
   const installed = await getInstalledPackages(cwd);
   return packages.filter((pkg) => {
-    const pkgName = pkg.split("@")[0];
+    const pkgName = pkg.split("@")[0] ?? "";
     return !installed.has(pkgName);
   });
 }

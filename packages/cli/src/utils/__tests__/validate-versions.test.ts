@@ -18,7 +18,7 @@ describe("validateNodeVersion", () => {
 
   it("should validate current Node.js version correctly", () => {
     const nodeVersion = process.version;
-    const majorVersion = parseInt(nodeVersion.slice(1).split(".")[0]);
+    const majorVersion = parseInt(nodeVersion.slice(1).split(".")[0] ?? "0");
 
     const result = validateNodeVersion();
 
