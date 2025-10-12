@@ -5,6 +5,7 @@ import {
   TooltipTrigger,
   TooltipContent,
 } from "radix-vue";
+
 import { cn } from "../lib/utils";
 
 interface Props {
@@ -13,6 +14,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  class: undefined,
   sideOffset: 4,
 });
 </script>

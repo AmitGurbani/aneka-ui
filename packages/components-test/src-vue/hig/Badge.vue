@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { computed } from "vue";
 import { cva, type VariantProps } from "class-variance-authority";
+import { computed } from "vue";
+
 import { cn } from "../lib/utils";
 
 const badgeVariants = cva(
@@ -32,6 +33,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   variant: "default",
+  class: undefined,
 });
 
 const classes = computed(() =>
