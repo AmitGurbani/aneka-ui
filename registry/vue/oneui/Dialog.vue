@@ -1,15 +1,14 @@
 <script setup lang="ts">
+import { X } from "lucide-vue-next";
 import {
   DialogRoot,
   DialogTrigger,
   DialogPortal,
   DialogOverlay,
   DialogContent,
-  DialogTitle,
-  DialogDescription,
   DialogClose,
 } from "radix-vue";
-import { X } from "lucide-vue-next";
+
 import { cn } from "@/lib/utils";
 
 interface Props {
