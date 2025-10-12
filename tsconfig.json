@@ -22,5 +22,14 @@
     "sourceMap": true,
     "incremental": true
   },
-  "exclude": ["node_modules", "dist", "build", ".next", "out"]
+  "exclude": ["node_modules", "dist", "build", ".next", "out"],
+  "references": [
+    { "path": "./packages/tokens" },
+    { "path": "./packages/cli" },
+    { "path": "./packages/components-test" },
+    { "path": "./storybook" },
+    { "path": "./examples/demo-app" },
+    { "path": "./tsconfig.scripts.json" }
+  ],
+  "files": []
 }

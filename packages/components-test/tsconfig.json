@@ -4,8 +4,10 @@
     "jsx": "react-jsx",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "types": ["vitest/globals", "@testing-library/jest-dom"],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "composite": true,
+    "noEmit": true
   },
-  "include": ["src", "tests", "vitest.setup.ts"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["src", "tests"],
+  "exclude": ["node_modules", "dist", "vitest.setup.ts", "vitest.config.ts"]
 }
