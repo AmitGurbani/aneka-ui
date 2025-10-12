@@ -32,7 +32,7 @@
     "dev:docs": "pnpm --filter @aneka-ui/docs dev",
     "dev:storybook": "pnpm --filter @aneka-ui/storybook dev",
     "dev:demo": "pnpm --filter aneka-ui-demo dev",
-    "lint": "turbo run lint && eslint --fix \"scripts/**/*.{ts,js}\" \"registry/**/*.{ts,tsx}\" --rule 'import/no-unresolved: off'",
+    "lint": "turbo run lint && eslint --fix \"scripts/**/*.{ts,js}\" \"registry/**/*.{ts,tsx,vue}\" --rule 'import/no-unresolved: off'",
     "format": "turbo run format && prettier --write \"*.{json,md}\" \".github/**/*.md\" \"docs/**/*.md\" \"scripts/**/*.{ts,js}\" \"registry/**/*.{ts,tsx,vue}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,vue,js,jsx,json,md}\"",
     "test": "turbo run test",
@@ -64,6 +64,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-vue": "^10.5.0",
     "husky": "^9.0.11",
     "lint-staged": "^16.2.4",
     "prettier": "^3.2.5",
@@ -72,14 +73,12 @@
     "turbo": "^2.5.8",
     "typescript": "^5.3.3",
     "vitest": "^3.2.4",
+    "vue-eslint-parser": "^10.2.0",
     "zod": "^3.22.4"
   },
   "lint-staged": {
-    "*.{ts,tsx,js,jsx}": [
+    "*.{ts,tsx,js,jsx,vue}": [
       "eslint --fix",
-      "prettier --write"
-    ],
-    "*.vue": [
       "prettier --write"
     ],
     "*.{json,md}": [
