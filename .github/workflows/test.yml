@@ -50,13 +50,16 @@ jobs:
       - name: Run CLI tests with coverage
         run: pnpm --filter @aneka-ui/cli test:coverage
 
+      - name: Run components tests with coverage
+        run: pnpm --filter @aneka-ui/components-test test:coverage
+
       - name: Upload coverage to Codecov
         if: matrix.node-version == 20
         uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./packages/cli/coverage/coverage-final.json
-          flags: cli
+          files: ./packages/cli/coverage/coverage-final.json,./packages/components-test/coverage/coverage-final.json
+          flags: unittests
           fail_ci_if_error: false
           verbose: true
 
