@@ -11,11 +11,19 @@ test.describe("Demo App", () => {
     await expect(page).toHaveTitle(/Aneka UI/i);
   });
 
-  test("should display components", async ({ page }) => {
-    await page.goto("/");
+  test("should display Material Design components", async ({ page }) => {
+    await page.goto("/material");
 
-    // Check for buttons
+    // Wait for page to load
+    await page.waitForLoadState("networkidle");
+
+    // Check for button components
     const buttons = page.locator("button");
     await expect(buttons.first()).toBeVisible();
+
+    // Check for heading
+    await expect(
+      page.getByRole("heading", { name: "Material Design" })
+    ).toBeVisible();
   });
 });
