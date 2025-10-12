@@ -395,16 +395,16 @@ aneka-ui add button card badge
 
 ## 🏆 Project Status
 
-| Feature | Status |
-|---------|--------|
-| Component Registry | ✅ 100% |
-| CLI Tool | ✅ 100% |
-| Documentation | ✅ 100% |
-| Storybook | ✅ 100% |
-| CI/CD | ✅ 100% |
-| Testing | ⚠️ 15% |
-| Publishing | ⏳ 0% |
-| **Overall** | **⚠️ 92%** |
+| Feature            | Status     |
+| ------------------ | ---------- |
+| Component Registry | ✅ 100%    |
+| CLI Tool           | ✅ 100%    |
+| Documentation      | ✅ 100%    |
+| Storybook          | ✅ 100%    |
+| CI/CD              | ✅ 100%    |
+| Testing            | ⚠️ 15%     |
+| Publishing         | ⏳ 0%      |
+| **Overall**        | **⚠️ 92%** |
 
 ---
 
