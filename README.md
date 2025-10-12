@@ -1,5 +1,12 @@
 # Aneka UI
 
+[![CI](https://github.com/AmitGurbani/aneka-ui/actions/workflows/ci.yml/badge.svg)](https://github.com/AmitGurbani/aneka-ui/actions/workflows/ci.yml)
+[![Tests](https://github.com/AmitGurbani/aneka-ui/actions/workflows/test.yml/badge.svg)](https://github.com/AmitGurbani/aneka-ui/actions/workflows/test.yml)
+[![codecov](https://codecov.io/gh/AmitGurbani/aneka-ui/branch/main/graph/badge.svg)](https://codecov.io/gh/AmitGurbani/aneka-ui)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue.svg)](https://www.typescriptlang.org/)
+[![pnpm](https://img.shields.io/badge/pnpm-9.8-orange.svg)](https://pnpm.io/)
+
 > **Design system patterns with YOUR brand colors**
 
 Aneka UI is a framework-agnostic component library providing authentic Material Design, Apple HIG, and Samsung One UI patterns that adapt to your brand colors. Install components via CLI and customize them freely in your own codebase.

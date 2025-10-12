@@ -44,14 +44,18 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Run tests
-        run: pnpm test
+      - name: Run tests with coverage
+        run: pnpm test:coverage
 
-      - name: Upload coverage
+      - name: Upload coverage to Codecov
         if: matrix.node-version == 18
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
-          files: ./coverage/coverage-final.json
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./packages/components-test/coverage/coverage-final.json
+          flags: components
+          fail_ci_if_error: false
+          verbose: true
 
   visual:
     name: Visual Regression Tests
