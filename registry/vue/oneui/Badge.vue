@@ -25,7 +25,8 @@ const badgeVariants = cva(
 
 type BadgeVariants = VariantProps<typeof badgeVariants>;
 
-interface Props extends BadgeVariants {
+interface Props {
+  variant?: BadgeVariants["variant"];
   class?: string;
 }
 

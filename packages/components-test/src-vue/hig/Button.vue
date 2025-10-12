@@ -43,7 +43,9 @@ const buttonVariants = cva(
 
 type ButtonVariants = VariantProps<typeof buttonVariants>;
 
-interface Props extends ButtonVariants {
+interface Props {
+  variant?: ButtonVariants["variant"];
+  size?: ButtonVariants["size"];
   class?: string;
   asChild?: boolean;
 }
