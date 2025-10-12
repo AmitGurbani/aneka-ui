@@ -1,0 +1,37 @@
+[
+  {
+    "name": "button",
+    "type": "component",
+    "description": "Button component with multiple variants and sizes",
+    "frameworks": ["react", "vue", "angular"],
+    "styles": ["material", "hig", "oneui"]
+  },
+  {
+    "name": "card",
+    "type": "component",
+    "description": "Card container with header, content, and footer sections",
+    "frameworks": ["react", "vue", "angular"],
+    "styles": ["material", "hig", "oneui"]
+  },
+  {
+    "name": "badge",
+    "type": "component",
+    "description": "Badge component for labels and status indicators",
+    "frameworks": ["react", "vue", "angular"],
+    "styles": ["material", "hig", "oneui"]
+  },
+  {
+    "name": "dialog",
+    "type": "component",
+    "description": "Modal dialog with overlay and focus management",
+    "frameworks": ["react", "vue", "angular"],
+    "styles": ["material", "hig", "oneui"]
+  },
+  {
+    "name": "tooltip",
+    "type": "component",
+    "description": "Tooltip with hover and keyboard support",
+    "frameworks": ["react", "vue", "angular"],
+    "styles": ["material", "hig", "oneui"]
+  }
+]

@@ -51,6 +51,7 @@ lerna-debug.log*
 # Registry built files (keep source, ignore generated JSON)
 registry/**/*.json
 !registry/schema.json
+!registry/index.json
 
 # Cache
 .cache/
