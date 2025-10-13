@@ -1,0 +1,292 @@
+{
+  "$schema": "../schema.json",
+  "component": "Button",
+  "designSystem": "material",
+  "description": "Material Design 3 Button Component",
+  "tests": {
+    "rendering": [
+      {
+        "name": "should render with default props",
+        "assertions": [
+          { "type": "exists" },
+          { "type": "tagName", "value": "BUTTON" }
+        ]
+      },
+      {
+        "name": "should render children correctly",
+        "props": {},
+        "children": "Test Button",
+        "assertions": [{ "type": "hasText", "value": "Test Button" }]
+      },
+      {
+        "name": "should forward ref to button element",
+        "props": { "ref": "mockRef" },
+        "children": "Click me",
+        "assertions": [{ "type": "refCalled", "handler": "mockRef" }],
+        "skipFrameworks": ["vue", "angular"],
+        "skipReason": "React-specific: ref forwarding is a React pattern"
+      }
+    ],
+    "variants": [
+      {
+        "name": "should render filled variant (default)",
+        "props": { "variant": "filled" },
+        "children": "Filled",
+        "assertions": [
+          { "type": "hasClass", "value": "bg-primary" },
+          { "type": "hasClass", "value": "text-primary-foreground" }
+        ]
+      },
+      {
+        "name": "should render filled-tonal variant",
+        "props": { "variant": "filled-tonal" },
+        "children": "Filled Tonal",
+        "assertions": [
+          { "type": "hasClass", "value": "bg-secondary" },
+          { "type": "hasClass", "value": "text-secondary-foreground" }
+        ]
+      },
+      {
+        "name": "should render elevated variant",
+        "props": { "variant": "elevated" },
+        "children": "Elevated",
+        "assertions": [
+          { "type": "hasClass", "value": "bg-background" },
+          { "type": "hasClass", "value": "text-primary" }
+        ]
+      },
+      {
+        "name": "should render outlined variant",
+        "props": { "variant": "outlined" },
+        "children": "Outlined",
+        "assertions": [
+          { "type": "hasClass", "value": "border" },
+          { "type": "hasClass", "value": "border-outline" }
+        ]
+      },
+      {
+        "name": "should render text variant",
+        "props": { "variant": "text" },
+        "children": "Text",
+        "assertions": [{ "type": "hasClass", "value": "text-primary" }]
+      },
+      {
+        "name": "should render destructive variant",
+        "props": { "variant": "destructive" },
+        "children": "Delete",
+        "assertions": [
+          { "type": "hasClass", "value": "bg-destructive" },
+          { "type": "hasClass", "value": "text-destructive-foreground" }
+        ]
+      },
+      {
+        "name": "should render link variant",
+        "props": { "variant": "link" },
+        "children": "Link",
+        "assertions": [
+          { "type": "hasClass", "value": "text-primary" },
+          { "type": "hasClass", "value": "underline-offset-4" }
+        ]
+      }
+    ],
+    "sizes": [
+      {
+        "name": "should render default size",
+        "props": { "size": "default" },
+        "children": "Default Size",
+        "assertions": [
+          { "type": "hasClass", "value": "h-10" },
+          { "type": "hasClass", "value": "px-4" }
+        ]
+      },
+      {
+        "name": "should render small size",
+        "props": { "size": "sm" },
+        "children": "Small",
+        "assertions": [
+          { "type": "hasClass", "value": "h-8" },
+          { "type": "hasClass", "value": "px-3" },
+          { "type": "hasClass", "value": "text-xs" }
+        ]
+      },
+      {
+        "name": "should render large size",
+        "props": { "size": "lg" },
+        "children": "Large",
+        "assertions": [
+          { "type": "hasClass", "value": "h-12" },
+          { "type": "hasClass", "value": "px-6" },
+          { "type": "hasClass", "value": "text-base" }
+        ]
+      },
+      {
+        "name": "should render icon size",
+        "props": { "size": "icon" },
+        "children": "Icon",
+        "assertions": [
+          { "type": "hasClass", "value": "h-10" },
+          { "type": "hasClass", "value": "w-10" }
+        ]
+      }
+    ],
+    "styling": [
+      {
+        "name": "should have sentence case text with normal tracking",
+        "props": {},
+        "children": "Material Button",
+        "assertions": [
+          { "type": "hasClass", "value": "tracking-normal" },
+          { "type": "notHasClass", "value": "uppercase" }
+        ]
+      },
+      {
+        "name": "should have rounded corners (8px for default)",
+        "props": {},
+        "children": "Material Button",
+        "assertions": [{ "type": "hasClass", "value": "rounded-lg" }]
+      },
+      {
+        "name": "should have rounded-xl for large size",
+        "props": { "size": "lg" },
+        "children": "Large Button",
+        "assertions": [{ "type": "hasClass", "value": "rounded-xl" }]
+      },
+      {
+        "name": "should have rounded-md for small size",
+        "props": { "size": "sm" },
+        "children": "Small Button",
+        "assertions": [{ "type": "hasClass", "value": "rounded-md" }]
+      },
+      {
+        "name": "should have Material Design transitions",
+        "props": {},
+        "children": "Material Button",
+        "assertions": [
+          { "type": "hasClass", "value": "transition-all" },
+          { "type": "hasClass", "value": "duration-200" }
+        ]
+      }
+    ],
+    "interactions": [
+      {
+        "name": "should handle click events",
+        "props": { "onClick": "mockHandler" },
+        "children": "Click me",
+        "actions": [{ "type": "click" }],
+        "assertions": [
+          { "type": "handlerCalled", "handler": "mockHandler", "times": 1 }
+        ]
+      },
+      {
+        "name": "should not trigger click when disabled",
+        "props": { "onClick": "mockHandler", "disabled": true },
+        "children": "Disabled",
+        "actions": [{ "type": "click" }],
+        "assertions": [{ "type": "handlerNotCalled", "handler": "mockHandler" }]
+      },
+      {
+        "name": "should handle focus events",
+        "props": { "onFocus": "mockHandler" },
+        "children": "Focus me",
+        "actions": [{ "type": "focus" }],
+        "assertions": [
+          { "type": "handlerCalled", "handler": "mockHandler", "times": 1 },
+          { "type": "hasFocus" }
+        ],
+        "skipFrameworks": ["vue", "angular"],
+        "skipReason": "hasFocus assertion requires proper DOM focus tracking which has environmental limitations in Vue Test Utils and Angular TestBed with JSDOM"
+      }
+    ],
+    "composition": [
+      {
+        "name": "should render as child component when asChild is true",
+        "props": { "asChild": true },
+        "children": "<a href=\"/test\">Link Button</a>",
+        "assertions": [
+          { "type": "tagName", "value": "A" },
+          { "type": "hasAttribute", "name": "href", "value": "/test" }
+        ],
+        "skipFrameworks": ["vue", "angular"],
+        "skipReason": "React-specific: asChild is a Radix UI/React composition pattern"
+      }
+    ],
+    "accessibility": [
+      {
+        "name": "should render as button element",
+        "props": {},
+        "children": "Accessible Button",
+        "assertions": [{ "type": "tagName", "value": "BUTTON" }]
+      },
+      {
+        "name": "should support aria-label",
+        "props": { "aria-label": "Close dialog" },
+        "children": "X",
+        "assertions": [
+          {
+            "type": "hasAttribute",
+            "name": "aria-label",
+            "value": "Close dialog"
+          }
+        ]
+      },
+      {
+        "name": "should support aria-disabled",
+        "props": { "aria-disabled": "true" },
+        "children": "Disabled",
+        "assertions": [
+          { "type": "hasAttribute", "name": "aria-disabled", "value": "true" }
+        ]
+      },
+      {
+        "name": "should have focus-visible outline",
+        "props": {},
+        "children": "Focus me",
+        "assertions": [
+          { "type": "hasClass", "value": "focus-visible:outline-none" },
+          { "type": "hasClass", "value": "focus-visible:ring-2" },
+          { "type": "hasClass", "value": "focus-visible:ring-primary" }
+        ]
+      }
+    ],
+    "props": [
+      {
+        "name": "should accept custom className",
+        "props": { "className": "custom-class" },
+        "children": "Custom",
+        "assertions": [{ "type": "hasClass", "value": "custom-class" }]
+      },
+      {
+        "name": "should accept HTML button attributes",
+        "props": { "type": "submit", "name": "test-button", "value": "test" },
+        "children": "Submit",
+        "assertions": [
+          { "type": "hasAttribute", "name": "type", "value": "submit" },
+          { "type": "hasAttribute", "name": "name", "value": "test-button" },
+          { "type": "hasAttribute", "name": "value", "value": "test" }
+        ]
+      },
+      {
+        "name": "should apply disabled state",
+        "props": { "disabled": true },
+        "children": "Disabled",
+        "assertions": [
+          { "type": "isDisabled" },
+          { "type": "hasClass", "value": "disabled:pointer-events-none" },
+          { "type": "hasClass", "value": "disabled:opacity-50" }
+        ]
+      },
+      {
+        "name": "should support data attributes",
+        "props": { "data-testid": "custom-button" },
+        "children": "Test",
+        "assertions": [
+          {
+            "type": "hasAttribute",
+            "name": "data-testid",
+            "value": "custom-button"
+          }
+        ]
+      }
+    ]
+  }
+}

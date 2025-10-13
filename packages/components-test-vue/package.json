@@ -23,6 +23,8 @@
     "vue": "^3.4.0"
   },
   "devDependencies": {
+    "@aneka-ui/test-runner-vue": "workspace:*",
+    "@aneka-ui/test-specs": "workspace:*",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vitest/coverage-v8": "^3.2.4",
     "@vitest/ui": "^3.2.4",

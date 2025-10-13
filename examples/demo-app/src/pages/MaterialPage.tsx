@@ -97,11 +97,11 @@ export default function MaterialPage() {
             </CardHeader>
             <CardContent>
               <div className="flex flex-wrap gap-4">
-                <Button variant="default">Default</Button>
-                <Button variant="secondary">Secondary</Button>
+                <Button variant="filled">Filled</Button>
+                <Button variant="filled-tonal">Filled Tonal</Button>
                 <Button variant="destructive">Destructive</Button>
-                <Button variant="outline">Outline</Button>
-                <Button variant="ghost">Ghost</Button>
+                <Button variant="outlined">Outlined</Button>
+                <Button variant="text">Text</Button>
                 <Button variant="link">Link</Button>
               </div>
             </CardContent>
@@ -172,7 +172,7 @@ export default function MaterialPage() {
                 </p>
               </CardContent>
               <CardFooter className="gap-2">
-                <Button variant="ghost" size="sm">
+                <Button variant="text" size="sm">
                   Cancel
                 </Button>
                 <Button size="sm">Confirm</Button>
@@ -252,7 +252,7 @@ export default function MaterialPage() {
                     </p>
                   </div>
                   <DialogFooter>
-                    <Button variant="ghost">Cancel</Button>
+                    <Button variant="text">Cancel</Button>
                     <Button>Confirm</Button>
                   </DialogFooter>
                 </DialogContent>
@@ -277,7 +277,7 @@ export default function MaterialPage() {
                 <div className="flex flex-wrap gap-4">
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <Button variant="outline">Hover me</Button>
+                      <Button variant="outlined">Hover me</Button>
                     </TooltipTrigger>
                     <TooltipContent>
                       <p>Material Design tooltip with 4px radius</p>
@@ -286,7 +286,7 @@ export default function MaterialPage() {
 
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <Button variant="outline">More info</Button>
+                      <Button variant="outlined">More info</Button>
                     </TooltipTrigger>
                     <TooltipContent>
                       <p>200ms fade animation</p>

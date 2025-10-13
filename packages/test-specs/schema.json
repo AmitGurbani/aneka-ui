@@ -1,0 +1,169 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Component Test Specification",
+  "description": "Framework-agnostic test specification for UI components",
+  "type": "object",
+  "required": ["component", "designSystem", "tests"],
+  "properties": {
+    "component": {
+      "type": "string",
+      "description": "Name of the component being tested"
+    },
+    "designSystem": {
+      "type": "string",
+      "enum": ["material", "hig", "oneui"],
+      "description": "Design system the component belongs to"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the component"
+    },
+    "tests": {
+      "type": "object",
+      "description": "Test categories and their test cases",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/testCase"
+        }
+      }
+    },
+    "frameworkSpecific": {
+      "type": "object",
+      "description": "Framework-specific tests that cannot be shared",
+      "properties": {
+        "react": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/frameworkTest"
+          }
+        },
+        "vue": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/frameworkTest"
+          }
+        },
+        "angular": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/frameworkTest"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "testCase": {
+      "type": "object",
+      "required": ["name", "assertions"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Test case name"
+        },
+        "props": {
+          "type": "object",
+          "description": "Component props to pass"
+        },
+        "children": {
+          "type": "string",
+          "description": "Component children content"
+        },
+        "actions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/action"
+          },
+          "description": "User actions to perform"
+        },
+        "assertions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/assertion"
+          },
+          "description": "Assertions to verify"
+        },
+        "skipFrameworks": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["react", "vue", "angular"]
+          },
+          "description": "Frameworks to skip this test on (e.g., due to environmental limitations)"
+        },
+        "skipReason": {
+          "type": "string",
+          "description": "Reason why this test is skipped on certain frameworks"
+        }
+      }
+    },
+    "action": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["click", "focus", "blur", "type", "hover"]
+        },
+        "value": {
+          "type": "string",
+          "description": "Value for actions like 'type'"
+        }
+      }
+    },
+    "assertion": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "exists",
+            "tagName",
+            "hasText",
+            "hasClass",
+            "notHasClass",
+            "hasAttribute",
+            "hasRole",
+            "handlerCalled",
+            "handlerNotCalled",
+            "hasFocus",
+            "isDisabled",
+            "refCalled"
+          ]
+        },
+        "value": {
+          "type": "string",
+          "description": "Expected value for the assertion"
+        },
+        "name": {
+          "type": "string",
+          "description": "Attribute name (for hasAttribute type)"
+        },
+        "handler": {
+          "type": "string",
+          "description": "Handler name (for handlerCalled/handlerNotCalled)"
+        },
+        "times": {
+          "type": "number",
+          "description": "Number of times handler should be called"
+        }
+      }
+    },
+    "frameworkTest": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Framework-specific test name"
+        },
+        "skip": {
+          "type": "string",
+          "description": "Reason this test is skipped/not applicable to other frameworks"
+        }
+      }
+    }
+  }
+}

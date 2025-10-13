@@ -3,7 +3,7 @@ import { TestBed } from "@angular/core/testing";
 
 import { ButtonComponent } from "../../src-angular/material/button.component";
 
-describe("Material Design Button", () => {
+describe("Material Design 3 Button", () => {
   let component: ButtonComponent;
   let fixture: ComponentFixture<ButtonComponent>;
   let compiled: HTMLElement;
@@ -44,22 +44,45 @@ describe("Material Design Button", () => {
   });
 
   describe("Variants", () => {
-    it("should render default variant", () => {
-      component.variant = "default";
+    it("should render filled variant (default)", () => {
+      component.variant = "filled";
       fixture.detectChanges();
       const button = compiled.querySelector("button");
       expect(button?.classList.contains("bg-primary")).toBe(true);
       expect(button?.classList.contains("text-primary-foreground")).toBe(true);
     });
 
-    it("should render secondary variant", () => {
-      component.variant = "secondary";
+    it("should render filled-tonal variant", () => {
+      component.variant = "filled-tonal";
       fixture.detectChanges();
       const button = compiled.querySelector("button");
       expect(button?.classList.contains("bg-secondary")).toBe(true);
       expect(button?.classList.contains("text-secondary-foreground")).toBe(
         true
       );
+    });
+
+    it("should render elevated variant", () => {
+      component.variant = "elevated";
+      fixture.detectChanges();
+      const button = compiled.querySelector("button");
+      expect(button?.classList.contains("bg-background")).toBe(true);
+      expect(button?.classList.contains("text-primary")).toBe(true);
+    });
+
+    it("should render outlined variant", () => {
+      component.variant = "outlined";
+      fixture.detectChanges();
+      const button = compiled.querySelector("button");
+      expect(button?.classList.contains("border")).toBe(true);
+      expect(button?.classList.contains("border-outline")).toBe(true);
+    });
+
+    it("should render text variant", () => {
+      component.variant = "text";
+      fixture.detectChanges();
+      const button = compiled.querySelector("button");
+      expect(button?.classList.contains("text-primary")).toBe(true);
     });
 
     it("should render destructive variant", () => {
@@ -70,21 +93,6 @@ describe("Material Design Button", () => {
       expect(button?.classList.contains("text-destructive-foreground")).toBe(
         true
       );
-    });
-
-    it("should render outline variant", () => {
-      component.variant = "outline";
-      fixture.detectChanges();
-      const button = compiled.querySelector("button");
-      expect(button?.classList.contains("border-2")).toBe(true);
-      expect(button?.classList.contains("border-primary")).toBe(true);
-    });
-
-    it("should render ghost variant", () => {
-      component.variant = "ghost";
-      fixture.detectChanges();
-      const button = compiled.querySelector("button");
-      expect(button?.classList.contains("text-primary")).toBe(true);
     });
 
     it("should render link variant", () => {
@@ -132,16 +140,30 @@ describe("Material Design Button", () => {
     });
   });
 
-  describe("Material Design Styling", () => {
-    it("should have uppercase text styling", () => {
+  describe("Material Design 3 Styling", () => {
+    it("should have sentence case text with normal tracking", () => {
       const button = compiled.querySelector("button");
-      expect(button?.classList.contains("uppercase")).toBe(true);
-      expect(button?.classList.contains("tracking-wide")).toBe(true);
+      expect(button?.classList.contains("tracking-normal")).toBe(true);
+      expect(button?.classList.contains("uppercase")).toBe(false);
     });
 
-    it("should have 4px border radius", () => {
+    it("should have rounded corners (8px for default)", () => {
       const button = compiled.querySelector("button");
-      expect(button?.classList.contains("rounded-[4px]")).toBe(true);
+      expect(button?.classList.contains("rounded-lg")).toBe(true);
+    });
+
+    it("should have rounded-xl for large size", () => {
+      component.size = "lg";
+      fixture.detectChanges();
+      const button = compiled.querySelector("button");
+      expect(button?.classList.contains("rounded-xl")).toBe(true);
+    });
+
+    it("should have rounded-md for small size", () => {
+      component.size = "sm";
+      fixture.detectChanges();
+      const button = compiled.querySelector("button");
+      expect(button?.classList.contains("rounded-md")).toBe(true);
     });
 
     it("should have Material Design transitions", () => {

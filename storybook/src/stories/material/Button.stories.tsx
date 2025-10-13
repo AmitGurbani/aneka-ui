@@ -3,18 +3,19 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "@/components/material/button";
 
 const meta: Meta<typeof Button> = {
-  title: "Material Design/Button",
+  title: "Material Design 3/Button",
   component: Button,
   tags: ["autodocs"],
   argTypes: {
     variant: {
       control: "select",
       options: [
-        "default",
-        "secondary",
+        "filled",
+        "filled-tonal",
+        "elevated",
+        "outlined",
+        "text",
         "destructive",
-        "outline",
-        "ghost",
         "link",
       ],
     },
@@ -28,16 +29,37 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const Default: Story = {
+export const Filled: Story = {
   args: {
-    children: "Button",
+    children: "Filled Button",
   },
 };
 
-export const Secondary: Story = {
+export const FilledTonal: Story = {
   args: {
-    variant: "secondary",
-    children: "Secondary",
+    variant: "filled-tonal",
+    children: "Filled Tonal",
+  },
+};
+
+export const Elevated: Story = {
+  args: {
+    variant: "elevated",
+    children: "Elevated",
+  },
+};
+
+export const Outlined: Story = {
+  args: {
+    variant: "outlined",
+    children: "Outlined",
+  },
+};
+
+export const Text: Story = {
+  args: {
+    variant: "text",
+    children: "Text Button",
   },
 };
 
@@ -45,20 +67,6 @@ export const Destructive: Story = {
   args: {
     variant: "destructive",
     children: "Destructive",
-  },
-};
-
-export const Outline: Story = {
-  args: {
-    variant: "outline",
-    children: "Outline",
-  },
-};
-
-export const Ghost: Story = {
-  args: {
-    variant: "ghost",
-    children: "Ghost",
   },
 };
 

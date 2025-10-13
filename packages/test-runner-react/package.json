@@ -1,0 +1,38 @@
+{
+  "name": "@aneka-ui/test-runner-react",
+  "version": "0.1.0",
+  "description": "Test runner for React components using framework-agnostic test specifications",
+  "type": "module",
+  "main": "src/index.ts",
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"No tests - library package\""
+  },
+  "keywords": [
+    "testing",
+    "react",
+    "test-runner"
+  ],
+  "author": "Aneka UI Team",
+  "license": "MIT",
+  "dependencies": {
+    "@aneka-ui/test-specs": "workspace:*"
+  },
+  "peerDependencies": {
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/user-event": "^14.0.0",
+    "react": "^19.0.0",
+    "vitest": "^3.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^16.1.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/react": "^19.0.0",
+    "react": "^19.2.0",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.4"
+  }
+}

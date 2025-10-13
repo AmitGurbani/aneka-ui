@@ -81,16 +81,16 @@ export default function ComparisonPage() {
               <MaterialCard>
                 <MaterialCardContent className="pt-6">
                   <div className="flex flex-col gap-3">
-                    <MaterialButton variant="default" className="w-full">
+                    <MaterialButton variant="filled" className="w-full">
                       PRIMARY
                     </MaterialButton>
-                    <MaterialButton variant="secondary" className="w-full">
+                    <MaterialButton variant="filled-tonal" className="w-full">
                       SECONDARY
                     </MaterialButton>
                     <MaterialButton variant="destructive" className="w-full">
                       DESTRUCTIVE
                     </MaterialButton>
-                    <MaterialButton variant="outline" className="w-full">
+                    <MaterialButton variant="outlined" className="w-full">
                       OUTLINE
                     </MaterialButton>
                   </div>

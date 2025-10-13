@@ -1,0 +1,9 @@
+import {
+  generateAngularTests,
+  type TestSpec,
+} from "@aneka-ui/test-runner-angular";
+import buttonSpec from "@aneka-ui/test-specs/material/button.spec.json";
+
+import { ButtonComponent } from "../../src-angular/material/button.component";
+
+generateAngularTests(buttonSpec as TestSpec, ButtonComponent);

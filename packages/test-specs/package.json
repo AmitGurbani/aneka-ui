@@ -1,0 +1,20 @@
+{
+  "name": "@aneka-ui/test-specs",
+  "version": "0.1.0",
+  "description": "Framework-agnostic test specifications for Aneka UI components",
+  "type": "module",
+  "main": "index.js",
+  "files": [
+    "material",
+    "hig",
+    "oneui",
+    "schema.json"
+  ],
+  "keywords": [
+    "testing",
+    "specifications",
+    "framework-agnostic"
+  ],
+  "author": "Aneka UI Team",
+  "license": "MIT"
+}

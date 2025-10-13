@@ -3,7 +3,7 @@ import { describe, it, expect } from "vitest";
 
 import Button from "../../src-vue/material/Button.vue";
 
-describe("Material Design Button (Vue)", () => {
+describe("Material Design 3 Button (Vue)", () => {
   describe("Rendering", () => {
     it("should render with default props", () => {
       const wrapper = mount(Button, {
@@ -31,22 +31,48 @@ describe("Material Design Button (Vue)", () => {
   });
 
   describe("Variants", () => {
-    it("should render default variant", () => {
+    it("should render filled variant (default)", () => {
       const wrapper = mount(Button, {
-        props: { variant: "default" },
-        slots: { default: "Default" },
+        props: { variant: "filled" },
+        slots: { default: "Filled" },
       });
       expect(wrapper.classes()).toContain("bg-primary");
       expect(wrapper.classes()).toContain("text-primary-foreground");
     });
 
-    it("should render secondary variant", () => {
+    it("should render filled-tonal variant", () => {
       const wrapper = mount(Button, {
-        props: { variant: "secondary" },
-        slots: { default: "Secondary" },
+        props: { variant: "filled-tonal" },
+        slots: { default: "Filled Tonal" },
       });
       expect(wrapper.classes()).toContain("bg-secondary");
       expect(wrapper.classes()).toContain("text-secondary-foreground");
+    });
+
+    it("should render elevated variant", () => {
+      const wrapper = mount(Button, {
+        props: { variant: "elevated" },
+        slots: { default: "Elevated" },
+      });
+      expect(wrapper.classes()).toContain("bg-background");
+      expect(wrapper.classes()).toContain("text-primary");
+    });
+
+    it("should render outlined variant", () => {
+      const wrapper = mount(Button, {
+        props: { variant: "outlined" },
+        slots: { default: "Outlined" },
+      });
+      expect(wrapper.classes()).toContain("border");
+      expect(wrapper.classes()).toContain("border-outline");
+    });
+
+    it("should render text variant", () => {
+      const wrapper = mount(Button, {
+        props: { variant: "text" },
+        slots: { default: "Text" },
+      });
+      expect(wrapper.classes()).toContain("text-primary");
     });
 
     it("should render destructive variant", () => {
@@ -56,25 +82,6 @@ describe("Material Design Button (Vue)", () => {
       });
       expect(wrapper.classes()).toContain("bg-destructive");
       expect(wrapper.classes()).toContain("text-destructive-foreground");
-    });
-
-    it("should render outline variant", () => {
-      const wrapper = mount(Button, {
-        props: { variant: "outline" },
-        slots: { default: "Outline" },
-      });
-      expect(wrapper.classes()).toContain("border-2");
-      expect(wrapper.classes()).toContain("border-primary");
-      expect(wrapper.classes()).toContain("text-primary");
-    });
-
-    it("should render ghost variant", () => {
-      const wrapper = mount(Button, {
-        props: { variant: "ghost" },
-        slots: { default: "Ghost" },
-      });
-      expect(wrapper.classes()).toContain("text-primary");
-      expect(wrapper.classes()).toContain("hover:bg-primary/10");
     });
 
     it("should render link variant", () => {
@@ -127,20 +134,36 @@ describe("Material Design Button (Vue)", () => {
     });
   });
 
-  describe("Material Design Styling", () => {
-    it("should have uppercase text styling", () => {
+  describe("Material Design 3 Styling", () => {
+    it("should have sentence case text with normal tracking", () => {
       const wrapper = mount(Button, {
         slots: { default: "Material Button" },
       });
-      expect(wrapper.classes()).toContain("uppercase");
-      expect(wrapper.classes()).toContain("tracking-wide");
+      expect(wrapper.classes()).toContain("tracking-normal");
+      expect(wrapper.classes()).not.toContain("uppercase");
     });
 
-    it("should have 4px border radius", () => {
+    it("should have rounded corners (8px for default)", () => {
       const wrapper = mount(Button, {
         slots: { default: "Material Button" },
       });
-      expect(wrapper.classes()).toContain("rounded-[4px]");
+      expect(wrapper.classes()).toContain("rounded-lg");
+    });
+
+    it("should have rounded-xl for large size", () => {
+      const wrapper = mount(Button, {
+        props: { size: "lg" },
+        slots: { default: "Large Button" },
+      });
+      expect(wrapper.classes()).toContain("rounded-xl");
+    });
+
+    it("should have rounded-md for small size", () => {
+      const wrapper = mount(Button, {
+        props: { size: "sm" },
+        slots: { default: "Small Button" },
+      });
+      expect(wrapper.classes()).toContain("rounded-md");
     });
 
     it("should have Material Design transitions with standard easing", () => {
@@ -150,14 +173,6 @@ describe("Material Design Button (Vue)", () => {
       expect(wrapper.classes()).toContain("transition-all");
       expect(wrapper.classes()).toContain("duration-200");
       expect(wrapper.html()).toContain("cubic-bezier(0.4,0,0.2,1)");
-    });
-
-    it("should have elevation shadows", () => {
-      const wrapper = mount(Button, {
-        props: { variant: "default" },
-        slots: { default: "Material Button" },
-      });
-      expect(wrapper.html()).toContain("shadow-[0_2px_4px_rgba(0,0,0,0.1)]");
     });
   });
 
@@ -258,7 +273,7 @@ describe("Material Design Button (Vue)", () => {
   describe("Use Cases", () => {
     it("should render as primary CTA button", () => {
       const wrapper = mount(Button, {
-        props: { variant: "default", size: "lg" },
+        props: { variant: "filled", size: "lg" },
         slots: { default: "Get Started" },
       });
       expect(wrapper.classes()).toContain("bg-primary");
@@ -267,7 +282,7 @@ describe("Material Design Button (Vue)", () => {
 
     it("should render as icon-only button", () => {
       const wrapper = mount(Button, {
-        props: { variant: "ghost", size: "icon" },
+        props: { variant: "text", size: "icon" },
         slots: { default: "×" },
         attrs: { "aria-label": "Close" },
       });

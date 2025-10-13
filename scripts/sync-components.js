@@ -7,6 +7,7 @@
  *
  * Usage:
  *   node scripts/sync-components.js --target storybook
+ *   node scripts/sync-components.js --target demo-app
  *   node scripts/sync-components.js --target tests-react
  *   node scripts/sync-components.js --target tests-vue
  *   node scripts/sync-components.js --target tests-angular
@@ -27,6 +28,11 @@ const TARGETS = {
   storybook: {
     source: path.resolve(rootDir, "registry/react"),
     dest: path.resolve(rootDir, "storybook/src/components"),
+    needsTransform: false,
+  },
+  "demo-app": {
+    source: path.resolve(rootDir, "registry/react"),
+    dest: path.resolve(rootDir, "examples/demo-app/src/components"),
     needsTransform: false,
   },
   "tests-react": {
@@ -82,6 +88,22 @@ async function syncStorybook() {
     console.log("✅ Storybook components synced!");
   } catch (error) {
     console.error("❌ Failed to sync Storybook:", error.message);
+    throw error;
+  }
+}
+
+/**
+ * Sync components for Demo App (simple copy)
+ */
+async function syncDemoApp() {
+  console.log("🎨 Syncing components to Demo App...");
+  const { source, dest } = TARGETS["demo-app"];
+
+  try {
+    cpSync(source, dest, { recursive: true });
+    console.log("✅ Demo App components synced!");
+  } catch (error) {
+    console.error("❌ Failed to sync Demo App:", error.message);
     throw error;
   }
 }
@@ -260,6 +282,11 @@ async function main() {
       console.log();
     }
 
+    if (target === "demo-app" || target === "all") {
+      await syncDemoApp();
+      console.log();
+    }
+
     if (target === "tests-react" || target === "all") {
       await syncTestsReact();
       console.log();
@@ -277,6 +304,7 @@ async function main() {
 
     if (
       target !== "storybook" &&
+      target !== "demo-app" &&
       target !== "tests-react" &&
       target !== "tests-vue" &&
       target !== "tests-angular" &&
@@ -284,7 +312,7 @@ async function main() {
     ) {
       console.error(`❌ Invalid target: ${target}`);
       console.log(
-        "\nValid targets: storybook, tests-react, tests-vue, tests-angular, all"
+        "\nValid targets: storybook, demo-app, tests-react, tests-vue, tests-angular, all"
       );
       process.exit(1);
     }

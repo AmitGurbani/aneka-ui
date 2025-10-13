@@ -4,7 +4,7 @@ import { describe, expect, it, vi } from "vitest";
 
 import { Button } from "../../src/material/button";
 
-describe("Material Design Button", () => {
+describe("Material Design 3 Button", () => {
   describe("Rendering", () => {
     it("should render with default props", () => {
       render(<Button>Click me</Button>);
@@ -31,18 +31,38 @@ describe("Material Design Button", () => {
   });
 
   describe("Variants", () => {
-    it("should render default variant", () => {
-      render(<Button variant="default">Default</Button>);
+    it("should render filled variant (default)", () => {
+      render(<Button variant="filled">Filled</Button>);
       const button = screen.getByRole("button");
       expect(button).toHaveClass("bg-primary");
       expect(button).toHaveClass("text-primary-foreground");
     });
 
-    it("should render secondary variant", () => {
-      render(<Button variant="secondary">Secondary</Button>);
+    it("should render filled-tonal variant", () => {
+      render(<Button variant="filled-tonal">Filled Tonal</Button>);
       const button = screen.getByRole("button");
       expect(button).toHaveClass("bg-secondary");
       expect(button).toHaveClass("text-secondary-foreground");
+    });
+
+    it("should render elevated variant", () => {
+      render(<Button variant="elevated">Elevated</Button>);
+      const button = screen.getByRole("button");
+      expect(button).toHaveClass("bg-background");
+      expect(button).toHaveClass("text-primary");
+    });
+
+    it("should render outlined variant", () => {
+      render(<Button variant="outlined">Outlined</Button>);
+      const button = screen.getByRole("button");
+      expect(button).toHaveClass("border");
+      expect(button).toHaveClass("border-outline");
+    });
+
+    it("should render text variant", () => {
+      render(<Button variant="text">Text</Button>);
+      const button = screen.getByRole("button");
+      expect(button).toHaveClass("text-primary");
     });
 
     it("should render destructive variant", () => {
@@ -50,19 +70,6 @@ describe("Material Design Button", () => {
       const button = screen.getByRole("button");
       expect(button).toHaveClass("bg-destructive");
       expect(button).toHaveClass("text-destructive-foreground");
-    });
-
-    it("should render outline variant", () => {
-      render(<Button variant="outline">Outline</Button>);
-      const button = screen.getByRole("button");
-      expect(button).toHaveClass("border-2");
-      expect(button).toHaveClass("border-primary");
-    });
-
-    it("should render ghost variant", () => {
-      render(<Button variant="ghost">Ghost</Button>);
-      const button = screen.getByRole("button");
-      expect(button).toHaveClass("text-primary");
     });
 
     it("should render link variant", () => {
@@ -105,18 +112,30 @@ describe("Material Design Button", () => {
     });
   });
 
-  describe("Material Design Styling", () => {
-    it("should have uppercase text styling", () => {
+  describe("Material Design 3 Styling", () => {
+    it("should have sentence case text with normal tracking", () => {
       render(<Button>Material Button</Button>);
       const button = screen.getByRole("button");
-      expect(button).toHaveClass("uppercase");
-      expect(button).toHaveClass("tracking-wide");
+      expect(button).toHaveClass("tracking-normal");
+      expect(button).not.toHaveClass("uppercase");
     });
 
-    it("should have 4px border radius", () => {
+    it("should have rounded corners (8px for default)", () => {
       render(<Button>Material Button</Button>);
       const button = screen.getByRole("button");
-      expect(button).toHaveClass("rounded-[4px]");
+      expect(button).toHaveClass("rounded-lg");
+    });
+
+    it("should have rounded-xl for large size", () => {
+      render(<Button size="lg">Large Button</Button>);
+      const button = screen.getByRole("button");
+      expect(button).toHaveClass("rounded-xl");
+    });
+
+    it("should have rounded-md for small size", () => {
+      render(<Button size="sm">Small Button</Button>);
+      const button = screen.getByRole("button");
+      expect(button).toHaveClass("rounded-md");
     });
 
     it("should have Material Design transitions", () => {

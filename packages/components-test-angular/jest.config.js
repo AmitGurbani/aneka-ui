@@ -14,6 +14,9 @@ module.exports = {
   coverageReporters: ["text", "json", "html"],
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src-angular/$1",
+    "^@aneka-ui/test-runner-angular$":
+      "<rootDir>/../test-runner-angular/src/index.ts",
+    "^@aneka-ui/test-specs/(.*)$": "<rootDir>/../test-specs/$1",
   },
   transform: {
     "^.+\\.(ts|js|html)$": [
