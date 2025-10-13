@@ -1,4 +1,5 @@
-// eslint-disable-next-line import/no-unresolved
-import "jest-preset-angular/setup-jest";
+import { setupZoneTestEnv } from "jest-preset-angular/setup-env/zone";
+
+setupZoneTestEnv();
 
 // Add any custom Jest setup here

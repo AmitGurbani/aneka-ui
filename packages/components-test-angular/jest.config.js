@@ -1,7 +1,9 @@
+/* eslint-env node */
 /** @type {import('jest').Config} */
-export default {
+module.exports = {
   preset: "jest-preset-angular",
   setupFilesAfterEnv: ["<rootDir>/setup-jest.ts"],
+  testMatch: ["<rootDir>/tests-angular/**/*.spec.ts"],
   testPathIgnorePatterns: ["/node_modules/", "/dist/"],
   collectCoverageFrom: [
     "src-angular/**/*.ts",
@@ -12,5 +14,14 @@ export default {
   coverageReporters: ["text", "json", "html"],
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src-angular/$1",
+  },
+  transform: {
+    "^.+\\.(ts|js|html)$": [
+      "jest-preset-angular",
+      {
+        tsconfig: "<rootDir>/tsconfig.spec.json",
+        stringifyContentPathRegex: "\\.(html|svg)$",
+      },
+    ],
   },
 };

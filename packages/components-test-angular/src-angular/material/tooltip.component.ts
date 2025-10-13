@@ -1,4 +1,3 @@
-import { CdkTooltip } from "@angular/cdk/tooltip";
 import { CommonModule } from "@angular/common";
 import { Component, Input } from "@angular/core";
 
@@ -7,7 +6,7 @@ import { cn } from "../lib/utils";
 @Component({
   selector: "aneka-tooltip",
   standalone: true,
-  imports: [CommonModule, CdkTooltip],
+  imports: [CommonModule],
   template: `
     <div [class]="computedClass">
       <ng-content></ng-content>

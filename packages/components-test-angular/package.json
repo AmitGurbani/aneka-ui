@@ -2,15 +2,14 @@
   "name": "@aneka-ui/components-test-angular",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "description": "Angular component tests for Aneka UI",
   "scripts": {
     "sync": "node ../../scripts/sync-components.js --target=tests-angular",
     "format": "prettier --write \"tests-angular/**/*.{ts,json}\"",
     "lint": "eslint tests-angular --fix",
-    "test": "node placeholder-test.js",
-    "test:watch": "node placeholder-test.js",
-    "test:coverage": "node placeholder-test.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "pretest": "pnpm sync"
   },
   "dependencies": {
@@ -26,6 +25,12 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "^20.3.5",
     "@angular/compiler-cli": "^20.3.4",
+    "@angular/platform-browser": "^20.3.4",
+    "@angular/platform-browser-dynamic": "^20.3.4",
+    "@types/jest": "^29.5.12",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jest-preset-angular": "^14.4.1",
     "typescript": "^5.7.3"
   }
 }

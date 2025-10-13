@@ -79,7 +79,7 @@
       }
     },
     {
-      "files": ["**/src-angular/**/*.ts"],
+      "files": ["**/src-angular/**/*.ts", "registry/angular/**/*.ts"],
       "rules": {
         "import/no-unresolved": "off"
       }
