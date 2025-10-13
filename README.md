@@ -234,37 +234,25 @@ Components are copied to your project, not installed as dependencies. You own th
 
 React components use `forwardRef` and hooks. Vue components use Composition API. Angular components use standalone components. No wrappers, no compromises.
 
+## 📖 Documentation
+
+### For Users
+
+- **[Getting Started Guide](docs/GETTING_STARTED.md)** - Complete setup and usage guide
+- **[CLI Reference](docs/cli/)** - Detailed CLI command documentation
+- **[Component Docs](docs/components/)** - Component API and examples
+
+### For Contributors
+
+- **[Contributing Guide](CONTRIBUTING.md)** - How to contribute
+- **[Project Specification](SPECIFICATION.md)** - Complete project specification
+- **[Getting Started (Contributors)](docs/GETTING_STARTED.md#for-contributors)** - Development setup
+
 ## 🤝 Contributing
 
 Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
-### Adding a New Component
-
-1. Create component files in `registry/{framework}/{style}/`
-2. Follow framework conventions (lowercase React, PascalCase Vue, lowercase+suffix Angular)
-3. Use design tokens from `@aneka-ui/tokens`
-4. Add to registry index
-5. Write tests and documentation
-
-### Development Setup
-
-```bash
-# Clone repository
-git clone https://github.com/yourusername/aneka-ui.git
-cd aneka-ui
-
-# Install dependencies
-pnpm install
-
-# Build packages
-pnpm build
-
-# Run tests
-pnpm test
-
-# Start dev mode
-pnpm dev
-```
+For development setup and component creation guidelines, see the [Getting Started Guide for Contributors](docs/GETTING_STARTED.md#for-contributors)
 
 ## 📄 License
 

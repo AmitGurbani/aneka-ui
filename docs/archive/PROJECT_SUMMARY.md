@@ -251,7 +251,7 @@ pnpm tsx scripts/generate-component.ts card
 
 ### Component Templates Provided
 
-The project includes comprehensive component templates in [SETUP.md](SETUP.md) for:
+The project includes comprehensive component templates in the [Getting Started Guide](../GETTING_STARTED) for:
 
 - React with forwardRef pattern
 - Vue with Composition API
@@ -418,9 +418,9 @@ The project includes comprehensive component templates in [SETUP.md](SETUP.md) f
 
 **Documentation:**
 
-- [README.md](README.md) - Project overview
-- [SETUP.md](SETUP.md) - Complete setup guide
-- [CONTRIBUTING.md](CONTRIBUTING.md) - Contribution guidelines
+- [README.md](https://github.com/AmitGurbani/aneka-ui/blob/main/README.md) - Project overview
+- [Getting Started Guide](../GETTING_STARTED) - Complete setup guide
+- [CONTRIBUTING.md](https://github.com/AmitGurbani/aneka-ui/blob/main/CONTRIBUTING.md) - Contribution guidelines
 
 **Scripts:**
 

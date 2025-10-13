@@ -8,8 +8,8 @@
 
 - **Repository**: https://github.com/AmitGurbani/aneka-ui
 - **Documentation**: https://amitgurbani.github.io/aneka-ui/
-- **Storybook**: Running locally at http://localhost:6006
-- **Demo App**: Running locally at http://localhost:5173
+- **Storybook**: Run locally with `pnpm --filter @aneka-ui/storybook dev`
+- **Demo App**: Run locally with `pnpm --filter @aneka-ui/demo-app dev`
 
 ---
 
@@ -112,7 +112,7 @@ aneka-ui/
 ### 5. Storybook ✅ **COMPLETE**
 
 **Technology**: Storybook 9.1 with React-Vite
-**URL**: http://localhost:6006 (development)
+**Local Dev**: Run with `pnpm --filter @aneka-ui/storybook dev`
 
 **Stories Created**
 
@@ -133,7 +133,7 @@ aneka-ui/
 ### 6. Demo Application ✅ **COMPLETE**
 
 **Technology**: React + Vite + Tailwind CSS
-**URL**: http://localhost:5173 (development)
+**Local Dev**: Run with `pnpm --filter @aneka-ui/demo-app dev`
 
 **Features**
 
@@ -166,7 +166,7 @@ aneka-ui/
 
 **Technical Debt Tracked**
 
-- See [TECHNICAL_DEBT.md](TECHNICAL_DEBT.md) for deferred improvements
+- See [TECHNICAL_DEBT.md](TECHNICAL_DEBT) for deferred improvements
 - ESLint plugins (import validation) - deferred due to monorepo resolver issues
 - @types/diff v8 - deferred due to breaking changes
 
@@ -482,8 +482,8 @@ aneka-ui/
 
 - **GitHub**: https://github.com/AmitGurbani/aneka-ui
 - **Documentation**: https://amitgurbani.github.io/aneka-ui/
-- **Storybook**: http://localhost:6006 (local)
-- **Demo App**: http://localhost:5173 (local)
+- **Storybook**: Run locally with `pnpm --filter @aneka-ui/storybook dev`
+- **Demo App**: Run locally with `pnpm --filter @aneka-ui/demo-app dev`
 
 ---
 
@@ -495,7 +495,7 @@ Project is currently in solo development. Contribution guidelines will be added 
 
 ## 📄 License
 
-MIT License - See [LICENSE](LICENSE) file for details.
+MIT License - See [LICENSE](https://github.com/AmitGurbani/aneka-ui/blob/main/LICENSE) file for details.
 
 ---
 
