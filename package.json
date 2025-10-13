@@ -36,6 +36,9 @@
     "format": "turbo run format && prettier --write \"*.{json,md}\" \".github/**/*.md\" \"docs/**/*.md\" \"scripts/**/*.{ts,js}\" \"registry/**/*.{ts,tsx,vue}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,vue,js,jsx,json,md}\"",
     "test": "turbo run test",
+    "test:react": "pnpm --filter @aneka-ui/components-test-react test",
+    "test:vue": "pnpm --filter @aneka-ui/components-test-vue test",
+    "test:angular": "pnpm --filter @aneka-ui/components-test-angular test",
     "test:watch": "turbo run test -- --watch",
     "test:coverage": "turbo run test -- --coverage",
     "test:visual": "playwright test",
@@ -49,9 +52,12 @@
     "validate:registry": "tsx scripts/validate-registry.ts",
     "generate:component": "tsx scripts/generate-component.ts",
     "sync:storybook": "node scripts/sync-components.js --target=storybook",
-    "prepare": "husky install",
-    "sync:tests": "node scripts/sync-components.js --target=tests",
-    "sync:all": "node scripts/sync-components.js --target=all"
+    "sync:tests:react": "node scripts/sync-components.js --target=tests-react",
+    "sync:tests:vue": "node scripts/sync-components.js --target=tests-vue",
+    "sync:tests:angular": "node scripts/sync-components.js --target=tests-angular",
+    "sync:tests": "node scripts/sync-components.js --target=tests-react && node scripts/sync-components.js --target=tests-vue && node scripts/sync-components.js --target=tests-angular",
+    "sync:all": "node scripts/sync-components.js --target=all",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",

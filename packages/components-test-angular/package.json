@@ -1,0 +1,31 @@
+{
+  "name": "@aneka-ui/components-test-angular",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Angular component tests for Aneka UI",
+  "scripts": {
+    "sync": "node ../../scripts/sync-components.js --target=tests-angular",
+    "format": "prettier --write \"tests-angular/**/*.{ts,json}\"",
+    "lint": "eslint tests-angular --fix",
+    "test": "node placeholder-test.js",
+    "test:watch": "node placeholder-test.js",
+    "test:coverage": "node placeholder-test.js",
+    "pretest": "pnpm sync"
+  },
+  "dependencies": {
+    "@angular/cdk": "^20.2.8",
+    "@angular/common": "^20.3.4",
+    "@angular/core": "^20.3.4",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "rxjs": "^7.8.2",
+    "tailwind-merge": "^3.3.1",
+    "zone.js": "^0.15.1"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^20.3.5",
+    "@angular/compiler-cli": "^20.3.4",
+    "typescript": "^5.7.3"
+  }
+}

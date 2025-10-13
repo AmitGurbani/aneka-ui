@@ -7,7 +7,7 @@
  *
  * Usage:
  *   node scripts/sync-components.js --target storybook
- *   node scripts/sync-components.js --target tests
+ *   node scripts/sync-components.js --target tests-react
  *   node scripts/sync-components.js --target tests-vue
  *   node scripts/sync-components.js --target tests-angular
  *   node scripts/sync-components.js --target all
@@ -29,9 +29,9 @@ const TARGETS = {
     dest: path.resolve(rootDir, "storybook/src/components"),
     needsTransform: false,
   },
-  tests: {
+  "tests-react": {
     source: path.resolve(rootDir, "registry/react"),
-    dest: path.resolve(rootDir, "packages/components-test/src"),
+    dest: path.resolve(rootDir, "packages/components-test-react/src"),
     needsTransform: true,
     components: [
       "button.tsx",
@@ -44,7 +44,7 @@ const TARGETS = {
   },
   "tests-vue": {
     source: path.resolve(rootDir, "registry/vue"),
-    dest: path.resolve(rootDir, "packages/components-test/src-vue"),
+    dest: path.resolve(rootDir, "packages/components-test-vue/src-vue"),
     needsTransform: true,
     components: [
       "Button.vue",
@@ -57,7 +57,7 @@ const TARGETS = {
   },
   "tests-angular": {
     source: path.resolve(rootDir, "registry/angular"),
-    dest: path.resolve(rootDir, "packages/components-test/src-angular"),
+    dest: path.resolve(rootDir, "packages/components-test-angular/src-angular"),
     needsTransform: true,
     components: [
       "button.component.ts",
@@ -87,11 +87,11 @@ async function syncStorybook() {
 }
 
 /**
- * Sync components for tests (with import path transformation)
+ * Sync components for React tests (with import path transformation)
  */
-async function syncTests() {
-  console.log("🧪 Syncing components to test package...");
-  const { dest, components, styles } = TARGETS.tests;
+async function syncTestsReact() {
+  console.log("🧪 Syncing React components to test package...");
+  const { dest, components, styles } = TARGETS["tests-react"];
 
   // Create lib/utils
   const utilsDir = path.join(dest, "lib");
@@ -134,7 +134,7 @@ export function cn(...inputs: ClassValue[]) {
     }
   }
 
-  console.log("✅ Test components synced!");
+  console.log("✅ React test components synced!");
 }
 
 /**
@@ -260,8 +260,8 @@ async function main() {
       console.log();
     }
 
-    if (target === "tests" || target === "all") {
-      await syncTests();
+    if (target === "tests-react" || target === "all") {
+      await syncTestsReact();
       console.log();
     }
 
@@ -277,14 +277,14 @@ async function main() {
 
     if (
       target !== "storybook" &&
-      target !== "tests" &&
+      target !== "tests-react" &&
       target !== "tests-vue" &&
       target !== "tests-angular" &&
       target !== "all"
     ) {
       console.error(`❌ Invalid target: ${target}`);
       console.log(
-        "\nValid targets: storybook, tests, tests-vue, tests-angular, all"
+        "\nValid targets: storybook, tests-react, tests-vue, tests-angular, all"
       );
       process.exit(1);
     }
