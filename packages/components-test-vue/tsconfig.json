@@ -8,6 +8,6 @@
     "noEmit": true,
     "jsx": "preserve"
   },
-  "include": ["src", "test-runner", "tests"],
+  "include": ["src", "test-runner", "tests", "vue-shim.d.ts"],
   "exclude": ["node_modules", "dist", "vitest.config.ts"]
 }

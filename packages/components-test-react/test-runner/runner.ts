@@ -57,14 +57,20 @@ export function generateReactTests(
                 /<(\w+)([^>]*)>(.*?)<\/\1>/
               );
               if (match) {
-                const [, tag, attrsStr, content] = match;
+                const [, tag, attrsStr = "", content] = match;
                 const attrs: Record<string, unknown> = {};
                 const attrMatches = attrsStr.matchAll(/(\w+)="([^"]*)"/g);
                 for (const attrMatch of attrMatches) {
-                  attrs[attrMatch[1]] = attrMatch[2];
+                  const key = attrMatch[1];
+                  const value = attrMatch[2];
+                  if (key && value !== undefined) {
+                    attrs[key] = value;
+                  }
                 }
                 // eslint-disable-next-line import/no-named-as-default-member
-                children = React.createElement(tag, attrs, content);
+                if (tag) {
+                  children = React.createElement(tag, attrs, content);
+                }
               }
             }
 

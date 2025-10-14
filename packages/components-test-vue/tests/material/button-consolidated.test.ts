@@ -4,9 +4,10 @@
  */
 
 import buttonSpec from "@aneka-ui/test-specs/material/button.spec.json";
+import type { TestSpec } from "@aneka-ui/test-specs/types";
 
 import Button from "../../src/material/Button.vue";
 import { generateVueTests } from "../../test-runner/runner";
 
 // Generate all tests from the specification
-generateVueTests(buttonSpec, Button);
+generateVueTests(buttonSpec as TestSpec, Button);

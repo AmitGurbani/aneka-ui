@@ -6,8 +6,9 @@
   "description": "Vue component tests for Aneka UI",
   "scripts": {
     "sync": "node ../../scripts/sync-components.js --target=tests-vue",
-    "format": "prettier --write \"tests/**/*.{ts,json}\"",
-    "lint": "eslint tests --fix",
+    "format": "prettier --write \"test-runner/**/*.ts\" \"tests/**/*.{ts,json}\"",
+    "lint": "eslint test-runner tests --fix",
+    "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest watch",
     "test:coverage": "vitest run --coverage",

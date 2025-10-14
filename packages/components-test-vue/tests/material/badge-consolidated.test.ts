@@ -4,9 +4,10 @@
  */
 
 import badgeSpec from "@aneka-ui/test-specs/material/badge.spec.json";
+import type { TestSpec } from "@aneka-ui/test-specs/types";
 
 import Badge from "../../src/material/Badge.vue";
 import { generateVueTests } from "../../test-runner/runner";
 
 // Generate all tests from the specification
-generateVueTests(badgeSpec, Badge);
+generateVueTests(badgeSpec as TestSpec, Badge);
