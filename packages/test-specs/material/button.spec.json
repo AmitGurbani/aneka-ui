@@ -23,7 +23,7 @@
         "props": { "ref": "mockRef" },
         "children": "Click me",
         "assertions": [{ "type": "refCalled", "handler": "mockRef" }],
-        "skipFrameworks": ["vue", "angular"],
+        "skipFrameworks": ["vue"],
         "skipReason": "React-specific: ref forwarding is a React pattern"
       }
     ],
@@ -193,8 +193,8 @@
           { "type": "handlerCalled", "handler": "mockHandler", "times": 1 },
           { "type": "hasFocus" }
         ],
-        "skipFrameworks": ["vue", "angular"],
-        "skipReason": "hasFocus assertion requires proper DOM focus tracking which has environmental limitations in Vue Test Utils and Angular TestBed with JSDOM"
+        "skipFrameworks": ["vue"],
+        "skipReason": "hasFocus assertion requires proper DOM focus tracking which has environmental limitations in Vue Test Utils with JSDOM"
       }
     ],
     "composition": [
@@ -206,7 +206,7 @@
           { "type": "tagName", "value": "A" },
           { "type": "hasAttribute", "name": "href", "value": "/test" }
         ],
-        "skipFrameworks": ["vue", "angular"],
+        "skipFrameworks": ["vue"],
         "skipReason": "React-specific: asChild is a Radix UI/React composition pattern"
       }
     ],

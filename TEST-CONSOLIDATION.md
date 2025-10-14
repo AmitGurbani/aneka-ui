@@ -2,13 +2,13 @@
 
 ## Overview
 
-This project implements a **declarative, framework-agnostic test system** that eliminates duplication across React, Vue, and Angular test suites.
+This project implements a **declarative, framework-agnostic test system** that eliminates duplication across React and Vue test suites.
 
 ## Problem
 
 Before consolidation:
 
-- **248 tests** across 3 frameworks
+- **248 tests** across 2 frameworks
 - **~740 lines** of duplicated test code
 - **3× maintenance burden** - same tests written 3 different ways
 - **Inconsistencies** between framework implementations
@@ -35,17 +35,17 @@ After consolidation:
 │  JSON format                         │
 └─────────────────────────────────────┘
                  │
-                 ├──────────────┬──────────────┐
-                 ▼              ▼              ▼
-┌──────────────────────┐  ┌──────────────────────┐  ┌──────────────────────┐
-│  React Test Runner   │  │  Vue Test Runner     │  │  Angular Test Runner │
-│  @aneka-ui/          │  │  @aneka-ui/          │  │  @aneka-ui/          │
-│  test-runner-react   │  │  test-runner-vue     │  │  test-runner-angular │
-│                      │  │                      │  │                      │
-│  Uses:               │  │  Uses:               │  │  Uses:               │
-│  - React Testing Lib │  │  - Vue Test Utils    │  │  - Angular TestBed   │
-│  - Vitest            │  │  - Vitest            │  │  - Jest              │
-└──────────────────────┘  └──────────────────────┘  └──────────────────────┘
+                 ├──────────────┐
+                 ▼              ▼
+┌──────────────────────┐  ┌──────────────────────┐
+│  React Test Runner   │  │  Vue Test Runner     │
+│  @aneka-ui/          │  │  @aneka-ui/          │
+│  test-runner-react   │  │  test-runner-vue     │
+│                      │  │                      │
+│  Uses:               │  │  Uses:               │
+│  - React Testing Lib │  │  - Vue Test Utils    │
+│  - Vitest            │  │  - Vitest            │
+└──────────────────────┘  └──────────────────────┘
 ```
 
 ## Packages
@@ -80,17 +80,6 @@ Test runner for Vue components.
 
 - Reads JSON specs
 - Generates Vue tests using Test Utils
-- Supports all assertion types
-- Handles user interactions
-
-### 4. [@aneka-ui/test-runner-angular](./packages/test-runner-angular)
-
-Test runner for Angular components.
-
-**Features:**
-
-- Reads JSON specs
-- Generates Angular tests using TestBed
 - Supports all assertion types
 - Handles user interactions
 
@@ -137,22 +126,6 @@ describe("Material Design Button", () => {
 });
 ```
 
-**Angular Test - 200+ lines:**
-
-```typescript
-describe("Material Design Button", () => {
-  it("should render filled variant", () => {
-    component.variant = "filled";
-    fixture.detectChanges();
-    const button = compiled.querySelector("button");
-    expect(button?.classList.contains("bg-primary")).toBe(true);
-    expect(button?.classList.contains("text-primary-foreground")).toBe(true);
-  });
-
-  // ... 20 more tests ...
-});
-```
-
 ### After (Consolidated Tests)
 
 **Specification - button.spec.json (shared by all frameworks):**
@@ -195,16 +168,6 @@ import Button from "@/components/material/Button.vue";
 import buttonSpec from "@aneka-ui/test-specs/material/button.spec.json";
 
 generateVueTests(buttonSpec, Button);
-```
-
-**Angular Test - 10 lines:**
-
-```typescript
-import { generateAngularTests } from "@aneka-ui/test-runner-angular";
-import { ButtonComponent } from "@/components/material/button.component";
-import buttonSpec from "@aneka-ui/test-specs/material/button.spec.json";
-
-generateAngularTests(buttonSpec, ButtonComponent);
 ```
 
 ## Supported Assertions
@@ -256,7 +219,6 @@ See example test files in:
 
 - `packages/test-runner-react/examples/`
 - `packages/test-runner-vue/examples/`
-- `packages/test-runner-angular/examples/`
 
 ## Documentation
 
@@ -269,11 +231,10 @@ See example test files in:
 1. ✅ Create test specification package
 2. ✅ Implement React test runner
 3. ✅ Implement Vue test runner
-4. ✅ Implement Angular test runner
-5. ✅ Integrate with existing test suites
-6. ✅ Add to CI/CD pipeline (validation, linting, change detection)
-7. ⏭️ Migrate all component tests
-8. ⏭️ Create additional specs for remaining components
+4. ✅ Integrate with existing test suites
+5. ✅ Add to CI/CD pipeline (validation, linting, change detection)
+6. ⏭️ Migrate all component tests
+7. ⏭️ Create additional specs for remaining components
 
 ## Migration Strategy
 
@@ -349,7 +310,7 @@ When adding new test cases:
 2. Run `pnpm validate:specs` to ensure validity
 3. Run `pnpm lint:specs` to check best practices
 4. Tests automatically apply to all frameworks
-5. No need to update React, Vue, or Angular tests separately
+5. No need to update React or Vue tests separately
 
 ### Test Naming Conventions
 
@@ -365,8 +326,8 @@ When a test can't run on certain frameworks:
 ```json
 {
   "name": "should handle focus events",
-  "skipFrameworks": ["vue", "angular"],
-  "skipReason": "hasFocus assertion requires proper DOM focus tracking which has environmental limitations in Vue Test Utils and Angular TestBed with JSDOM",
+  "skipFrameworks": ["vue"],
+  "skipReason": "hasFocus assertion requires proper DOM focus tracking which has environmental limitations in Vue Test Utils with JSDOM",
   "props": { "onFocus": "mockHandler" },
   "assertions": [{ "type": "hasFocus" }]
 }

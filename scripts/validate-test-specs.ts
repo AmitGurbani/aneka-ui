@@ -24,7 +24,7 @@ const DESIGN_SYSTEMS = ["material", "hig", "oneui"] as const;
 /**
  * Valid frameworks
  */
-const VALID_FRAMEWORKS = ["react", "vue", "angular"] as const;
+const VALID_FRAMEWORKS = ["react", "vue"] as const;
 
 /**
  * Color codes for console output

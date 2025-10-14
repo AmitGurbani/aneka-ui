@@ -38,7 +38,6 @@
     "test": "turbo run test",
     "test:react": "pnpm --filter @aneka-ui/components-test-react test",
     "test:vue": "pnpm --filter @aneka-ui/components-test-vue test",
-    "test:angular": "pnpm --filter @aneka-ui/components-test-angular test",
     "test:watch": "turbo run test -- --watch",
     "test:coverage": "turbo run test -- --coverage",
     "test:visual": "playwright test",
@@ -57,8 +56,7 @@
     "sync:demo-app": "node scripts/sync-components.js --target=demo-app",
     "sync:tests:react": "node scripts/sync-components.js --target=tests-react",
     "sync:tests:vue": "node scripts/sync-components.js --target=tests-vue",
-    "sync:tests:angular": "node scripts/sync-components.js --target=tests-angular",
-    "sync:tests": "node scripts/sync-components.js --target=tests-react && node scripts/sync-components.js --target=tests-vue && node scripts/sync-components.js --target=tests-angular",
+    "sync:tests": "node scripts/sync-components.js --target=tests-react && node scripts/sync-components.js --target=tests-vue",
     "sync:all": "node scripts/sync-components.js --target=all",
     "prepare": "husky install"
   },

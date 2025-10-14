@@ -178,7 +178,7 @@ Added new `validate-specs` job with:
 ```markdown
 ## 📋 Test Specification Changes Detected
 
-This PR modifies test specifications, which will affect tests across **all frameworks** (React, Vue, Angular).
+This PR modifies test specifications, which will affect tests across **all frameworks** (React, Vue).
 
 **Changed specs:**
 
@@ -281,7 +281,7 @@ All tests pass with the new changes:
 
 - React: 501 tests passed
 - Vue: 375 tests passed, 3 skipped
-- Angular: 214 tests passed
+-
 
 ## Benefits Achieved
 

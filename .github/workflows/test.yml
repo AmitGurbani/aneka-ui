@@ -56,15 +56,12 @@ jobs:
       - name: Run Vue component tests with coverage
         run: pnpm --filter @aneka-ui/components-test-vue test:coverage
 
-      - name: Run Angular component tests with coverage
-        run: pnpm --filter @aneka-ui/components-test-angular test:coverage
-
       - name: Upload coverage to Codecov
         if: matrix.node-version == 20
         uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./packages/cli/coverage/coverage-final.json,./packages/components-test-react/coverage/coverage-final.json,./packages/components-test-vue/coverage/coverage-final.json,./packages/components-test-angular/coverage/coverage-final.json
+          files: ./packages/cli/coverage/coverage-final.json,./packages/components-test-react/coverage/coverage-final.json,./packages/components-test-vue/coverage/coverage-final.json
           flags: unittests
           fail_ci_if_error: false
           verbose: true

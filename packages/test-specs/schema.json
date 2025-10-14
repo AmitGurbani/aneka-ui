@@ -88,7 +88,7 @@
           "type": "array",
           "items": {
             "type": "string",
-            "enum": ["react", "vue", "angular"]
+            "enum": ["react", "vue"]
           },
           "description": "Frameworks to skip this test on (e.g., due to environmental limitations)"
         },

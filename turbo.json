@@ -36,7 +36,6 @@
         "tests/**",
         "tests-react/**",
         "tests-vue/**",
-        "tests-angular/**",
         "../../packages/test-specs/**/*.spec.json"
       ],
       "outputs": []

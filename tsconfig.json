@@ -28,7 +28,6 @@
     { "path": "./packages/cli" },
     { "path": "./packages/components-test-react" },
     { "path": "./packages/components-test-vue" },
-    { "path": "./packages/components-test-angular" },
     { "path": "./storybook" },
     { "path": "./examples/demo-app" },
     { "path": "./tsconfig.scripts.json" }
