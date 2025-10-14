@@ -8,6 +8,6 @@
     "noEmit": true,
     "jsx": "preserve"
   },
-  "include": ["src", "tests"],
+  "include": ["src", "test-runner", "tests"],
   "exclude": ["node_modules", "dist", "vitest.config.ts"]
 }
