@@ -218,6 +218,12 @@ async function lintSpecFile(specFile: string): Promise<void> {
     });
   }
 
+  // Skip validation for specs marked as skipConsolidated
+  // These specs use manual tests instead of consolidated test runner
+  if (spec.skipConsolidated) {
+    return;
+  }
+
   // Check if spec has at least one test category
   if (!spec.tests || Object.keys(spec.tests).length === 0) {
     issues.push({
