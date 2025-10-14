@@ -44,13 +44,13 @@ The `pretest` script automatically syncs components before running tests, ensuri
 
 ```
 packages/components-test-vue/
-├── src-vue/
+├── src/
 │   ├── lib/
 │   │   └── utils.ts         # Utility functions
 │   ├── material/            # Material Design components
 │   ├── hig/                 # Apple HIG components
 │   └── oneui/               # Samsung One UI components
-├── tests-vue/
+├── tests/
 │   ├── material/            # Material Design tests
 │   ├── hig/                 # Apple HIG tests
 │   └── oneui/               # Samsung One UI tests
@@ -88,7 +88,7 @@ Tests follow Vue Test Utils best practices:
 import { mount } from "@vue/test-utils";
 import { describe, it, expect } from "vitest";
 
-import Button from "../../src-vue/material/Button.vue";
+import Button from "../../src/material/Button.vue";
 
 describe("Material Design Button (Vue)", () => {
   it("should render correctly", () => {
@@ -133,7 +133,7 @@ Run `pnpm test:coverage` to generate coverage reports. Coverage reports are save
 
 1. Add the component filename to `scripts/sync-components.js` in the root
 2. Run `pnpm sync` to copy the component
-3. Create a test file in the appropriate `tests-vue/{style}/` directory
+3. Create a test file in the appropriate `tests/{style}/` directory
 4. Run tests to verify
 
 ## Related Packages

@@ -3,9 +3,9 @@ import { DialogTitle, DialogDescription, DialogTrigger } from "radix-vue";
 import { describe, it, expect } from "vitest";
 import { h } from "vue";
 
-import Dialog from "../../src-vue/hig/Dialog.vue";
+import Dialog from "../../src/material/Dialog.vue";
 
-describe("Apple HIG Dialog (Vue)", () => {
+describe("Material Design Dialog (Vue)", () => {
   describe("Rendering", () => {
     it("should render with default props", () => {
       const wrapper = mount(Dialog, {
@@ -56,8 +56,8 @@ describe("Apple HIG Dialog (Vue)", () => {
     });
   });
 
-  describe("Apple HIG Styling", () => {
-    it("should have Apple HIG shadow class in component", () => {
+  describe("Material Design Styling", () => {
+    it("should have Material Design shadow class in component", () => {
       const wrapper = mount(Dialog, {
         slots: {
           trigger: () => h(DialogTrigger, null, () => "Open"),

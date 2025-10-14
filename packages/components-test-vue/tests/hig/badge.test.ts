@@ -1,9 +1,9 @@
 import { mount } from "@vue/test-utils";
 import { describe, it, expect } from "vitest";
 
-import Badge from "../../src-vue/oneui/Badge.vue";
+import Badge from "../../src/hig/Badge.vue";
 
-describe("Samsung OneUI Badge (Vue)", () => {
+describe("Apple HIG Badge (Vue)", () => {
   describe("Rendering", () => {
     it("should render with default props", () => {
       const wrapper = mount(Badge, {
@@ -67,57 +67,56 @@ describe("Samsung OneUI Badge (Vue)", () => {
         props: { variant: "outline" },
         slots: { default: "Outline" },
       });
-      expect(wrapper.classes()).toContain("border-2");
+      expect(wrapper.classes()).toContain("border");
       expect(wrapper.classes()).toContain("border-primary");
       expect(wrapper.classes()).toContain("text-foreground");
     });
   });
 
-  describe("Samsung OneUI Styling", () => {
-    it("should have bold text (not uppercase)", () => {
+  describe("Apple HIG Styling", () => {
+    it("should have sentence case text styling (not uppercase)", () => {
       const wrapper = mount(Badge, {
-        slots: { default: "OneUI" },
+        slots: { default: "Apple" },
       });
-      expect(wrapper.classes()).toContain("font-bold");
-      expect(wrapper.classes()).toContain("tracking-normal");
+      expect(wrapper.classes()).toContain("tracking-tight");
       expect(wrapper.classes()).not.toContain("uppercase");
     });
 
-    it("should have pill shape with rounded-full", () => {
+    it("should have rounded-md shape", () => {
       const wrapper = mount(Badge, {
-        slots: { default: "Pill" },
+        slots: { default: "Badge" },
       });
-      expect(wrapper.classes()).toContain("rounded-full");
+      expect(wrapper.classes()).toContain("rounded-md");
     });
 
-    it("should have small text size", () => {
+    it("should have extra small text size", () => {
       const wrapper = mount(Badge, {
         slots: { default: "Small" },
       });
-      expect(wrapper.classes()).toContain("text-sm");
+      expect(wrapper.classes()).toContain("text-xs");
     });
 
-    it("should have border-2 for bolder appearance", () => {
+    it("should have semibold font weight", () => {
       const wrapper = mount(Badge, {
         slots: { default: "Bold" },
       });
-      expect(wrapper.classes()).toContain("border-2");
+      expect(wrapper.classes()).toContain("font-semibold");
     });
 
     it("should have proper padding", () => {
       const wrapper = mount(Badge, {
         slots: { default: "Padded" },
       });
-      expect(wrapper.classes()).toContain("px-3");
-      expect(wrapper.classes()).toContain("py-1");
+      expect(wrapper.classes()).toContain("px-2.5");
+      expect(wrapper.classes()).toContain("py-0.5");
     });
 
-    it("should have prominent shadow on filled variants", () => {
+    it("should have subtle shadow on filled variants", () => {
       const wrapper = mount(Badge, {
         props: { variant: "default" },
         slots: { default: "Shadow" },
       });
-      expect(wrapper.html()).toContain("shadow-[0_2px_8px_rgba(0,0,0,0.08)]");
+      expect(wrapper.html()).toContain("shadow-[0_1px_3px_rgba(0,0,0,0.08)]");
     });
 
     it("should have border-transparent on filled variants", () => {
@@ -209,7 +208,7 @@ describe("Samsung OneUI Badge (Vue)", () => {
         props: { variant: "outline" },
         slots: { default: "Technology" },
       });
-      expect(wrapper.classes()).toContain("border-2");
+      expect(wrapper.classes()).toContain("border");
     });
 
     it("should render as count badge", () => {

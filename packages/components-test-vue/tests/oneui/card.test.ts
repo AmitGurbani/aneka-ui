@@ -1,7 +1,7 @@
 import { mount } from "@vue/test-utils";
 import { describe, it, expect } from "vitest";
 
-import Card from "../../src-vue/oneui/Card.vue";
+import Card from "../../src/oneui/Card.vue";
 
 describe("Samsung OneUI Card (Vue)", () => {
   describe("Rendering", () => {

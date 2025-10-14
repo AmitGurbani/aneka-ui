@@ -3,9 +3,9 @@ import { TooltipTrigger } from "radix-vue";
 import { describe, it, expect } from "vitest";
 import { h } from "vue";
 
-import Tooltip from "../../src-vue/oneui/Tooltip.vue";
+import Tooltip from "../../src/material/Tooltip.vue";
 
-describe("Samsung OneUI Tooltip (Vue)", () => {
+describe("Material Design Tooltip (Vue)", () => {
   describe("Rendering", () => {
     it("should render with default props", () => {
       const wrapper = mount(Tooltip, {
@@ -50,7 +50,7 @@ describe("Samsung OneUI Tooltip (Vue)", () => {
     });
   });
 
-  describe("Samsung OneUI Styling", () => {
+  describe("Material Design Styling", () => {
     it("should have 4px border radius", () => {
       const wrapper = mount(Tooltip, {
         slots: {
@@ -61,7 +61,7 @@ describe("Samsung OneUI Tooltip (Vue)", () => {
       expect(wrapper.vm).toBeDefined();
     });
 
-    it("should have Samsung OneUI shadow", () => {
+    it("should have Material Design shadow", () => {
       const wrapper = mount(Tooltip, {
         slots: {
           trigger: () => h(TooltipTrigger, null, () => "Hover"),

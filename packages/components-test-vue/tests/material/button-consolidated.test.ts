@@ -5,7 +5,7 @@
 
 import buttonSpec from "@aneka-ui/test-specs/material/button.spec.json";
 
-import Button from "../../src-vue/material/Button.vue";
+import Button from "../../src/material/Button.vue";
 import { generateVueTests } from "../../test-runner/runner";
 
 // Generate all tests from the specification

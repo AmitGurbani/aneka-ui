@@ -49,7 +49,7 @@ const TARGETS = {
   },
   "tests-vue": {
     source: path.resolve(rootDir, "registry/vue"),
-    dest: path.resolve(rootDir, "packages/components-test-vue/src-vue"),
+    dest: path.resolve(rootDir, "packages/components-test-vue/src"),
     needsTransform: true,
     components: [
       "Button.vue",

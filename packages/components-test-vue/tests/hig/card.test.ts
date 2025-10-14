@@ -1,7 +1,7 @@
 import { mount } from "@vue/test-utils";
 import { describe, it, expect } from "vitest";
 
-import Card from "../../src-vue/hig/Card.vue";
+import Card from "../../src/hig/Card.vue";
 
 describe("Apple HIG Card (Vue)", () => {
   describe("Rendering", () => {

@@ -8,6 +8,6 @@
     "noEmit": true,
     "jsx": "preserve"
   },
-  "include": ["src-vue", "tests-vue"],
+  "include": ["src", "tests"],
   "exclude": ["node_modules", "dist", "vitest.config.ts"]
 }

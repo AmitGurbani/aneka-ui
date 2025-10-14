@@ -3,7 +3,7 @@ import { TooltipTrigger } from "radix-vue";
 import { describe, it, expect } from "vitest";
 import { h } from "vue";
 
-import Tooltip from "../../src-vue/hig/Tooltip.vue";
+import Tooltip from "../../src/hig/Tooltip.vue";
 
 describe("Apple HIG Tooltip (Vue)", () => {
   describe("Rendering", () => {

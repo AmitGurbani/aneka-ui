@@ -3,7 +3,7 @@ import { DialogTitle, DialogDescription, DialogTrigger } from "radix-vue";
 import { describe, it, expect } from "vitest";
 import { h } from "vue";
 
-import Dialog from "../../src-vue/oneui/Dialog.vue";
+import Dialog from "../../src/oneui/Dialog.vue";
 
 describe("Samsung OneUI Dialog (Vue)", () => {
   describe("Rendering", () => {

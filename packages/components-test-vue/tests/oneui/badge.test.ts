@@ -1,9 +1,9 @@
 import { mount } from "@vue/test-utils";
 import { describe, it, expect } from "vitest";
 
-import Badge from "../../src-vue/hig/Badge.vue";
+import Badge from "../../src/oneui/Badge.vue";
 
-describe("Apple HIG Badge (Vue)", () => {
+describe("Samsung OneUI Badge (Vue)", () => {
   describe("Rendering", () => {
     it("should render with default props", () => {
       const wrapper = mount(Badge, {
@@ -67,56 +67,57 @@ describe("Apple HIG Badge (Vue)", () => {
         props: { variant: "outline" },
         slots: { default: "Outline" },
       });
-      expect(wrapper.classes()).toContain("border");
+      expect(wrapper.classes()).toContain("border-2");
       expect(wrapper.classes()).toContain("border-primary");
       expect(wrapper.classes()).toContain("text-foreground");
     });
   });
 
-  describe("Apple HIG Styling", () => {
-    it("should have sentence case text styling (not uppercase)", () => {
+  describe("Samsung OneUI Styling", () => {
+    it("should have bold text (not uppercase)", () => {
       const wrapper = mount(Badge, {
-        slots: { default: "Apple" },
+        slots: { default: "OneUI" },
       });
-      expect(wrapper.classes()).toContain("tracking-tight");
+      expect(wrapper.classes()).toContain("font-bold");
+      expect(wrapper.classes()).toContain("tracking-normal");
       expect(wrapper.classes()).not.toContain("uppercase");
     });
 
-    it("should have rounded-md shape", () => {
+    it("should have pill shape with rounded-full", () => {
       const wrapper = mount(Badge, {
-        slots: { default: "Badge" },
+        slots: { default: "Pill" },
       });
-      expect(wrapper.classes()).toContain("rounded-md");
+      expect(wrapper.classes()).toContain("rounded-full");
     });
 
-    it("should have extra small text size", () => {
+    it("should have small text size", () => {
       const wrapper = mount(Badge, {
         slots: { default: "Small" },
       });
-      expect(wrapper.classes()).toContain("text-xs");
+      expect(wrapper.classes()).toContain("text-sm");
     });
 
-    it("should have semibold font weight", () => {
+    it("should have border-2 for bolder appearance", () => {
       const wrapper = mount(Badge, {
         slots: { default: "Bold" },
       });
-      expect(wrapper.classes()).toContain("font-semibold");
+      expect(wrapper.classes()).toContain("border-2");
     });
 
     it("should have proper padding", () => {
       const wrapper = mount(Badge, {
         slots: { default: "Padded" },
       });
-      expect(wrapper.classes()).toContain("px-2.5");
-      expect(wrapper.classes()).toContain("py-0.5");
+      expect(wrapper.classes()).toContain("px-3");
+      expect(wrapper.classes()).toContain("py-1");
     });
 
-    it("should have subtle shadow on filled variants", () => {
+    it("should have prominent shadow on filled variants", () => {
       const wrapper = mount(Badge, {
         props: { variant: "default" },
         slots: { default: "Shadow" },
       });
-      expect(wrapper.html()).toContain("shadow-[0_1px_3px_rgba(0,0,0,0.08)]");
+      expect(wrapper.html()).toContain("shadow-[0_2px_8px_rgba(0,0,0,0.08)]");
     });
 
     it("should have border-transparent on filled variants", () => {
@@ -208,7 +209,7 @@ describe("Apple HIG Badge (Vue)", () => {
         props: { variant: "outline" },
         slots: { default: "Technology" },
       });
-      expect(wrapper.classes()).toContain("border");
+      expect(wrapper.classes()).toContain("border-2");
     });
 
     it("should render as count badge", () => {

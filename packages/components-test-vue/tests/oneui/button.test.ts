@@ -1,9 +1,9 @@
 import { mount } from "@vue/test-utils";
 import { describe, it, expect } from "vitest";
 
-import Button from "../../src-vue/hig/Button.vue";
+import Button from "../../src/oneui/Button.vue";
 
-describe("Apple HIG Button (Vue)", () => {
+describe("Samsung OneUI Button (Vue)", () => {
   describe("Rendering", () => {
     it("should render with default props", () => {
       const wrapper = mount(Button, {
@@ -27,13 +27,6 @@ describe("Apple HIG Button (Vue)", () => {
         slots: { default: "Test Content" },
       });
       expect(wrapper.text()).toBe("Test Content");
-    });
-
-    it("should forward ref to button element", () => {
-      const wrapper = mount(Button, {
-        slots: { default: "Click me" },
-      });
-      expect(wrapper.element).toBeInstanceOf(HTMLButtonElement);
     });
   });
 
@@ -100,8 +93,8 @@ describe("Apple HIG Button (Vue)", () => {
         props: { size: "default" },
         slots: { default: "Default Size" },
       });
-      expect(wrapper.classes()).toContain("h-11");
-      expect(wrapper.classes()).toContain("px-6");
+      expect(wrapper.classes()).toContain("h-12");
+      expect(wrapper.classes()).toContain("px-7");
     });
 
     it("should render small size", () => {
@@ -109,8 +102,8 @@ describe("Apple HIG Button (Vue)", () => {
         props: { size: "sm" },
         slots: { default: "Small" },
       });
-      expect(wrapper.classes()).toContain("h-8");
-      expect(wrapper.classes()).toContain("px-4");
+      expect(wrapper.classes()).toContain("h-10");
+      expect(wrapper.classes()).toContain("px-5");
       expect(wrapper.classes()).toContain("text-xs");
     });
 
@@ -119,8 +112,8 @@ describe("Apple HIG Button (Vue)", () => {
         props: { size: "lg" },
         slots: { default: "Large" },
       });
-      expect(wrapper.classes()).toContain("h-13");
-      expect(wrapper.classes()).toContain("px-8");
+      expect(wrapper.classes()).toContain("h-14");
+      expect(wrapper.classes()).toContain("px-9");
       expect(wrapper.classes()).toContain("text-base");
     });
 
@@ -129,58 +122,42 @@ describe("Apple HIG Button (Vue)", () => {
         props: { size: "icon" },
         slots: { default: "🔍" },
       });
-      expect(wrapper.classes()).toContain("h-11");
-      expect(wrapper.classes()).toContain("w-11");
+      expect(wrapper.classes()).toContain("h-12");
+      expect(wrapper.classes()).toContain("w-12");
     });
   });
 
-  describe("Apple HIG Styling", () => {
-    it("should have sentence case text styling (not uppercase)", () => {
+  describe("Samsung OneUI Styling", () => {
+    it("should have bold semibold text (not uppercase)", () => {
       const wrapper = mount(Button, {
-        slots: { default: "Apple Button" },
+        slots: { default: "OneUI Button" },
       });
-      expect(wrapper.classes()).toContain("tracking-tight");
+      expect(wrapper.classes()).toContain("font-semibold");
       expect(wrapper.classes()).not.toContain("uppercase");
     });
 
-    it("should have 6px border radius", () => {
+    it("should have 16px border radius (rounded-2xl)", () => {
       const wrapper = mount(Button, {
-        slots: { default: "Apple Button" },
+        slots: { default: "OneUI Button" },
       });
-      expect(wrapper.classes()).toContain("rounded-md");
+      expect(wrapper.classes()).toContain("rounded-2xl");
     });
 
-    it("should have 150ms spring easing transitions", () => {
+    it("should have 250ms transitions with smooth easing", () => {
       const wrapper = mount(Button, {
-        slots: { default: "Apple Button" },
+        slots: { default: "OneUI Button" },
       });
       expect(wrapper.classes()).toContain("transition-all");
-      expect(wrapper.classes()).toContain("duration-150");
-      expect(wrapper.html()).toContain("cubic-bezier(0.36,0,0.66,-0.56)");
+      expect(wrapper.classes()).toContain("duration-250");
+      expect(wrapper.html()).toContain("cubic-bezier(0.33,0,0.2,1)");
     });
 
-    it("should have scale-down hover effect on filled variants", () => {
+    it("should have prominent shadows", () => {
       const wrapper = mount(Button, {
         props: { variant: "default" },
-        slots: { default: "Apple Button" },
+        slots: { default: "OneUI Button" },
       });
-      expect(wrapper.html()).toContain("active:scale-[0.98]");
-    });
-
-    it("should have subtle shadow on filled variants", () => {
-      const wrapper = mount(Button, {
-        props: { variant: "default" },
-        slots: { default: "Apple Button" },
-      });
-      expect(wrapper.html()).toContain("shadow-[0_2px_6px_rgba(0,0,0,0.1)]");
-    });
-
-    it("should have no shadow on ghost variant", () => {
-      const wrapper = mount(Button, {
-        props: { variant: "ghost" },
-        slots: { default: "Ghost" },
-      });
-      expect(wrapper.html()).not.toContain("shadow-");
+      expect(wrapper.html()).toContain("shadow-[0_4px_12px_rgba(0,0,0,0.1)]");
     });
   });
 
@@ -285,7 +262,7 @@ describe("Apple HIG Button (Vue)", () => {
         slots: { default: "Get Started" },
       });
       expect(wrapper.classes()).toContain("bg-primary");
-      expect(wrapper.classes()).toContain("h-13");
+      expect(wrapper.classes()).toContain("h-14");
     });
 
     it("should render as icon-only button", () => {
@@ -294,8 +271,8 @@ describe("Apple HIG Button (Vue)", () => {
         slots: { default: "×" },
         attrs: { "aria-label": "Close" },
       });
-      expect(wrapper.classes()).toContain("h-11");
-      expect(wrapper.classes()).toContain("w-11");
+      expect(wrapper.classes()).toContain("h-12");
+      expect(wrapper.classes()).toContain("w-12");
       expect(wrapper.attributes("aria-label")).toBe("Close");
     });
 
