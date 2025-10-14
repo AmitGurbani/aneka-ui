@@ -118,10 +118,12 @@ describe("Material Design Tooltip", () => {
       await waitFor(() => {
         const tooltip = screen.getByTestId("tooltip-content");
         expect(tooltip).toHaveClass("text-xs");
+        expect(tooltip).toHaveClass("font-normal");
+        expect(tooltip).toHaveClass("tracking-normal");
       });
     });
 
-    it("should have Material Design shadow", async () => {
+    it("should have Material Design Level 2 elevation (MD3)", async () => {
       const user = userEvent.setup();
 
       render(
@@ -138,7 +140,7 @@ describe("Material Design Tooltip", () => {
       await waitFor(() => {
         const tooltip = screen.getByTestId("tooltip-content");
         expect(tooltip.className).toContain(
-          "shadow-[0_2px_4px_rgba(0,0,0,0.1)]"
+          "shadow-[0_2px_2px_-1px_rgba(0,0,0,0.2),0_2px_2px_0_rgba(0,0,0,0.14),0_1px_5px_0_rgba(0,0,0,0.12)]"
         );
       });
     });

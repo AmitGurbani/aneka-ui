@@ -1,0 +1,19 @@
+{
+  "$schema": "../schema.json",
+  "component": "Tooltip",
+  "designSystem": "material",
+  "description": "Material Design 3 Tooltip Component",
+  "skipConsolidated": true,
+  "reason": "Tooltip uses Radix UI primitives requiring complex setup:\n- React: Requires TooltipProvider + Tooltip + TooltipTrigger + TooltipContent composition (@radix-ui/react-tooltip)\n- Vue: Requires TooltipProvider + TooltipRoot + TooltipTrigger + TooltipContent in slots (radix-vue)\n- Both frameworks require portal rendering and asynchronous show/hide behavior\n- Tests require user interaction simulation (hover, focus) with userEvent and waitFor\n- Current test runner is designed for simple prop-based components (Badge, Card)\n- Cannot test Radix UI behavior (triggers, delays, portals, positioning) with simple mount(Component, { children })\n- Manual tests provide better coverage for Radix-specific behavior, interactions, and accessibility",
+  "manualTestCoverage": {
+    "react": "21 tests covering basic rendering, tooltip display, styling, positioning, interactions, accessibility, and use cases",
+    "vue": "19 tests covering rendering, styling, props, transitions, and positioning"
+  },
+  "md3ComplianceVerified": {
+    "shadow": "MD3 Level 2 elevation (three-layer shadow system)",
+    "typography": "MD3 Body Small (12px, weight 400, letter-spacing normal)",
+    "borderRadius": "4px (small corners for compact elements)",
+    "padding": "12px horizontal, 6px vertical",
+    "colors": "Uses primary/primary-foreground tokens"
+  }
+}
