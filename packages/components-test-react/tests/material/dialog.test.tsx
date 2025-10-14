@@ -99,7 +99,7 @@ describe("Material Design Dialog", () => {
 
       const content = screen.getByTestId("dialog-content");
       expect(content.className).toContain(
-        "shadow-[0_8px_12px_rgba(0,0,0,0.16)]"
+        "shadow-[0_3px_3px_-2px_rgba(0,0,0,0.2),0_3px_4px_0_rgba(0,0,0,0.14),0_1px_8px_0_rgba(0,0,0,0.12)]"
       );
     });
 
@@ -215,10 +215,10 @@ describe("Material Design Dialog", () => {
       );
 
       const title = screen.getByTestId("title");
-      expect(title).toHaveClass("text-lg");
-      expect(title).toHaveClass("font-semibold");
-      expect(title).toHaveClass("leading-none");
-      expect(title).toHaveClass("tracking-tight");
+      expect(title).toHaveClass("text-2xl");
+      expect(title).toHaveClass("font-normal");
+      expect(title).toHaveClass("leading-8");
+      expect(title).toHaveClass("tracking-normal");
     });
 
     it("should accept custom className", () => {
@@ -264,6 +264,7 @@ describe("Material Design Dialog", () => {
       const description = screen.getByTestId("description");
       expect(description).toHaveClass("text-sm");
       expect(description).toHaveClass("text-muted-foreground");
+      expect(description).toHaveClass("tracking-normal");
     });
 
     it("should accept custom className", () => {

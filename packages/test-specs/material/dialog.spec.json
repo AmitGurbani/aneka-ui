@@ -1,0 +1,19 @@
+{
+  "$schema": "../schema.json",
+  "component": "Dialog",
+  "designSystem": "material",
+  "description": "Material Design 3 Dialog Component",
+  "skipConsolidated": true,
+  "reason": "Dialog uses Radix UI primitives requiring complex setup:\n- React: Requires Dialog + DialogContent composition with Radix UI primitives (@radix-ui/react-dialog)\n- Vue: Requires Radix Vue components in slots with h() functions (DialogTrigger, DialogTitle, DialogDescription from radix-vue)\n- Both frameworks require portal rendering, overlay management, and state management\n- Current test runner is designed for simple prop-based components (Badge, Card, Button)\n- Cannot test Radix UI behavior (triggers, portals, focus management) with simple mount(Component, { children })\n- Manual tests provide better coverage for Radix-specific behavior, interactions, and accessibility",
+  "manualTestCoverage": {
+    "react": "587 lines, 33 tests covering rendering, styling, subcomponents, interactions, accessibility, and use cases",
+    "vue": "259 lines, 21 tests covering rendering, styling, transitions, props, and accessibility"
+  },
+  "md3ComplianceVerified": {
+    "shadow": "MD3 Level 3 elevation (three-layer shadow system)",
+    "maxWidth": "560px per MD3 recommendation",
+    "typography": "DialogTitle uses MD3 Headline Small (24px, weight 400, line-height 32px)",
+    "borderRadius": "8px (MD3 small shape token)",
+    "animation": "200ms duration"
+  }
+}

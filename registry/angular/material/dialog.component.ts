@@ -19,7 +19,7 @@ export class DialogComponent {
 
   get computedClass(): string {
     return cn(
-      "fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-[0_8px_12px_rgba(0,0,0,0.16)] duration-200 rounded-lg",
+      "fixed left-[50%] top-[50%] z-50 grid w-full max-w-[560px] translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-[0_3px_3px_-2px_rgba(0,0,0,0.2),0_3px_4px_0_rgba(0,0,0,0.14),0_1px_8px_0_rgba(0,0,0,0.12)] duration-200 rounded-lg",
       this.class
     );
   }
