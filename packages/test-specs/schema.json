@@ -84,17 +84,17 @@
           },
           "description": "Assertions to verify"
         },
-        "skipFrameworks": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "enum": ["react", "vue"]
-          },
-          "description": "Frameworks to skip this test on (e.g., due to environmental limitations)"
+        "react": {
+          "type": "boolean",
+          "description": "Whether this test runs on React (omitted = true, runs on React by default)"
+        },
+        "vue": {
+          "type": "boolean",
+          "description": "Whether this test runs on Vue (omitted = true, runs on Vue by default)"
         },
         "skipReason": {
           "type": "string",
-          "description": "Reason why this test is skipped on certain frameworks"
+          "description": "Reason why this test is disabled on certain frameworks (required when react or vue is false)"
         }
       }
     },

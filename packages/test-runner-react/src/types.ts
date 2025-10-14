@@ -11,7 +11,8 @@ export interface TestCase {
   children?: string;
   actions?: Action[];
   assertions: Assertion[];
-  skipFrameworks?: ("react" | "vue" | "angular")[];
+  react?: boolean;
+  vue?: boolean;
   skipReason?: string;
 }
 

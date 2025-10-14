@@ -319,19 +319,26 @@ When adding new test cases:
 - Use present tense
 - Example: "should render filled variant with correct classes"
 
-### Using skipFrameworks
+### Using Framework Flags
 
-When a test can't run on certain frameworks:
+When a test can't run on certain frameworks, use boolean flags:
 
 ```json
 {
   "name": "should handle focus events",
-  "skipFrameworks": ["vue"],
+  "vue": false,
   "skipReason": "hasFocus assertion requires proper DOM focus tracking which has environmental limitations in Vue Test Utils with JSDOM",
   "props": { "onFocus": "mockHandler" },
   "assertions": [{ "type": "hasFocus" }]
 }
 ```
+
+**Key Points**:
+
+- Omitted flags = `true` (test runs on all frameworks by default)
+- `vue: false` = test skipped on Vue only
+- `react: false` = test skipped on React only
+- Always provide `skipReason` when disabling a framework
 
 ## Troubleshooting
 
@@ -340,7 +347,7 @@ When a test can't run on certain frameworks:
 Run `pnpm validate:specs` locally to see detailed error messages:
 
 - Check for duplicate test names
-- Ensure skipFrameworks has matching skipReason
+- Ensure disabled frameworks (`react: false` or `vue: false`) have matching `skipReason`
 - Verify all required fields are present
 
 ### Spec Linting Fails

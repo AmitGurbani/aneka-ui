@@ -20,8 +20,9 @@ export function generateReactTests(
 
       describe(category, () => {
         testCases.forEach((testCase: TestCase) => {
-          // Check if this test should be skipped for React
-          if (testCase.skipFrameworks?.includes("react")) {
+          // Check if this test should be skipped for React (react: false)
+          // Omitted = true (runs on React by default)
+          if (testCase.react === false) {
             it.skip(testCase.name, () => {
               // Skipped: ${testCase.skipReason || "Framework-specific limitation"}
             });

@@ -14,7 +14,7 @@ This document summarizes the CI/CD optimizations implemented for the test runner
 
 - Validates all `*.spec.json` files against the JSON schema
 - Checks for duplicate test names
-- Validates `skipFrameworks` and `skipReason` usage
+- Validates framework flags (`react`, `vue`) and `skipReason` usage
 - Ensures proper handler assertion configuration
 - Provides colored, user-friendly output
 - Exit code 1 on errors, 0 on success/warnings
@@ -189,7 +189,7 @@ Please ensure:
 - ✅ All framework tests pass
 - ✅ Changes are intentional and documented
 - ✅ Spec changes follow naming conventions
-- ✅ `skipFrameworks` is used appropriately
+- ✅ Framework flags (`react`, `vue`) are used appropriately with `skipReason`
 
 ---
 
@@ -240,7 +240,7 @@ Added comprehensive CI/CD section covering:
 - Running Validation Locally
 - CI Workflow Jobs
 - Test Naming Conventions
-- Using skipFrameworks
+- Using Framework Flags
 - Troubleshooting
 
 ### 8. ✅ Dependencies Added

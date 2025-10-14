@@ -16,8 +16,9 @@ export function generateVueTests(spec: TestSpec, Component: any): void {
 
       describe(category, () => {
         testCases.forEach((testCase: TestCase) => {
-          // Check if this test should be skipped for Vue
-          if (testCase.skipFrameworks?.includes("vue")) {
+          // Check if this test should be skipped for Vue (vue: false)
+          // Omitted = true (runs on Vue by default)
+          if (testCase.vue === false) {
             it.skip(testCase.name, () => {
               // Skipped: ${testCase.skipReason || "Framework-specific limitation"}
             });

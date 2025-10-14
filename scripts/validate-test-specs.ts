@@ -22,11 +22,6 @@ const SCHEMA_FILE = path.join(TEST_SPECS_DIR, "schema.json");
 const DESIGN_SYSTEMS = ["material", "hig", "oneui"] as const;
 
 /**
- * Valid frameworks
- */
-const VALID_FRAMEWORKS = ["react", "vue"] as const;
-
-/**
  * Color codes for console output
  */
 const colors = {
@@ -135,46 +130,33 @@ async function performLogicalValidation(specFile: string): Promise<void> {
         }
         testNames.add(test.name);
 
-        // Check skipFrameworks usage
-        if (test.skipFrameworks && test.skipFrameworks.length > 0) {
-          // Warn if skipping all frameworks
-          if (test.skipFrameworks.length === 3) {
-            warnings.push({
-              file: relativePath,
-              error: `Test "${test.name}" is skipped on all frameworks`,
-              type: "warning",
-            });
-          }
+        // Check framework flags usage
+        const reactDisabled = test.react === false;
+        const vueDisabled = test.vue === false;
 
-          // Error if skipFrameworks present but no skipReason
-          if (!test.skipReason) {
-            errors.push({
-              file: relativePath,
-              error: `Test "${test.name}" has skipFrameworks but no skipReason`,
-              type: "logic",
-            });
-          }
-
-          // Validate framework names
-          for (const framework of test.skipFrameworks) {
-            if (!VALID_FRAMEWORKS.includes(framework)) {
-              errors.push({
-                file: relativePath,
-                error: `Test "${test.name}" has invalid framework in skipFrameworks: "${framework}"`,
-                type: "logic",
-              });
-            }
-          }
-        }
-
-        // Warn if skipReason but no skipFrameworks
-        if (
-          test.skipReason &&
-          (!test.skipFrameworks || test.skipFrameworks.length === 0)
-        ) {
+        // Warn if both frameworks are explicitly disabled
+        if (reactDisabled && vueDisabled) {
           warnings.push({
             file: relativePath,
-            error: `Test "${test.name}" has skipReason but no skipFrameworks`,
+            error: `Test "${test.name}" is disabled on all frameworks (react: false, vue: false)`,
+            type: "warning",
+          });
+        }
+
+        // Error if any framework is disabled but no skipReason
+        if ((reactDisabled || vueDisabled) && !test.skipReason) {
+          errors.push({
+            file: relativePath,
+            error: `Test "${test.name}" has disabled framework(s) but no skipReason`,
+            type: "logic",
+          });
+        }
+
+        // Warn if skipReason but no disabled frameworks
+        if (test.skipReason && !reactDisabled && !vueDisabled) {
+          warnings.push({
+            file: relativePath,
+            error: `Test "${test.name}" has skipReason but no disabled frameworks`,
             type: "warning",
           });
         }
