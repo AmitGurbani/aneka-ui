@@ -10,6 +10,10 @@
     "oneui",
     "schema.json"
   ],
+  "scripts": {
+    "validate": "tsx ../../scripts/validate-test-specs.ts",
+    "lint": "tsx ../../scripts/lint-test-specs.ts"
+  },
   "keywords": [
     "testing",
     "specifications",

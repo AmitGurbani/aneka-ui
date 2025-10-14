@@ -270,9 +270,9 @@ See example test files in:
 2. ✅ Implement React test runner
 3. ✅ Implement Vue test runner
 4. ✅ Implement Angular test runner
-5. ⏭️ Integrate with existing test suites
-6. ⏭️ Migrate all component tests
-7. ⏭️ Add to CI/CD pipeline
+5. ✅ Integrate with existing test suites
+6. ✅ Add to CI/CD pipeline (validation, linting, change detection)
+7. ⏭️ Migrate all component tests
 8. ⏭️ Create additional specs for remaining components
 
 ## Migration Strategy
@@ -292,13 +292,113 @@ See example test files in:
 - Incremental validation
 - Team can learn gradually
 
+## CI/CD Integration
+
+The test runner approach is fully integrated into the CI/CD pipeline with the following features:
+
+### Automated Validation
+
+Every push/PR triggers:
+
+- **Schema Validation**: Ensures all spec files conform to the JSON schema
+- **Spec Linting**: Checks naming conventions and best practices
+- **Test Execution**: Runs consolidated tests across all frameworks
+
+### Change Detection
+
+When a PR modifies test specs:
+
+- Automatically detects changed `*.spec.json` files
+- Posts a comment on the PR alerting reviewers
+- Highlights that changes affect all frameworks
+
+### Turbo Caching
+
+- Test runner packages are built once and cached
+- Tests re-run automatically when specs change
+- Proper cache invalidation based on spec file changes
+
+### Running Validation Locally
+
+```bash
+# Validate all test specifications
+pnpm validate:specs
+
+# Lint test specifications
+pnpm lint:specs
+
+# Run both
+pnpm validate:specs && pnpm lint:specs
+```
+
+### CI Workflow Jobs
+
+1. **lint**: Code linting and formatting
+2. **typecheck**: TypeScript type checking
+3. **validate-specs**: JSON schema validation + linting + change detection
+4. **build**: Build all packages
+5. **test**: Run all tests including consolidated tests
+
+All jobs run in parallel for maximum speed.
+
 ## Contributing
 
 When adding new test cases:
 
 1. Update the JSON spec in `packages/test-specs`
-2. Tests automatically apply to all frameworks
-3. No need to update React, Vue, or Angular tests separately
+2. Run `pnpm validate:specs` to ensure validity
+3. Run `pnpm lint:specs` to check best practices
+4. Tests automatically apply to all frameworks
+5. No need to update React, Vue, or Angular tests separately
+
+### Test Naming Conventions
+
+- Start with "should"
+- Be descriptive (20-100 characters)
+- Use present tense
+- Example: "should render filled variant with correct classes"
+
+### Using skipFrameworks
+
+When a test can't run on certain frameworks:
+
+```json
+{
+  "name": "should handle focus events",
+  "skipFrameworks": ["vue", "angular"],
+  "skipReason": "hasFocus assertion requires proper DOM focus tracking which has environmental limitations in Vue Test Utils and Angular TestBed with JSDOM",
+  "props": { "onFocus": "mockHandler" },
+  "assertions": [{ "type": "hasFocus" }]
+}
+```
+
+## Troubleshooting
+
+### Spec Validation Fails
+
+Run `pnpm validate:specs` locally to see detailed error messages:
+
+- Check for duplicate test names
+- Ensure skipFrameworks has matching skipReason
+- Verify all required fields are present
+
+### Spec Linting Fails
+
+Run `pnpm lint:specs` locally to see suggestions:
+
+- Test names should start with "should"
+- Use standard category names (rendering, variants, etc.)
+- Include recommended categories (rendering, variants, accessibility)
+
+### Tests Don't Re-run After Spec Changes
+
+Check Turbo cache:
+
+```bash
+pnpm clean
+pnpm install
+pnpm test
+```
 
 ## Conclusion
 

@@ -6,7 +6,7 @@ import type { TestSpec, TestCase } from "./types";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function generateAngularTests(spec: TestSpec, Component: any): void {
-  describe(spec.description || `${spec.designSystem} ${spec.component}`, () => {
+  describe(`${spec.description || `${spec.designSystem} ${spec.component}`} [CONSOLIDATED]`, () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let fixture: ComponentFixture<any>;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

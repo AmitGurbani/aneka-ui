@@ -7,7 +7,7 @@ import type { TestSpec, TestCase } from "./types";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function generateVueTests(spec: TestSpec, Component: any): void {
-  describe(spec.description || `${spec.designSystem} ${spec.component}`, () => {
+  describe(`${spec.description || `${spec.designSystem} ${spec.component}`} [CONSOLIDATED]`, () => {
     Object.entries(spec.tests).forEach(([category, testCases]) => {
       // Skip non-array properties (safety check for spec validation)
       if (!Array.isArray(testCases)) {
