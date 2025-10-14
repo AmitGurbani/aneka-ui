@@ -28,6 +28,14 @@ export function runAssertion(
       expect(element).not.toHaveClass(assertion.value || "");
       break;
 
+    case "containsClass":
+      expect(element.className).toContain(assertion.value || "");
+      break;
+
+    case "containsHTML":
+      expect(element.innerHTML).toContain(assertion.value || "");
+      break;
+
     case "hasAttribute":
       if (assertion.name) {
         if (assertion.value) {

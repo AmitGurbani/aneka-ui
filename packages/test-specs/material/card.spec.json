@@ -1,0 +1,171 @@
+{
+  "$schema": "../schema.json",
+  "component": "Card",
+  "designSystem": "material",
+  "description": "Material Design 3 Card Component",
+  "tests": {
+    "rendering": [
+      {
+        "name": "should render with default props",
+        "children": "Card content",
+        "assertions": [
+          { "type": "exists" },
+          { "type": "hasText", "value": "Card content" }
+        ]
+      },
+      {
+        "name": "should render as div element",
+        "children": "Content",
+        "assertions": [
+          { "type": "exists" },
+          { "type": "tagName", "value": "DIV" }
+        ]
+      },
+      {
+        "name": "should render with multiple text nodes",
+        "children": "Card Title and Card Body",
+        "assertions": [
+          { "type": "exists" },
+          { "type": "hasText", "value": "Card Title and Card Body" }
+        ]
+      }
+    ],
+    "styling": [
+      {
+        "name": "should have Material Design styling",
+        "children": "Content",
+        "assertions": [
+          { "type": "hasClass", "value": "rounded-lg" },
+          { "type": "hasClass", "value": "border" },
+          { "type": "hasClass", "value": "bg-card" },
+          { "type": "hasClass", "value": "text-card-foreground" }
+        ]
+      },
+      {
+        "name": "should have Material Design Level 1 elevation (MD3)",
+        "children": "Content",
+        "assertions": [
+          {
+            "type": "containsClass",
+            "value": "shadow-[0_2px_1px_-1px_rgba(0,0,0,0.2),0_1px_1px_0_rgba(0,0,0,0.14),0_1px_3px_0_rgba(0,0,0,0.12)]"
+          }
+        ]
+      },
+      {
+        "name": "should have 8px border radius (MD3 small shape token)",
+        "children": "Rounded",
+        "assertions": [{ "type": "hasClass", "value": "rounded-lg" }]
+      },
+      {
+        "name": "should have border styling",
+        "children": "Border",
+        "assertions": [
+          { "type": "hasClass", "value": "border" },
+          { "type": "hasClass", "value": "border-border" }
+        ]
+      },
+      {
+        "name": "should have proper color tokens",
+        "children": "Colors",
+        "assertions": [
+          { "type": "hasClass", "value": "bg-card" },
+          { "type": "hasClass", "value": "text-card-foreground" }
+        ]
+      }
+    ],
+    "props": [
+      {
+        "name": "should accept custom className",
+        "props": { "className": "custom-card" },
+        "children": "Custom",
+        "assertions": [{ "type": "hasClass", "value": "custom-card" }]
+      },
+      {
+        "name": "should merge custom className with default classes",
+        "props": { "className": "m-4" },
+        "children": "Merged",
+        "assertions": [
+          { "type": "hasClass", "value": "m-4" },
+          { "type": "hasClass", "value": "rounded-lg" },
+          { "type": "hasClass", "value": "border" }
+        ],
+        "vue": false,
+        "skipReason": "Vue class prop behavior differs - uses class attribute directly instead of merging with computed classes"
+      },
+      {
+        "name": "should accept HTML div attributes",
+        "props": {
+          "role": "article",
+          "aria-label": "Product card"
+        },
+        "children": "Attributes",
+        "assertions": [
+          { "type": "hasAttribute", "name": "role", "value": "article" },
+          {
+            "type": "hasAttribute",
+            "name": "aria-label",
+            "value": "Product card"
+          }
+        ]
+      }
+    ],
+    "accessibility": [
+      {
+        "name": "should support role attribute for semantics",
+        "props": { "role": "article" },
+        "children": "Article",
+        "assertions": [{ "type": "hasRole", "value": "article" }]
+      },
+      {
+        "name": "should support aria-label for screen readers",
+        "props": { "aria-label": "User profile card" },
+        "children": "Profile",
+        "assertions": [
+          {
+            "type": "hasAttribute",
+            "name": "aria-label",
+            "value": "User profile card"
+          }
+        ]
+      },
+      {
+        "name": "should support aria-describedby",
+        "props": { "aria-describedby": "card-description" },
+        "children": "Described",
+        "assertions": [
+          {
+            "type": "hasAttribute",
+            "name": "aria-describedby",
+            "value": "card-description"
+          }
+        ]
+      }
+    ],
+    "composition": [
+      {
+        "name": "should render as product card",
+        "children": "Product Name - $99.99",
+        "assertions": [
+          { "type": "exists" },
+          { "type": "hasText", "value": "Product Name" }
+        ]
+      },
+      {
+        "name": "should render as info card",
+        "children": "Information Card Content",
+        "assertions": [
+          { "type": "exists" },
+          { "type": "hasText", "value": "Information Card Content" }
+        ]
+      },
+      {
+        "name": "should render as simple text card",
+        "children": "Simple card with just text content",
+        "assertions": [
+          { "type": "exists" },
+          { "type": "hasText", "value": "Simple card with just text content" }
+        ]
+      }
+    ]
+  }
+}

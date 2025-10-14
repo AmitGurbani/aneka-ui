@@ -18,7 +18,7 @@ export class CardComponent {
 
   get computedClass(): string {
     return cn(
-      "rounded-lg border border-border bg-card text-card-foreground shadow-[0_2px_4px_rgba(0,0,0,0.1)]",
+      "rounded-lg border border-border bg-card text-card-foreground shadow-[0_2px_1px_-1px_rgba(0,0,0,0.2),0_1px_1px_0_rgba(0,0,0,0.14),0_1px_3px_0_rgba(0,0,0,0.12)]",
       this.class
     );
   }

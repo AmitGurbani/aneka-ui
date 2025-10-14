@@ -4,9 +4,9 @@ import { cn } from "../lib/utils";
 
 /**
  * Material Design Card
- * - 8px border radius
+ * - 8px border radius (MD3 small shape token)
  * - 1px border
- * - Subtle elevation shadow
+ * - MD3 Level 1 elevation (three-layer shadow system)
  */
 const Card = React.forwardRef<
   HTMLDivElement,
@@ -15,7 +15,7 @@ const Card = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "border-border bg-card text-card-foreground rounded-lg border shadow-[0_2px_4px_rgba(0,0,0,0.1)]",
+      "border-border bg-card text-card-foreground rounded-lg border shadow-[0_2px_1px_-1px_rgba(0,0,0,0.2),0_1px_1px_0_rgba(0,0,0,0.14),0_1px_3px_0_rgba(0,0,0,0.12)]",
       className
     )}
     {...props}
@@ -42,7 +42,7 @@ const CardTitle = React.forwardRef<
   <h3
     ref={ref}
     className={cn(
-      "text-2xl font-semibold leading-none tracking-tight",
+      "text-[22px] font-normal leading-[30px] tracking-normal",
       className
     )}
     {...props}
@@ -56,7 +56,7 @@ const CardDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn("text-muted-foreground text-sm", className)}
+    className={cn("text-muted-foreground text-sm tracking-normal", className)}
     {...props}
   />
 ));
