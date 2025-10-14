@@ -1,0 +1,211 @@
+{
+  "$schema": "../schema.json",
+  "component": "Badge",
+  "designSystem": "material",
+  "description": "Material Design 3 Badge Component",
+  "tests": {
+    "rendering": [
+      {
+        "name": "should render with default props",
+        "children": "New",
+        "assertions": [
+          { "type": "exists" },
+          { "type": "tagName", "value": "DIV" }
+        ]
+      },
+      {
+        "name": "should render children correctly",
+        "children": "Test Badge",
+        "assertions": [
+          { "type": "exists" },
+          { "type": "hasText", "value": "Test Badge" }
+        ]
+      },
+      {
+        "name": "should render with numeric children",
+        "children": "99",
+        "assertions": [
+          { "type": "exists" },
+          { "type": "hasText", "value": "99" }
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "name": "should render default variant with primary colors",
+        "props": { "variant": "default" },
+        "children": "Default",
+        "assertions": [
+          { "type": "hasClass", "value": "bg-primary" },
+          { "type": "hasClass", "value": "text-primary-foreground" }
+        ]
+      },
+      {
+        "name": "should render secondary variant",
+        "props": { "variant": "secondary" },
+        "children": "Secondary",
+        "assertions": [
+          { "type": "hasClass", "value": "bg-secondary" },
+          { "type": "hasClass", "value": "text-secondary-foreground" }
+        ]
+      },
+      {
+        "name": "should render destructive variant",
+        "props": { "variant": "destructive" },
+        "children": "Error",
+        "assertions": [
+          { "type": "hasClass", "value": "bg-destructive" },
+          { "type": "hasClass", "value": "text-destructive-foreground" }
+        ]
+      },
+      {
+        "name": "should render outline variant with border",
+        "props": { "variant": "outline" },
+        "children": "Outline",
+        "assertions": [
+          { "type": "hasClass", "value": "border" },
+          { "type": "hasClass", "value": "border-primary" },
+          { "type": "hasClass", "value": "text-foreground" }
+        ]
+      }
+    ],
+    "styling": [
+      {
+        "name": "should have normal case text (MD3 compliant)",
+        "children": "Material",
+        "assertions": [
+          { "type": "notHasClass", "value": "uppercase" },
+          { "type": "hasClass", "value": "tracking-normal" },
+          { "type": "hasClass", "value": "font-medium" }
+        ]
+      },
+      {
+        "name": "should have pill shape with rounded-full",
+        "children": "Pill",
+        "assertions": [{ "type": "hasClass", "value": "rounded-full" }]
+      },
+      {
+        "name": "should have extra small text size (12px)",
+        "children": "Small",
+        "assertions": [{ "type": "hasClass", "value": "text-xs" }]
+      },
+      {
+        "name": "should have medium font weight (MD3 Label Medium)",
+        "children": "Bold",
+        "assertions": [{ "type": "hasClass", "value": "font-medium" }]
+      },
+      {
+        "name": "should have proper padding",
+        "children": "Padded",
+        "assertions": [
+          { "type": "hasClass", "value": "px-2.5" },
+          { "type": "hasClass", "value": "py-0.5" }
+        ]
+      },
+      {
+        "name": "should have Material Design transitions",
+        "children": "Transition",
+        "assertions": [{ "type": "hasClass", "value": "transition-colors" }]
+      },
+      {
+        "name": "should have inline-flex display for alignment",
+        "children": "Inline",
+        "assertions": [
+          { "type": "hasClass", "value": "inline-flex" },
+          { "type": "hasClass", "value": "items-center" }
+        ]
+      }
+    ],
+    "props": [
+      {
+        "name": "should accept custom className",
+        "props": { "className": "custom-badge" },
+        "children": "Custom",
+        "assertions": [{ "type": "hasClass", "value": "custom-badge" }]
+      },
+      {
+        "name": "should merge custom className with default classes",
+        "props": { "className": "ml-4" },
+        "children": "Merged",
+        "assertions": [
+          { "type": "hasClass", "value": "ml-4" },
+          { "type": "hasClass", "value": "inline-flex" },
+          { "type": "hasClass", "value": "rounded-full" }
+        ],
+        "vue": false,
+        "skipReason": "Vue class prop behavior differs - uses class attribute directly instead of merging with computed classes"
+      },
+      {
+        "name": "should accept HTML div attributes",
+        "props": {
+          "id": "test-badge",
+          "role": "status",
+          "aria-label": "Status badge"
+        },
+        "children": "Status",
+        "assertions": [
+          { "type": "hasAttribute", "name": "id", "value": "test-badge" },
+          { "type": "hasAttribute", "name": "role", "value": "status" },
+          {
+            "type": "hasAttribute",
+            "name": "aria-label",
+            "value": "Status badge"
+          }
+        ]
+      }
+    ],
+    "accessibility": [
+      {
+        "name": "should support aria-label for screen readers",
+        "props": { "aria-label": "3 notifications" },
+        "children": "3",
+        "assertions": [
+          {
+            "type": "hasAttribute",
+            "name": "aria-label",
+            "value": "3 notifications"
+          }
+        ]
+      },
+      {
+        "name": "should support role attribute",
+        "props": { "role": "status" },
+        "children": "Live",
+        "assertions": [{ "type": "hasRole", "value": "status" }]
+      },
+      {
+        "name": "should have focus ring for keyboard navigation",
+        "children": "Focus",
+        "assertions": [
+          { "type": "hasClass", "value": "focus:outline-none" },
+          { "type": "hasClass", "value": "focus:ring-2" },
+          { "type": "hasClass", "value": "focus:ring-ring" },
+          { "type": "hasClass", "value": "focus:ring-offset-2" }
+        ]
+      }
+    ],
+    "composition": [
+      {
+        "name": "should render as notification count",
+        "props": { "variant": "destructive" },
+        "children": "5",
+        "assertions": [
+          { "type": "exists" },
+          { "type": "hasClass", "value": "bg-destructive" }
+        ]
+      },
+      {
+        "name": "should render as status indicator",
+        "props": { "variant": "secondary" },
+        "children": "Active",
+        "assertions": [{ "type": "exists" }]
+      },
+      {
+        "name": "should render as tag or label",
+        "props": { "variant": "outline" },
+        "children": "TypeScript",
+        "assertions": [{ "type": "exists" }]
+      }
+    ]
+  }
+}
