@@ -1,6 +1,5 @@
+import type { Assertion } from "@aneka-ui/test-specs/types";
 import { expect } from "vitest";
-
-import type { Assertion } from "./types";
 
 export function runAssertion(
   assertion: Assertion,

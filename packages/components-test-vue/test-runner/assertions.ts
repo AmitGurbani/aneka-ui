@@ -1,7 +1,6 @@
+import type { Assertion } from "@aneka-ui/test-specs/types";
 import type { VueWrapper } from "@vue/test-utils";
 import { expect } from "vitest";
-
-import type { Assertion } from "./types";
 
 export function runAssertion(
   assertion: Assertion,
@@ -32,7 +31,7 @@ export function runAssertion(
       break;
 
     case "containsClass":
-      expect(wrapper.html()).toContain(assertion.value || "");
+      expect(element.className).toContain(assertion.value || "");
       break;
 
     case "containsHTML":

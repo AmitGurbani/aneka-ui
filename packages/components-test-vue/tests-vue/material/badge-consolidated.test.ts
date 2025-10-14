@@ -6,7 +6,7 @@
 import badgeSpec from "@aneka-ui/test-specs/material/badge.spec.json";
 
 import Badge from "../../src-vue/material/Badge.vue";
-import { generateVueTests } from "../../test-runner";
+import { generateVueTests } from "../../test-runner/runner";
 
 // Generate all tests from the specification
 generateVueTests(badgeSpec, Badge);

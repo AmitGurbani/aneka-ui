@@ -1,6 +1,5 @@
+import type { Action } from "@aneka-ui/test-specs/types";
 import type { VueWrapper } from "@vue/test-utils";
-
-import type { Action } from "./types";
 
 export async function runAction(
   action: Action,

@@ -28,6 +28,8 @@ export interface Assertion {
     | "hasText"
     | "hasClass"
     | "notHasClass"
+    | "containsClass"
+    | "containsHTML"
     | "hasAttribute"
     | "hasRole"
     | "handlerCalled"

@@ -6,7 +6,7 @@
 import badgeSpec from "@aneka-ui/test-specs/material/badge.spec.json";
 
 import { Badge } from "../../src/material/badge";
-import { generateReactTests } from "../../test-runner";
+import { generateReactTests } from "../../test-runner/runner";
 
 // Generate all tests from the specification
 generateReactTests(badgeSpec, Badge);

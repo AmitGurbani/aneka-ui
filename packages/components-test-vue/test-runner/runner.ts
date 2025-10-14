@@ -1,9 +1,9 @@
+import type { TestSpec, TestCase } from "@aneka-ui/test-specs/types";
 import { mount } from "@vue/test-utils";
 import { describe, it, vi } from "vitest";
 
 import { runActions } from "./actions";
 import { runAssertions } from "./assertions";
-import type { TestSpec, TestCase } from "./types";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function generateVueTests(spec: TestSpec, Component: any): void {

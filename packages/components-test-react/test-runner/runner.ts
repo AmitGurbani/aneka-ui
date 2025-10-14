@@ -1,10 +1,10 @@
+import type { TestSpec, TestCase } from "@aneka-ui/test-specs/types";
 import { render, screen } from "@testing-library/react";
 import React from "react";
 import { describe, it, vi } from "vitest";
 
 import { runActions } from "./actions";
 import { runAssertions } from "./assertions";
-import type { TestSpec, TestCase } from "./types";
 
 export function generateReactTests(
   spec: TestSpec,

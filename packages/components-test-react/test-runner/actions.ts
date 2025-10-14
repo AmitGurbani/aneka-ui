@@ -1,6 +1,5 @@
+import type { Action } from "@aneka-ui/test-specs/types";
 import userEvent from "@testing-library/user-event";
-
-import type { Action } from "./types";
 
 export async function runAction(
   action: Action,

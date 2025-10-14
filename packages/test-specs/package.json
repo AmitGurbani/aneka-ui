@@ -8,7 +8,8 @@
     "material",
     "hig",
     "oneui",
-    "schema.json"
+    "schema.json",
+    "types.ts"
   ],
   "scripts": {
     "validate": "tsx ../../scripts/validate-test-specs.ts",

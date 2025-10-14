@@ -124,6 +124,8 @@
             "hasText",
             "hasClass",
             "notHasClass",
+            "containsClass",
+            "containsHTML",
             "hasAttribute",
             "hasRole",
             "handlerCalled",

@@ -6,7 +6,7 @@
 import cardSpec from "@aneka-ui/test-specs/material/card.spec.json";
 
 import { Card } from "../../src/material/card";
-import { generateReactTests } from "../../test-runner";
+import { generateReactTests } from "../../test-runner/runner";
 
 // Generate all tests from the specification
 generateReactTests(cardSpec, Card);
